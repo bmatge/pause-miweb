@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pause Miweb - Le Quizz en Famille</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+</head>
+<body>
+    <!-- Écran d'accueil -->
+    <div id="screen-welcome" class="screen active">
+        <div class="container">
+            <div class="logo">
+                <h1>Pause<span>Miweb</span></h1>
+                <p class="tagline">Le quizz en famille !</p>
+            </div>
+
+            <div class="players-setup">
+                <h2>Qui joue ?</h2>
+                <div id="players-list">
+                    <div class="player-input">
+                        <input type="text" placeholder="Joueur 1" maxlength="20" class="player-name" autofocus>
+                        <button class="btn-remove" title="Retirer" style="visibility:hidden">&times;</button>
+                    </div>
+                </div>
+                <button id="btn-add-player" class="btn btn-secondary">+ Ajouter un joueur</button>
+            </div>
+
+            <div class="categories-setup">
+                <h2>Catégories</h2>
+                <div class="category-toggles">
+                    <label class="category-toggle">
+                        <input type="checkbox" value="casse-tete" checked>
+                        <span class="cat-chip cat-casse-tete">🧩 Casse-tête</span>
+                    </label>
+                    <label class="category-toggle">
+                        <input type="checkbox" value="actualites" checked>
+                        <span class="cat-chip cat-actualites">📰 Actualités</span>
+                    </label>
+                    <label class="category-toggle">
+                        <input type="checkbox" value="fakenews" checked>
+                        <span class="cat-chip cat-fakenews">🤥 Fake News</span>
+                    </label>
+                    <label class="category-toggle">
+                        <input type="checkbox" value="celebrites" checked>
+                        <span class="cat-chip cat-celebrites">⭐ Célébrités</span>
+                    </label>
+                    <label class="category-toggle">
+                        <input type="checkbox" value="geek" checked>
+                        <span class="cat-chip cat-geek">🎮 Geek</span>
+                    </label>
+                    <label class="category-toggle">
+                        <input type="checkbox" value="science" checked>
+                        <span class="cat-chip cat-science">🔬 Science</span>
+                    </label>
+                    <label class="category-toggle">
+                        <input type="checkbox" value="histoire" checked>
+                        <span class="cat-chip cat-histoire">📜 Histoire</span>
+                    </label>
+                </div>
+            </div>
+
+            <button id="btn-start" class="btn btn-primary btn-large">Lancer la partie !</button>
+        </div>
+    </div>
+
+    <!-- Écran de jeu -->
+    <div id="screen-game" class="screen">
+        <div class="container">
+            <div class="game-header">
+                <div class="score-bar" id="score-bar"></div>
+                <div class="round-info">
+                    <span id="round-counter">Question 1</span>
+                </div>
+            </div>
+
+            <div class="current-player" id="current-player">
+                <span class="player-avatar" id="player-avatar">J</span>
+                <span class="player-turn-name" id="player-turn-name">Joueur 1</span>
+                <span class="turn-label">c'est à toi !</span>
+            </div>
+
+            <div id="question-area" class="question-area hidden">
+                <div class="category-badge" id="question-category">🧩 Casse-tête</div>
+                <div class="question-text" id="question-text"></div>
+                <div class="question-hint" id="question-hint"></div>
+
+                <!-- Réponses à choix multiples -->
+                <div id="mcq-answers" class="mcq-answers hidden"></div>
+
+                <!-- Réponse libre -->
+                <div id="free-answer" class="free-answer hidden">
+                    <input type="text" id="answer-input" placeholder="Ta réponse..." autocomplete="off">
+                    <button id="btn-validate" class="btn btn-primary">Valider</button>
+                </div>
+
+                <!-- Réponse Oui/Non -->
+                <div id="yesno-answers" class="yesno-answers hidden">
+                    <button class="btn btn-yesno btn-oui" data-answer="oui">👍 Vrai</button>
+                    <button class="btn btn-yesno btn-non" data-answer="non">👎 Faux</button>
+                </div>
+            </div>
+
+            <!-- Résultat -->
+            <div id="result-area" class="result-area hidden">
+                <div id="result-icon" class="result-icon"></div>
+                <div id="result-text" class="result-text"></div>
+                <div id="result-explanation" class="result-explanation"></div>
+                <div id="result-points" class="result-points"></div>
+            </div>
+
+            <div class="game-actions">
+                <button id="btn-generate" class="btn btn-primary btn-large pulse">
+                    🎲 Générer une question
+                </button>
+                <button id="btn-next" class="btn btn-primary btn-large hidden">
+                    Joueur suivant ➜
+                </button>
+                <button id="btn-end-game" class="btn btn-secondary">Terminer la partie</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Écran des scores finaux -->
+    <div id="screen-results" class="screen">
+        <div class="container">
+            <div class="results-header">
+                <h1>🏆 Résultats</h1>
+            </div>
+            <div id="final-scores" class="final-scores"></div>
+            <div class="results-actions">
+                <button id="btn-replay" class="btn btn-primary btn-large">🔄 Rejouer</button>
+                <button id="btn-home" class="btn btn-secondary">🏠 Accueil</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/questions.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
