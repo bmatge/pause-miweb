@@ -24,6 +24,72 @@
         "#fdcb6e", "#00b894", "#0984e3", "#d63031"
     ];
 
+    // ═══════════════════════════════════════
+    // Sound Effects (Web Audio API)
+    // ═══════════════════════════════════════
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function getAudioCtx() {
+        if (!audioCtx) audioCtx = new AudioCtx();
+        return audioCtx;
+    }
+
+    function playCorrectSound() {
+        try {
+            const ctx = getAudioCtx();
+            const now = ctx.currentTime;
+
+            // Joyful ascending arpeggio
+            const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+            notes.forEach((freq, i) => {
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = "sine";
+                osc.frequency.value = freq;
+                gain.gain.setValueAtTime(0.25, now + i * 0.1);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.1 + 0.3);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start(now + i * 0.1);
+                osc.stop(now + i * 0.1 + 0.3);
+            });
+        } catch (e) { /* Audio not supported */ }
+    }
+
+    function playWrongSound() {
+        try {
+            const ctx = getAudioCtx();
+            const now = ctx.currentTime;
+
+            // Descending "buzz" for wrong answer
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = "sawtooth";
+            osc.frequency.setValueAtTime(300, now);
+            osc.frequency.exponentialRampToValueAtTime(100, now + 0.4);
+            gain.gain.setValueAtTime(0.15, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now);
+            osc.stop(now + 0.5);
+
+            // Second dissonant tone
+            const osc2 = ctx.createOscillator();
+            const gain2 = ctx.createGain();
+            osc2.type = "square";
+            osc2.frequency.setValueAtTime(150, now);
+            osc2.frequency.exponentialRampToValueAtTime(80, now + 0.3);
+            gain2.gain.setValueAtTime(0.08, now);
+            gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+            osc2.connect(gain2);
+            gain2.connect(ctx.destination);
+            osc2.start(now);
+            osc2.stop(now + 0.4);
+        } catch (e) { /* Audio not supported */ }
+    }
+
     const CATEGORY_INFO = {
         "casse-tete": { icon: "🧩", label: "Casse-tête", cssClass: "cat-casse-tete" },
         "actualites": { icon: "📰", label: "Actualités", cssClass: "cat-actualites" },
@@ -439,6 +505,12 @@
             player.correct++;
             points = question.type === "free" ? 3 : question.type === "yesno" ? 1 : 2;
             player.score += points;
+        }
+
+        if (isCorrect) {
+            playCorrectSound();
+        } else {
+            playWrongSound();
         }
 
         resultIcon.textContent = isCorrect ? "🎉" : "😅";

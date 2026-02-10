@@ -11,7 +11,7 @@
 
 const QUESTIONS_DB = [
     // ═══════════════════════════════════════
-    // 🧩 CASSE-TÊTE
+    // 🧩 CASSE-TÊTE (devinettes, énigmes, logique)
     // ═══════════════════════════════════════
     {
         category: "casse-tete",
@@ -100,11 +100,33 @@ const QUESTIONS_DB = [
         type: "free",
         question: "Deux pères et deux fils vont pêcher. Ils attrapent 3 poissons et chacun repart avec un poisson. Comment ?",
         answers: ["ils sont trois", "trois", "3", "grand-pere pere fils", "3 personnes", "trois personnes", "il y a un grand-pere"],
-        explanation: "Ils sont 3 : un grand-père, son fils, et son petit-fils. Deux pères (le grand-père et le père) et deux fils (le père et le petit-fils)."
+        explanation: "Ils sont 3 : un grand-père, son fils, et son petit-fils."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Un escargot est au fond d'un puits de 10 mètres. Chaque jour il monte 3 m et glisse de 2 m la nuit. En combien de jours sort-il ?",
+        options: ["10 jours", "8 jours", "7 jours", "5 jours"],
+        answer: 1,
+        explanation: "Après 7 jours il est à 7 m. Le 8e jour il monte de 3 m et atteint 10 m avant la nuit."
+    },
+    {
+        category: "casse-tete",
+        type: "free",
+        question: "Je suis dans l'eau mais je ne me mouille jamais. Que suis-je ?",
+        answers: ["le reflet", "reflet", "une ombre", "ombre", "ton reflet"],
+        explanation: "Le reflet apparaît dans l'eau sans jamais se mouiller !"
+    },
+    {
+        category: "casse-tete",
+        type: "yesno",
+        question: "Si je retourne un verre contenant de l'eau sur une table, l'eau reste dans le verre tant que je ne le soulève pas.",
+        answer: "non",
+        explanation: "L'eau s'écoulerait par les côtés puisqu'un verre retourné sur une surface plane laisse passer l'air."
     },
 
     // ═══════════════════════════════════════
-    // 📰 ACTUALITÉS
+    // 📰 ACTUALITÉS (événements récents 2020-2025)
     // ═══════════════════════════════════════
     {
         category: "actualites",
@@ -133,14 +155,6 @@ const QUESTIONS_DB = [
     {
         category: "actualites",
         type: "mcq",
-        question: "Quel événement spatial historique a eu lieu avec la mission Artemis I en 2022 ?",
-        options: ["Atterrissage sur Mars", "Retour vers la Lune", "Station spatiale chinoise", "Satellite record"],
-        answer: 1,
-        explanation: "Artemis I a marqué le retour du programme lunaire de la NASA après Apollo."
-    },
-    {
-        category: "actualites",
-        type: "mcq",
         question: "Quel pays a remporté la Coupe du monde de football 2022 au Qatar ?",
         options: ["France", "Brésil", "Argentine", "Croatie"],
         answer: 2,
@@ -152,14 +166,6 @@ const QUESTIONS_DB = [
         question: "Quel est le nom du télescope spatial lancé fin 2021 qui a révolutionné l'astronomie avec ses images ?",
         answers: ["james webb", "webb", "jwst", "telescope james webb"],
         explanation: "Le James Webb Space Telescope (JWST) a été lancé le 25 décembre 2021."
-    },
-    {
-        category: "actualites",
-        type: "mcq",
-        question: "Quelle ville a accueilli la COP28 fin 2023 ?",
-        options: ["Le Caire", "Dubaï", "Riyad", "Doha"],
-        answer: 1,
-        explanation: "La COP28 s'est tenue à Dubaï, aux Émirats arabes unis, fin 2023."
     },
     {
         category: "actualites",
@@ -179,14 +185,66 @@ const QUESTIONS_DB = [
     {
         category: "actualites",
         type: "mcq",
-        question: "Quel phénomène climatique a provoqué des températures record en Europe durant l'été 2023 ?",
-        options: ["La Niña", "El Niño", "Le vortex polaire", "L'effet papillon"],
+        question: "Quel pays européen a rejoint l'OTAN en 2023 après des décennies de neutralité ?",
+        options: ["Suède", "Finlande", "Suisse", "Autriche"],
         answer: 1,
-        explanation: "El Niño combiné au réchauffement a causé des records de chaleur en 2023."
+        explanation: "La Finlande a rejoint l'OTAN en avril 2023 suite au contexte géopolitique."
+    },
+    {
+        category: "actualites",
+        type: "yesno",
+        question: "Le film Barbie (2023) a dépassé le milliard de dollars au box-office mondial.",
+        answer: "oui",
+        explanation: "Vrai ! Barbie de Greta Gerwig a rapporté plus de 1,4 milliard de dollars."
+    },
+    {
+        category: "actualites",
+        type: "mcq",
+        question: "Quel athlète français est devenu champion olympique du 100m haies aux JO de Paris 2024 ?",
+        options: ["Kevin Mayer", "Cyréna Samba-Mayela", "Pascal Martinot-Lagarde", "Wilhem Belocian"],
+        answer: 1,
+        explanation: "Cyréna Samba-Mayela a remporté l'or au 100m haies féminin aux JO de Paris 2024."
+    },
+    {
+        category: "actualites",
+        type: "free",
+        question: "Quel événement sanitaire mondial a marqué les années 2020-2021 ?",
+        answers: ["covid", "covid 19", "covid-19", "coronavirus", "pandemie", "la pandemie"],
+        explanation: "La pandémie de COVID-19 a touché le monde entier à partir de début 2020."
+    },
+    {
+        category: "actualites",
+        type: "mcq",
+        question: "Quelle ville accueillera les Jeux Olympiques d'été 2028 ?",
+        options: ["Brisbane", "Los Angeles", "Paris", "Tokyo"],
+        answer: 1,
+        explanation: "Los Angeles accueillera les JO d'été 2028."
+    },
+    {
+        category: "actualites",
+        type: "yesno",
+        question: "TikTok a été temporairement banni aux États-Unis en 2025.",
+        answer: "oui",
+        explanation: "Vrai ! TikTok a fait face à une interdiction temporaire aux USA début 2025 pour des raisons de sécurité nationale."
+    },
+    {
+        category: "actualites",
+        type: "mcq",
+        question: "Quel pays a envoyé avec succès un rover sur la face cachée de la Lune en 2024 ?",
+        options: ["États-Unis", "Russie", "Chine", "Inde"],
+        answer: 2,
+        explanation: "La Chine avec la mission Chang'e 6 a rapporté des échantillons de la face cachée de la Lune."
+    },
+    {
+        category: "actualites",
+        type: "free",
+        question: "Comment s'appelle le chatbot IA de Google, concurrent de ChatGPT ?",
+        answers: ["gemini", "bard", "google gemini"],
+        explanation: "Google a lancé Bard en 2023, puis l'a renommé Gemini en 2024."
     },
 
     // ═══════════════════════════════════════
-    // 🤥 FAKE NEWS (Vrai ou Faux)
+    // 🤥 FAKE NEWS (mythes, idées reçues, vrai/faux)
     // ═══════════════════════════════════════
     {
         category: "fakenews",
@@ -214,7 +272,7 @@ const QUESTIONS_DB = [
         type: "yesno",
         question: "Napoléon était très petit pour son époque.",
         answer: "non",
-        explanation: "Faux ! Napoléon mesurait environ 1,69 m, taille moyenne pour l'époque. La confusion vient des pouces français vs anglais."
+        explanation: "Faux ! Napoléon mesurait environ 1,69 m, taille moyenne pour l'époque."
     },
     {
         category: "fakenews",
@@ -235,7 +293,7 @@ const QUESTIONS_DB = [
         type: "yesno",
         question: "Il y a plus d'étoiles dans l'univers que de grains de sable sur Terre.",
         answer: "oui",
-        explanation: "Vrai ! On estime à ~10²⁴ étoiles contre ~10¹⁹ grains de sable."
+        explanation: "Vrai ! On estime environ 10²⁴ étoiles contre 10¹⁹ grains de sable."
     },
     {
         category: "fakenews",
@@ -268,117 +326,154 @@ const QUESTIONS_DB = [
     {
         category: "fakenews",
         type: "yesno",
-        question: "Le cerveau humain consomme environ 20% de l'énergie du corps.",
-        answer: "oui",
-        explanation: "Vrai ! Bien qu'il ne représente que 2% de la masse corporelle, le cerveau consomme ~20% de l'énergie."
-    },
-    {
-        category: "fakenews",
-        type: "yesno",
         question: "Les autruches mettent leur tête dans le sable quand elles ont peur.",
         answer: "non",
         explanation: "Faux ! Elles se couchent au sol pour se fondre dans le paysage, ce qui donne cette impression."
     },
     {
         category: "fakenews",
+        type: "mcq",
+        question: "Quelle affirmation sur les chats est VRAIE ?",
+        options: ["Ils voient en noir et blanc", "Ils ont 9 vies", "Ils ronronnent pour se soigner", "Ils retombent toujours sur leurs pattes"],
+        answer: 2,
+        explanation: "Le ronronnement des chats produit des vibrations qui favorisent la cicatrisation osseuse."
+    },
+    {
+        category: "fakenews",
+        type: "mcq",
+        question: "Lequel de ces faits est FAUX ?",
+        options: ["Les koalas dorment 22h par jour", "Les dauphins dorment un œil ouvert", "Les flamants sont roses à la naissance", "Les vaches ont des meilleurs amis"],
+        answer: 2,
+        explanation: "Les flamants naissent gris/blancs. Leur couleur rose vient des pigments de leur alimentation (crevettes)."
+    },
+    {
+        category: "fakenews",
         type: "yesno",
-        question: "Un octopus a trois cœurs.",
+        question: "Le sucre rend les enfants hyperactifs.",
+        answer: "non",
+        explanation: "Faux ! Plusieurs études scientifiques n'ont trouvé aucun lien entre sucre et hyperactivité."
+    },
+
+    // ═══════════════════════════════════════
+    // ⭐ CÉLÉBRITÉS (culture populaire, personnalités)
+    // ═══════════════════════════════════════
+    {
+        category: "celebrites",
+        type: "mcq",
+        question: "Quel artiste est surnommé 'le King of Pop' ?",
+        options: ["Elvis Presley", "Michael Jackson", "Prince", "Freddie Mercury"],
+        answer: 1,
+        explanation: "Michael Jackson a été surnommé le Roi de la Pop grâce à Thriller et ses chorégraphies légendaires."
+    },
+    {
+        category: "celebrites",
+        type: "free",
+        question: "Quel acteur français est célèbre pour ses rôles dans Astérix, Bienvenue chez les Ch'tis et Supercondriaque ?",
+        answers: ["dany boon", "boon"],
+        explanation: "Dany Boon a réalisé et joué dans Bienvenue chez les Ch'tis, plus grand succès français."
+    },
+    {
+        category: "celebrites",
+        type: "mcq",
+        question: "Quel rappeur français est connu pour les albums 'Que la famille' et 'Deux frères' ?",
+        options: ["Booba", "PNL", "Jul", "Soprano"],
+        answer: 1,
+        explanation: "PNL (Peace N' Lovés), le duo formé par Ademo et N.O.S."
+    },
+    {
+        category: "celebrites",
+        type: "mcq",
+        question: "Quelle chanteuse a interprété la cérémonie d'ouverture des JO 2024 sur la Seine ?",
+        options: ["Aya Nakamura", "Lady Gaga", "Céline Dion", "Beyoncé"],
+        answer: 2,
+        explanation: "Céline Dion a chanté sur la Tour Eiffel lors de la cérémonie d'ouverture des JO de Paris 2024."
+    },
+    {
+        category: "celebrites",
+        type: "free",
+        question: "Quel humoriste et acteur français est connu pour 'Qu'est-ce qu'on a fait au Bon Dieu ?' et la série 'Dix pour cent' ?",
+        answers: ["christian clavier", "clavier"],
+        explanation: "Christian Clavier a joué le père de famille dans 'Qu'est-ce qu'on a fait au Bon Dieu ?'."
+    },
+    {
+        category: "celebrites",
+        type: "mcq",
+        question: "Qui est la youtubeuse/streameuse française connue sous le nom de Domingo ?",
+        options: ["Un streamer de gaming", "Un commentateur e-sport", "Un streamer politique et culturel", "Un créateur de mode"],
+        answer: 2,
+        explanation: "Domingo est un streamer français connu pour ses émissions culturelles et politiques sur Twitch."
+    },
+    {
+        category: "celebrites",
+        type: "mcq",
+        question: "Quel footballeur français a remporté la Coupe du monde 2018 et est devenu capitaine de l'équipe de France ?",
+        options: ["Antoine Griezmann", "Kylian Mbappé", "Paul Pogba", "Hugo Lloris"],
+        answer: 1,
+        explanation: "Kylian Mbappé, prodige du football français, a été décisif lors du Mondial 2018."
+    },
+    {
+        category: "celebrites",
+        type: "free",
+        question: "Quel acteur incarne Jack Sparrow dans Pirates des Caraïbes ?",
+        answers: ["johnny depp", "depp", "johnny deep"],
+        explanation: "Johnny Depp a incarné le capitaine Jack Sparrow dans 5 films Pirates des Caraïbes."
+    },
+    {
+        category: "celebrites",
+        type: "mcq",
+        question: "Quelle artiste a chanté 'Djadja', tube mondial sorti en 2018 ?",
+        options: ["Angèle", "Aya Nakamura", "Dua Lipa", "Louane"],
+        answer: 1,
+        explanation: "Aya Nakamura avec 'Djadja' est devenue l'artiste francophone la plus écoutée au monde."
+    },
+    {
+        category: "celebrites",
+        type: "mcq",
+        question: "Quel réalisateur français est connu pour 'Intouchables' et 'Le Sens de la fête' ?",
+        options: ["Luc Besson", "Olivier Nakache & Éric Toledano", "Cédric Klapisch", "Michel Hazanavicius"],
+        answer: 1,
+        explanation: "Nakache et Toledano ont réalisé Intouchables, deuxième plus grand succès français."
+    },
+    {
+        category: "celebrites",
+        type: "free",
+        question: "Quel milliardaire est le fondateur de Tesla et SpaceX ?",
+        answers: ["elon musk", "musk"],
+        explanation: "Elon Musk est le CEO de Tesla, SpaceX et propriétaire de X (ex-Twitter)."
+    },
+    {
+        category: "celebrites",
+        type: "mcq",
+        question: "Quelle chanteuse belge a eu un succès mondial avec 'Tout oublier' et 'Balance ton quoi' ?",
+        options: ["Stromae", "Angèle", "Aya Nakamura", "Clara Luciani"],
+        answer: 1,
+        explanation: "Angèle Van Laeken, connue sous le nom d'Angèle, est une chanteuse belge francophone."
+    },
+    {
+        category: "celebrites",
+        type: "yesno",
+        question: "Squeezie est le youtubeur français avec le plus d'abonnés.",
         answer: "oui",
-        explanation: "Vrai ! Un cœur principal et deux cœurs branchiaux pour oxygéner le sang."
-    },
-
-    // ═══════════════════════════════════════
-    // ⭐ CÉLÉBRITÉS
-    // ═══════════════════════════════════════
-    {
-        category: "celebrites",
-        type: "mcq",
-        question: "En quelle année est décédé Michael Jackson ?",
-        options: ["2007", "2009", "2011", "2013"],
-        answer: 1,
-        explanation: "Michael Jackson est décédé le 25 juin 2009 à Los Angeles."
+        explanation: "Vrai ! Squeezie (Lucas Hauchard) est le premier youtubeur français avec plus de 18 millions d'abonnés."
     },
     {
         category: "celebrites",
         type: "mcq",
-        question: "En quelle année est décédée la Reine Elizabeth II ?",
-        options: ["2020", "2021", "2022", "2023"],
+        question: "Quel acteur joue le rôle de Spider-Man dans la trilogie récente Marvel (2017-2021) ?",
+        options: ["Tobey Maguire", "Andrew Garfield", "Tom Holland", "Miles Morales"],
         answer: 2,
-        explanation: "Elizabeth II est décédée le 8 septembre 2022 au château de Balmoral."
-    },
-    {
-        category: "celebrites",
-        type: "mcq",
-        question: "En quelle année est décédé l'acteur Chadwick Boseman, star de Black Panther ?",
-        options: ["2019", "2020", "2021", "2022"],
-        answer: 1,
-        explanation: "Chadwick Boseman est décédé le 28 août 2020 des suites d'un cancer du côlon."
-    },
-    {
-        category: "celebrites",
-        type: "mcq",
-        question: "En quelle année est décédé Johnny Hallyday ?",
-        options: ["2015", "2016", "2017", "2018"],
-        answer: 2,
-        explanation: "Johnny Hallyday est décédé le 5 décembre 2017 à Marnes-la-Coquette."
-    },
-    {
-        category: "celebrites",
-        type: "mcq",
-        question: "En quelle année est décédé le scientifique Stephen Hawking ?",
-        options: ["2016", "2017", "2018", "2019"],
-        answer: 2,
-        explanation: "Stephen Hawking est décédé le 14 mars 2018, jour du Pi Day et anniversaire d'Einstein."
-    },
-    {
-        category: "celebrites",
-        type: "mcq",
-        question: "En quelle année est décédé le basketteur Kobe Bryant ?",
-        options: ["2019", "2020", "2021", "2022"],
-        answer: 1,
-        explanation: "Kobe Bryant est décédé le 26 janvier 2020 dans un accident d'hélicoptère."
+        explanation: "Tom Holland incarne Peter Parker / Spider-Man depuis 'Homecoming' en 2017."
     },
     {
         category: "celebrites",
         type: "free",
-        question: "Quel acteur français, célèbre pour ses rôles dans 'Belmondo' et 'Le Professionnel', est décédé en 2021 ?",
-        answers: ["belmondo", "jean-paul belmondo", "jean paul belmondo"],
-        explanation: "Jean-Paul Belmondo est décédé le 6 septembre 2021 à Paris."
-    },
-    {
-        category: "celebrites",
-        type: "mcq",
-        question: "En quelle année est décédé le chanteur Prince ?",
-        options: ["2014", "2015", "2016", "2017"],
-        answer: 2,
-        explanation: "Prince est décédé le 21 avril 2016 dans son domaine de Paisley Park."
-    },
-    {
-        category: "celebrites",
-        type: "mcq",
-        question: "En quelle année est décédé David Bowie ?",
-        options: ["2014", "2015", "2016", "2017"],
-        answer: 2,
-        explanation: "David Bowie est décédé le 10 janvier 2016, deux jours après la sortie de son dernier album."
-    },
-    {
-        category: "celebrites",
-        type: "free",
-        question: "Quel célèbre physicien est connu pour la formule E=mc² ?",
-        answers: ["einstein", "albert einstein"],
-        explanation: "Albert Einstein a publié sa théorie de la relativité restreinte en 1905."
-    },
-    {
-        category: "celebrites",
-        type: "mcq",
-        question: "En quelle année est décédé le chef cuisinier français Paul Bocuse ?",
-        options: ["2016", "2017", "2018", "2019"],
-        answer: 2,
-        explanation: "Paul Bocuse, pape de la gastronomie française, est décédé le 20 janvier 2018."
+        question: "Quel chanteur français, coach dans The Voice, est connu pour 'Formidable' et 'Papaoutai' ?",
+        answers: ["stromae", "paul van haver"],
+        explanation: "Stromae (Paul Van Haver), artiste belge, a conquis le monde avec ses hits."
     },
 
     // ═══════════════════════════════════════
-    // 🎮 GEEK
+    // 🎮 GEEK (jeux vidéo, tech, pop culture, manga, SF)
     // ═══════════════════════════════════════
     {
         category: "geek",
@@ -391,8 +486,8 @@ const QUESTIONS_DB = [
     {
         category: "geek",
         type: "free",
-        question: "Quel est le vrai nom de Mario (plombier de Nintendo) de famille ?",
-        answers: ["mario", "mario mario"],
+        question: "Quel est le vrai nom complet de Mario (le plombier de Nintendo) ?",
+        answers: ["mario mario"],
         explanation: "Son nom complet est Mario Mario ! Confirmé par Nintendo et le film de 1993."
     },
     {
@@ -402,36 +497,6 @@ const QUESTIONS_DB = [
         options: ["Bleu", "Vert", "Violet", "Rouge"],
         answer: 2,
         explanation: "Mace Windu (Samuel L. Jackson) a un sabre laser violet, unique chez les Jedi."
-    },
-    {
-        category: "geek",
-        type: "free",
-        question: "Quel est le code mythique de triche dans les jeux Konami (haut, haut, bas, bas...) ?",
-        answers: ["konami code", "code konami", "haut haut bas bas gauche droite gauche droite b a"],
-        explanation: "Le Konami Code : ↑↑↓↓←→←→ B A — inventé par Kazuhisa Hashimoto en 1986."
-    },
-    {
-        category: "geek",
-        type: "mcq",
-        question: "Combien pèse un octet en bits ?",
-        options: ["4 bits", "8 bits", "16 bits", "32 bits"],
-        answer: 1,
-        explanation: "Un octet (byte) = 8 bits. C'est l'unité fondamentale en informatique."
-    },
-    {
-        category: "geek",
-        type: "mcq",
-        question: "Quel est le langage de programmation créé par Guido van Rossum ?",
-        options: ["Java", "Ruby", "Python", "JavaScript"],
-        answer: 2,
-        explanation: "Python a été créé par Guido van Rossum et publié en 1991."
-    },
-    {
-        category: "geek",
-        type: "free",
-        question: "Dans le Seigneur des Anneaux, comment s'appelle le magicien qui accompagne les hobbits ?",
-        answers: ["gandalf", "gandalf le gris", "gandalf le blanc", "mithrandir"],
-        explanation: "Gandalf le Gris, puis Gandalf le Blanc, aussi connu sous le nom de Mithrandir."
     },
     {
         category: "geek",
@@ -459,29 +524,75 @@ const QUESTIONS_DB = [
     {
         category: "geek",
         type: "mcq",
-        question: "Quel est le nom de l'IA maléfique dans '2001, l'Odyssée de l'espace' ?",
-        options: ["Skynet", "HAL 9000", "WOPR", "Ultron"],
+        question: "Dans Fortnite, comment s'appelle le bus qui transporte les joueurs ?",
+        options: ["Le Bus Royal", "Le Battle Bus", "Le Bus Storm", "Le Sky Bus"],
         answer: 1,
-        explanation: "HAL 9000 (Heuristically programmed ALgorithmic computer) du film de Kubrick."
+        explanation: "Le Battle Bus transporte les joueurs au début de chaque partie."
     },
     {
         category: "geek",
         type: "mcq",
-        question: "Dans Fortnite, comment s'appelle le bus qui transporte les joueurs ?",
-        options: ["Le Bus Royal", "Le Battle Bus", "Le Bus Storm", "Le Sky Bus"],
-        answer: 1,
-        explanation: "Le Battle Bus est le bus volant qui transporte les joueurs au début de chaque partie."
+        question: "Dans quel manga Monkey D. Luffy cherche-t-il le trésor 'One Piece' ?",
+        options: ["Naruto", "Dragon Ball", "One Piece", "Bleach"],
+        answer: 2,
+        explanation: "One Piece d'Eiichiro Oda, commencé en 1997, est le manga le plus vendu de l'histoire."
     },
     {
         category: "geek",
         type: "free",
-        question: "Quel super-héros se cache derrière le masque de Spider-Man (version originale) ?",
-        answers: ["peter parker", "peter", "parker"],
-        explanation: "Peter Parker, créé par Stan Lee et Steve Ditko en 1962."
+        question: "Dans le Seigneur des Anneaux, comment s'appelle le magicien qui accompagne les hobbits ?",
+        answers: ["gandalf", "gandalf le gris", "gandalf le blanc", "mithrandir"],
+        explanation: "Gandalf le Gris, puis Gandalf le Blanc, aussi connu sous le nom de Mithrandir."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel personnage de manga possède un cahier capable de tuer quiconque dont le nom y est écrit ?",
+        options: ["Naruto", "Light Yagami", "Goku", "Eren"],
+        answer: 1,
+        explanation: "Light Yagami utilise le Death Note dans le manga éponyme de Tsugumi Ohba."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel est le jeu vidéo le plus vendu de tous les temps ?",
+        options: ["GTA V", "Tetris", "Minecraft", "Wii Sports"],
+        answer: 2,
+        explanation: "Minecraft s'est vendu à plus de 300 millions d'exemplaires toutes plateformes confondues."
+    },
+    {
+        category: "geek",
+        type: "free",
+        question: "Comment s'appelle le personnage principal de la série de jeux Zelda ?",
+        answers: ["link"],
+        explanation: "C'est Link, pas Zelda ! Zelda est la princesse qu'il doit sauver."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Dans Pokémon, quel est le premier Pokémon du Pokédex ?",
+        options: ["Pikachu", "Bulbizarre", "Salamèche", "Mewtwo"],
+        answer: 1,
+        explanation: "Bulbizarre (Bulbasaur) est le numéro 001 du Pokédex national."
+    },
+    {
+        category: "geek",
+        type: "yesno",
+        question: "Dans Among Us, les joueurs doivent trouver l'imposteur parmi l'équipage.",
+        answer: "oui",
+        explanation: "Vrai ! Among Us est un jeu de déduction sociale où les crewmates cherchent les imposteurs."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel studio a créé les films d'animation 'Le Voyage de Chihiro' et 'Mon voisin Totoro' ?",
+        options: ["Pixar", "Studio Ghibli", "DreamWorks", "Toei Animation"],
+        answer: 1,
+        explanation: "Le Studio Ghibli, fondé par Hayao Miyazaki et Isao Takahata, est un trésor de l'animation japonaise."
     },
 
     // ═══════════════════════════════════════
-    // 🔬 SCIENCE
+    // 🔬 SCIENCE (nature, espace, corps humain, physique)
     // ═══════════════════════════════════════
     {
         category: "science",
@@ -540,7 +651,7 @@ const QUESTIONS_DB = [
     {
         category: "science",
         type: "free",
-        question: "Quel scientifique a formulé la théorie de la gravitation universelle après avoir vu tomber une pomme ?",
+        question: "Quel scientifique a formulé la théorie de la gravitation universelle ?",
         answers: ["newton", "isaac newton"],
         explanation: "Isaac Newton a publié ses Principia Mathematica en 1687."
     },
@@ -567,9 +678,39 @@ const QUESTIONS_DB = [
         answers: ["pacifique", "le pacifique", "ocean pacifique", "l'ocean pacifique"],
         explanation: "L'océan Pacifique couvre environ 165 millions de km², soit un tiers de la Terre."
     },
+    {
+        category: "science",
+        type: "yesno",
+        question: "Le cerveau humain consomme environ 20% de l'énergie du corps.",
+        answer: "oui",
+        explanation: "Vrai ! Bien qu'il ne représente que 2% de la masse corporelle, le cerveau consomme ~20% de l'énergie."
+    },
+    {
+        category: "science",
+        type: "mcq",
+        question: "Quel est l'élément le plus abondant dans l'univers ?",
+        options: ["Oxygène", "Carbone", "Hélium", "Hydrogène"],
+        answer: 3,
+        explanation: "L'hydrogène représente environ 75% de la masse de l'univers."
+    },
+    {
+        category: "science",
+        type: "yesno",
+        question: "Un octopus a trois cœurs.",
+        answer: "oui",
+        explanation: "Vrai ! Un cœur principal et deux cœurs branchiaux pour oxygéner le sang."
+    },
+    {
+        category: "science",
+        type: "mcq",
+        question: "Quelle est la planète la plus grande du système solaire ?",
+        options: ["Saturne", "Jupiter", "Neptune", "Uranus"],
+        answer: 1,
+        explanation: "Jupiter est la plus grande planète, avec un diamètre de ~140 000 km."
+    },
 
     // ═══════════════════════════════════════
-    // 📜 HISTOIRE
+    // 📜 HISTOIRE (événements historiques, civilisations)
     // ═══════════════════════════════════════
     {
         category: "histoire",
@@ -642,17 +783,47 @@ const QUESTIONS_DB = [
     },
     {
         category: "histoire",
-        type: "mcq",
-        question: "Qui était le premier président des États-Unis ?",
-        options: ["Thomas Jefferson", "Benjamin Franklin", "George Washington", "John Adams"],
-        answer: 2,
-        explanation: "George Washington a été le premier président des USA de 1789 à 1797."
-    },
-    {
-        category: "histoire",
         type: "free",
         question: "Dans quelle ville se trouve le Colisée antique ?",
         answers: ["rome", "roma"],
         explanation: "Le Colisée de Rome, construit entre 70 et 80 apr. J.-C., pouvait accueillir 50 000 spectateurs."
+    },
+    {
+        category: "histoire",
+        type: "mcq",
+        question: "Quel roi de France était surnommé le Roi-Soleil ?",
+        options: ["Louis XIII", "Louis XIV", "Louis XV", "Louis XVI"],
+        answer: 1,
+        explanation: "Louis XIV (1638-1715), le Roi-Soleil, a régné 72 ans et fait construire Versailles."
+    },
+    {
+        category: "histoire",
+        type: "mcq",
+        question: "En quelle année Christophe Colomb a-t-il atteint les Amériques ?",
+        options: ["1453", "1478", "1492", "1501"],
+        answer: 2,
+        explanation: "Christophe Colomb a atteint les Amériques le 12 octobre 1492."
+    },
+    {
+        category: "histoire",
+        type: "free",
+        question: "Quel empereur français a été exilé sur l'île de Sainte-Hélène ?",
+        answers: ["napoleon", "napoleon bonaparte", "napoleon 1er", "napoleon ier", "bonaparte"],
+        explanation: "Napoléon Bonaparte a été exilé à Sainte-Hélène après Waterloo en 1815."
+    },
+    {
+        category: "histoire",
+        type: "yesno",
+        question: "La Seconde Guerre mondiale a commencé en 1939.",
+        answer: "oui",
+        explanation: "Vrai ! La WWII a commencé le 1er septembre 1939 avec l'invasion de la Pologne par l'Allemagne nazie."
+    },
+    {
+        category: "histoire",
+        type: "mcq",
+        question: "Quelle merveille du monde antique subsiste encore aujourd'hui ?",
+        options: ["Le Colosse de Rhodes", "Les Jardins de Babylone", "La Pyramide de Khéops", "Le Phare d'Alexandrie"],
+        answer: 2,
+        explanation: "La Grande Pyramide de Khéops à Gizeh est la seule des 7 merveilles antiques encore debout."
     }
 ];
