@@ -97,7 +97,8 @@
         "celebrites": { icon: "⭐", label: "Célébrités", cssClass: "cat-celebrites" },
         "geek":       { icon: "🎮", label: "Geek", cssClass: "cat-geek" },
         "science":    { icon: "🔬", label: "Science", cssClass: "cat-science" },
-        "histoire":   { icon: "📜", label: "Histoire", cssClass: "cat-histoire" }
+        "histoire":   { icon: "📜", label: "Histoire", cssClass: "cat-histoire" },
+        "trump":      { icon: "🍊", label: "Trump", cssClass: "cat-trump" }
     };
 
     // ═══════════════════════════════════════
