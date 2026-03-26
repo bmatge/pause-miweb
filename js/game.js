@@ -124,6 +124,8 @@
     const playerTurnName = $("#player-turn-name");
     const questionArea = $("#question-area");
     const questionCategory = $("#question-category");
+    const questionImageContainer = $("#question-image-container");
+    const questionImage = $("#question-image");
     const questionText = $("#question-text");
     const questionHint = $("#question-hint");
     const mcqAnswers = $("#mcq-answers");
@@ -344,6 +346,8 @@
 
     function resetQuestionArea() {
         questionArea.classList.add("hidden");
+        questionImageContainer.classList.add("hidden");
+        questionImage.src = "";
         resultArea.classList.add("hidden");
         mcqAnswers.classList.add("hidden");
         freeAnswer.classList.add("hidden");
@@ -365,6 +369,15 @@
         roundCounter.textContent = `Question ${state.questionCount}`;
         questionCategory.textContent = `${catInfo.icon} ${catInfo.label}`;
         questionCategory.className = `category-badge ${catInfo.cssClass}`;
+        // Display image if present
+        if (q.image) {
+            questionImage.src = q.image;
+            questionImageContainer.classList.remove("hidden");
+        } else {
+            questionImageContainer.classList.add("hidden");
+            questionImage.src = "";
+        }
+
         questionText.textContent = q.question;
         questionHint.textContent = q.hint || "";
 

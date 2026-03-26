@@ -1824,6 +1824,148 @@ const QUESTIONS_DB = [
         type: "yesno",
         question: "Trump a-t-il regardé directement une éclipse solaire sans lunettes de protection ?",
         answer: "oui",
-        explanation: "Le 21 août 2017, malgré les avertissements des experts, Trump a été photographié regardant directement l'éclipse solaire sans protection, avant qu'un assistant ne lui donne des lunettes."
+        explanation: "Le 21 août 2017, malgré les avertissements des experts, Trump a été photographié regardant directement l'éclipse solaire sans protection, avant qu'un assistant ne lui donne des lunettes.",
+        image: "img/trump/eclipse.jpg"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il vraiment posté cette photo de lui en Rocky Balboa torse nu ?",
+        answer: "oui",
+        explanation: "En novembre 2019, il a tweeté un montage de sa tête sur le corps musclé de Rocky Balboa, sans aucun commentaire.",
+        image: "img/trump/rocky.jpg"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il vraiment fait un câlin au drapeau américain sur scène ?",
+        answer: "oui",
+        explanation: "Il l'a fait à de nombreuses reprises lors de meetings et à la conférence CPAC, embrassant et serrant le drapeau américain dans ses bras.",
+        image: "img/trump/flag-hug.jpg"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il vraiment servi des hamburgers McDonald's lors d'un dîner officiel à la Maison Blanche ?",
+        answer: "oui",
+        explanation: "En janvier 2019, lors du shutdown, il a offert un banquet de fast-food (McDonald's, Burger King, Wendy's, Domino's) à l'équipe de football de Clemson.",
+        image: "img/trump/mcdonalds-whitehouse.jpg"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Cette photo de Trump tenant une Bible devant une église a-t-elle été prise après avoir fait disperser des manifestants avec des gaz lacrymogènes ?",
+        answer: "oui",
+        explanation: "Le 1er juin 2020, la police a dispersé des manifestants pacifiques avec des gaz lacrymogènes devant l'église St. John à Washington pour que Trump puisse poser avec une Bible.",
+        image: "img/trump/bible-church.jpg"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il vraiment jeté des rouleaux d'essuie-tout sur des sinistrés à Porto Rico ?",
+        answer: "oui",
+        explanation: "En octobre 2017, après l'ouragan Maria, Trump a lancé des rouleaux de papier essuie-tout dans la foule des sinistrés comme des ballons de basket.",
+        image: "img/trump/paper-towels.jpg"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il déclaré : « Je suis le président le moins raciste de l'histoire » ?",
+        answer: "oui",
+        explanation: "Il l'a affirmé à plusieurs reprises, notamment en juillet 2019 : « I am the least racist person there is anywhere in the world. »"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit que « la presse est l'ennemi du peuple américain » ?",
+        answer: "oui",
+        explanation: "En février 2017, il a tweeté : « The FAKE NEWS media is not my enemy, it is the enemy of the American People! »"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il affirmé que « les toilettes modernes nécessitent 15 tirages de chasse » ?",
+        answer: "oui",
+        explanation: "En décembre 2019, il s'est plaint : « People are flushing toilets 10 times, 15 times, as opposed to once » pour critiquer les réglementations environnementales."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il poussé le Premier ministre du Monténégro lors d'un sommet de l'OTAN pour se mettre devant ?",
+        answer: "oui",
+        explanation: "En mai 2017, lors du sommet de l'OTAN à Bruxelles, Trump a écarté le Premier ministre Duško Marković pour se placer au premier rang des dirigeants.",
+        image: "img/trump/nato-push.jpg"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit que « le vent tue toutes les oiseaux » en parlant des éoliennes ?",
+        answer: "oui",
+        explanation: "Il a déclaré en décembre 2019 : « I never understood wind. They're manufactured tremendous — if you're into this — tremendous fumes. Gases. They kill all the birds. »"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il prétendu que sa cérémonie d'investiture en 2017 avait attiré plus de monde que celle d'Obama ?",
+        answer: "oui",
+        explanation: "Malgré des photos aériennes montrant clairement une foule plus petite, Trump et son attaché de presse Sean Spicer ont affirmé que c'était « la plus grande audience d'investiture, point final »."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit : « Je suis un très bon joueur de golf. Probablement le meilleur de tous les présidents » ?",
+        answer: "oui",
+        explanation: "Il s'est vanté de ses talents de golfeur à de multiples reprises et a affirmé avoir gagné plusieurs tournois dans ses propres clubs de golf."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il affirmé que « George Washington aurait dû mieux protéger ses aéroports » pendant la guerre d'Indépendance ?",
+        answer: "oui",
+        explanation: "Lors du discours du 4 juillet 2019, il a déclaré que l'armée continentale avait « pris le contrôle des aéroports » pendant la guerre de 1775. Les avions n'ont été inventés qu'en 1903."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit : « Je pourrais être le meilleur président que Dieu ait jamais créé » ?",
+        answer: "non",
+        explanation: "Faux ! Bien qu'il se soit souvent qualifié de meilleur président, il n'a jamais utilisé cette formulation exacte impliquant Dieu."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il utilisé un faux billet de 1 million de dollars à son effigie comme cadeau lors de meetings ?",
+        answer: "non",
+        explanation: "Faux ! Des supporters ont créé de faux billets, mais Trump ne les a jamais distribués lui-même."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il fait vendre des baskets dorées à son effigie à 399$ la paire ?",
+        answer: "oui",
+        explanation: "En février 2024, lors de la Sneaker Con, Trump a lancé ses « Trump Gold Sneakers » à 399$, qui se sont vendues en quelques heures.",
+        image: "img/trump/gold-sneakers.jpg"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il vendu des NFT de lui-même déguisé en super-héros, cowboy et astronaute ?",
+        answer: "oui",
+        explanation: "En décembre 2022, il a lancé sa collection de « Trump Digital Trading Cards » à 99$ chacune, le montrant dans des poses héroïques diverses."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit que « Tim Cook est un grand dirigeant d'entreprise parce qu'il m'appelle quand il a un problème » ?",
+        answer: "oui",
+        explanation: "En août 2019, il a déclaré : « I had a very good meeting with Tim Cook. He's become a friend of mine... He calls me whenever there's a problem. »"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il appelé Tim Cook « Tim Apple » en public ?",
+        answer: "oui",
+        explanation: "En mars 2019, lors d'une réunion du conseil consultatif, il a appelé le PDG d'Apple « Tim Apple ». Il a ensuite prétendu que c'était pour « gagner du temps ».",
+        image: "img/trump/tim-apple.jpg"
     }
 ];
