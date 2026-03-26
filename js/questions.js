@@ -1824,48 +1824,42 @@ const QUESTIONS_DB = [
         type: "yesno",
         question: "Trump a-t-il regardé directement une éclipse solaire sans lunettes de protection ?",
         answer: "oui",
-        explanation: "Le 21 août 2017, malgré les avertissements des experts, Trump a été photographié regardant directement l'éclipse solaire sans protection, avant qu'un assistant ne lui donne des lunettes.",
-        image: "img/trump/eclipse.jpg"
+        explanation: "Le 21 août 2017, malgré les avertissements des experts, Trump a été photographié regardant directement l'éclipse solaire sans protection, avant qu'un assistant ne lui donne des lunettes."
     },
     {
         category: "trump",
         type: "yesno",
         question: "Trump a-t-il vraiment posté cette photo de lui en Rocky Balboa torse nu ?",
         answer: "oui",
-        explanation: "En novembre 2019, il a tweeté un montage de sa tête sur le corps musclé de Rocky Balboa, sans aucun commentaire.",
-        image: "img/trump/rocky.jpg"
+        explanation: "En novembre 2019, il a tweeté un montage de sa tête sur le corps musclé de Rocky Balboa, sans aucun commentaire."
     },
     {
         category: "trump",
         type: "yesno",
         question: "Trump a-t-il vraiment fait un câlin au drapeau américain sur scène ?",
         answer: "oui",
-        explanation: "Il l'a fait à de nombreuses reprises lors de meetings et à la conférence CPAC, embrassant et serrant le drapeau américain dans ses bras.",
-        image: "img/trump/flag-hug.jpg"
+        explanation: "Il l'a fait à de nombreuses reprises lors de meetings et à la conférence CPAC, embrassant et serrant le drapeau américain dans ses bras."
     },
     {
         category: "trump",
         type: "yesno",
         question: "Trump a-t-il vraiment servi des hamburgers McDonald's lors d'un dîner officiel à la Maison Blanche ?",
         answer: "oui",
-        explanation: "En janvier 2019, lors du shutdown, il a offert un banquet de fast-food (McDonald's, Burger King, Wendy's, Domino's) à l'équipe de football de Clemson.",
-        image: "img/trump/mcdonalds-whitehouse.jpg"
+        explanation: "En janvier 2019, lors du shutdown, il a offert un banquet de fast-food (McDonald's, Burger King, Wendy's, Domino's) à l'équipe de football de Clemson."
     },
     {
         category: "trump",
         type: "yesno",
         question: "Cette photo de Trump tenant une Bible devant une église a-t-elle été prise après avoir fait disperser des manifestants avec des gaz lacrymogènes ?",
         answer: "oui",
-        explanation: "Le 1er juin 2020, la police a dispersé des manifestants pacifiques avec des gaz lacrymogènes devant l'église St. John à Washington pour que Trump puisse poser avec une Bible.",
-        image: "img/trump/bible-church.jpg"
+        explanation: "Le 1er juin 2020, la police a dispersé des manifestants pacifiques avec des gaz lacrymogènes devant l'église St. John à Washington pour que Trump puisse poser avec une Bible."
     },
     {
         category: "trump",
         type: "yesno",
         question: "Trump a-t-il vraiment jeté des rouleaux d'essuie-tout sur des sinistrés à Porto Rico ?",
         answer: "oui",
-        explanation: "En octobre 2017, après l'ouragan Maria, Trump a lancé des rouleaux de papier essuie-tout dans la foule des sinistrés comme des ballons de basket.",
-        image: "img/trump/paper-towels.jpg"
+        explanation: "En octobre 2017, après l'ouragan Maria, Trump a lancé des rouleaux de papier essuie-tout dans la foule des sinistrés comme des ballons de basket."
     },
     {
         category: "trump",
@@ -1893,8 +1887,7 @@ const QUESTIONS_DB = [
         type: "yesno",
         question: "Trump a-t-il poussé le Premier ministre du Monténégro lors d'un sommet de l'OTAN pour se mettre devant ?",
         answer: "oui",
-        explanation: "En mai 2017, lors du sommet de l'OTAN à Bruxelles, Trump a écarté le Premier ministre Duško Marković pour se placer au premier rang des dirigeants.",
-        image: "img/trump/nato-push.jpg"
+        explanation: "En mai 2017, lors du sommet de l'OTAN à Bruxelles, Trump a écarté le Premier ministre Duško Marković pour se placer au premier rang des dirigeants."
     },
     {
         category: "trump",
@@ -1943,8 +1936,7 @@ const QUESTIONS_DB = [
         type: "yesno",
         question: "Trump a-t-il fait vendre des baskets dorées à son effigie à 399$ la paire ?",
         answer: "oui",
-        explanation: "En février 2024, lors de la Sneaker Con, Trump a lancé ses « Trump Gold Sneakers » à 399$, qui se sont vendues en quelques heures.",
-        image: "img/trump/gold-sneakers.jpg"
+        explanation: "En février 2024, lors de la Sneaker Con, Trump a lancé ses « Trump Gold Sneakers » à 399$, qui se sont vendues en quelques heures."
     },
     {
         category: "trump",
@@ -1965,7 +1957,6 @@ const QUESTIONS_DB = [
         type: "yesno",
         question: "Trump a-t-il appelé Tim Cook « Tim Apple » en public ?",
         answer: "oui",
-        explanation: "En mars 2019, lors d'une réunion du conseil consultatif, il a appelé le PDG d'Apple « Tim Apple ». Il a ensuite prétendu que c'était pour « gagner du temps ».",
-        image: "img/trump/tim-apple.jpg"
+        explanation: "En mars 2019, lors d'une réunion du conseil consultatif, il a appelé le PDG d'Apple « Tim Apple ». Il a ensuite prétendu que c'était pour « gagner du temps »."
     }
 ];
