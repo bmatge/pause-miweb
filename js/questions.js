@@ -1611,5 +1611,352 @@ const QUESTIONS_DB = [
         options: ["Socrate", "Aristote", "Périclès", "Platon"],
         answer: 2,
         explanation: "Périclès (495-429 av. J.-C.) a renforcé et étendu la démocratie athénienne à son apogée."
+    },
+
+    // ═══════════════════════════════════════
+    // 🍊 TRUMP (Fake or Real Trump quotes)
+    // ═══════════════════════════════════════
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il vraiment dit : « J'ai la meilleure mémoire du monde » ?",
+        answer: "oui",
+        explanation: "Il l'a déclaré en novembre 2015 lors d'un meeting de campagne, mot pour mot."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit : « Je pourrais tirer sur quelqu'un sur la Cinquième Avenue et je ne perdrais aucun électeur » ?",
+        answer: "oui",
+        explanation: "Déclaration faite le 23 janvier 2016 lors d'un meeting à Sioux Center, Iowa."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il suggéré d'injecter de l'eau de Javel pour combattre le COVID-19 ?",
+        answer: "oui",
+        explanation: "Lors d'un briefing en avril 2020, il a évoqué l'idée d'injecter du désinfectant dans le corps, provoquant une vague d'indignation."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit : « Le réchauffement climatique a été inventé par les Chinois » ?",
+        answer: "oui",
+        explanation: "Il a tweeté en 2012 : « The concept of global warming was created by and for the Chinese ». Il a ensuite prétendu que c'était une blague."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il affirmé avoir inventé l'expression « priming the pump » (amorcer la pompe) ?",
+        answer: "oui",
+        explanation: "En mai 2017, lors d'une interview avec The Economist, il a affirmé avoir inventé cette expression qui existe depuis le 19e siècle."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit : « Je suis, genre, un génie très stable » ?",
+        answer: "oui",
+        explanation: "Il a tweeté le 6 janvier 2018 : « I think that would qualify as not smart, but genius....and a very stable genius at that! »"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il déclaré : « La Finlande n'a pas de feux de forêt parce qu'ils ratissent leurs forêts » ?",
+        answer: "oui",
+        explanation: "En novembre 2018, il a affirmé que le président finlandais lui avait expliqué qu'ils ratissaient leurs forêts. Le président finlandais a nié."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il proposé de bombarder les ouragans avec des bombes nucléaires pour les arrêter ?",
+        answer: "oui",
+        explanation: "Selon Axios en 2019, Trump a effectivement posé la question lors d'un briefing sur les ouragans. La Maison Blanche a d'abord nié puis il a confirmé sur Twitter."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit : « Je comprends le nucléaire mieux que quiconque » ?",
+        answer: "oui",
+        explanation: "Il l'a affirmé à plusieurs reprises, notamment en expliquant que son oncle était professeur au MIT."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il affirmé que la Tour Eiffel « est une horreur architecturale » ?",
+        answer: "non",
+        explanation: "Faux ! Trump n'a jamais fait cette déclaration. Il a même évoqué Paris comme une belle ville à plusieurs reprises."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit : « Personne en a plus fait pour les Noirs que moi, à l'exception peut-être d'Abraham Lincoln » ?",
+        answer: "oui",
+        explanation: "Il a fait cette déclaration lors d'un town hall de Fox News en juin 2020."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il affirmé que le bruit des éoliennes cause le cancer ?",
+        answer: "oui",
+        explanation: "En avril 2019, lors d'un discours, il a déclaré : « They say the noise causes cancer ». Il n'existe aucune preuve scientifique de cela."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il déclaré : « La Belgique est une belle ville » ?",
+        answer: "oui",
+        explanation: "Il a effectivement qualifié la Belgique de « beautiful city » (belle ville) lors d'une conférence de presse en 2017."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit : « J'ai les plus grands pieds de tous les présidents américains » ?",
+        answer: "non",
+        explanation: "Faux ! Il n'a jamais fait cette déclaration. C'est une invention."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il proposé d'acheter le Groenland au Danemark ?",
+        answer: "oui",
+        explanation: "En août 2019, il a confirmé son intérêt pour l'achat du Groenland, et a annulé une visite au Danemark quand la Première ministre a qualifié l'idée d'« absurde »."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit : « Je connais les mots. J'ai les meilleurs mots » ?",
+        answer: "oui",
+        explanation: "Déclaration faite en décembre 2015 : « I know words. I have the best words. »"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il affirmé que « l'exercice physique vide la batterie du corps et raccourcit la vie » ?",
+        answer: "oui",
+        explanation: "Il a partagé cette théorie à plusieurs reprises, comparant le corps humain à une batterie avec une énergie finie."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit : « J'aurais pu éviter la Guerre de Sécession en négociant un deal » ?",
+        answer: "oui",
+        explanation: "En mai 2017, il a déclaré que si Andrew Jackson avait été président un peu plus tard, il aurait pu empêcher la guerre civile et s'est demandé « pourquoi personne n'a négocié »."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il déclaré : « Le Canada fait partie des États-Unis, ils ne le savent juste pas encore » ?",
+        answer: "non",
+        explanation: "Faux ! Bien qu'il ait fait des blagues sur le Canada comme « 51e État », il n'a jamais prononcé cette phrase exacte."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il affirmé avoir vu « des milliers de musulmans célébrer le 11 septembre à Jersey City » ?",
+        answer: "oui",
+        explanation: "Il l'a affirmé en novembre 2015. Aucune preuve vidéo ou journalistique n'a jamais confirmé cette affirmation."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit : « Covfefe » dans un tweet et affirmé ensuite que c'était un message codé volontaire ?",
+        answer: "oui",
+        explanation: "Après son tweet « covfefe » de mai 2017, Sean Spicer a déclaré que le président et un petit groupe de personnes savaient exactement ce que cela signifiait."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il déclaré que « Frédéric Douglass fait un travail formidable » en parlant au présent d'un homme mort en 1895 ?",
+        answer: "oui",
+        explanation: "En février 2017, il a dit : « Frederick Douglass is an example of somebody who's done an amazing job and is being recognized more and more », comme s'il était encore vivant."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit : « Mon QI est l'un des plus élevés, et vous le savez tous » ?",
+        answer: "oui",
+        explanation: "Il a tweeté en 2013 : « Sorry losers and haters, but my I.Q. is one of the highest - and you all know it! »"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il affirmé que « la Lune fait partie de Mars » ?",
+        answer: "oui",
+        explanation: "En juin 2019, il a tweeté : « For all of the money we are spending, NASA should NOT be talking about going to the Moon - We did that 50 years ago. They should be focused on the much bigger things we are doing, including Mars (of which the Moon is a part). »"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit : « J'ai construit la plus grande entreprise de crêpes du monde » ?",
+        answer: "non",
+        explanation: "Faux ! Trump n'a jamais fait cette déclaration. C'est une pure invention."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dessiné au marqueur une extension d'un ouragan sur une carte météo officielle pour prouver qu'il avait raison ?",
+        answer: "oui",
+        explanation: "En septembre 2019, lors du « Sharpiegate », il a montré une carte NOAA de l'ouragan Dorian modifiée au marqueur pour inclure l'Alabama, qu'il avait à tort mentionné comme menacé."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit qu'il « s'entend très bien avec Kim Jong-un » et qu'ils « sont tombés amoureux » ?",
+        answer: "oui",
+        explanation: "Lors d'un meeting en septembre 2018, il a déclaré : « We fell in love » en parlant de sa relation avec le dictateur nord-coréen."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il affirmé avoir « inventé le mot fake » ?",
+        answer: "oui",
+        explanation: "En octobre 2017, lors d'une interview avec Mike Huckabee, il a dit : « I think one of the greatest of all terms I've come up with is 'fake' ». Le mot existe depuis le 18e siècle."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il déclaré que « Napoléon Bonaparte était français et n'a jamais perdu une bataille » ?",
+        answer: "non",
+        explanation: "Faux ! Trump n'a jamais fait cette déclaration. Napoléon a d'ailleurs perdu plusieurs batailles, dont Waterloo."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il regardé directement une éclipse solaire sans lunettes de protection ?",
+        answer: "oui",
+        explanation: "Le 21 août 2017, malgré les avertissements des experts, Trump a été photographié regardant directement l'éclipse solaire sans protection, avant qu'un assistant ne lui donne des lunettes."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il vraiment posté cette photo de lui en Rocky Balboa torse nu ?",
+        answer: "oui",
+        explanation: "En novembre 2019, il a tweeté un montage de sa tête sur le corps musclé de Rocky Balboa, sans aucun commentaire."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il vraiment fait un câlin au drapeau américain sur scène ?",
+        answer: "oui",
+        explanation: "Il l'a fait à de nombreuses reprises lors de meetings et à la conférence CPAC, embrassant et serrant le drapeau américain dans ses bras."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il vraiment servi des hamburgers McDonald's lors d'un dîner officiel à la Maison Blanche ?",
+        answer: "oui",
+        explanation: "En janvier 2019, lors du shutdown, il a offert un banquet de fast-food (McDonald's, Burger King, Wendy's, Domino's) à l'équipe de football de Clemson."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Cette photo de Trump tenant une Bible devant une église a-t-elle été prise après avoir fait disperser des manifestants avec des gaz lacrymogènes ?",
+        answer: "oui",
+        explanation: "Le 1er juin 2020, la police a dispersé des manifestants pacifiques avec des gaz lacrymogènes devant l'église St. John à Washington pour que Trump puisse poser avec une Bible."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il vraiment jeté des rouleaux d'essuie-tout sur des sinistrés à Porto Rico ?",
+        answer: "oui",
+        explanation: "En octobre 2017, après l'ouragan Maria, Trump a lancé des rouleaux de papier essuie-tout dans la foule des sinistrés comme des ballons de basket."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il déclaré : « Je suis le président le moins raciste de l'histoire » ?",
+        answer: "oui",
+        explanation: "Il l'a affirmé à plusieurs reprises, notamment en juillet 2019 : « I am the least racist person there is anywhere in the world. »"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit que « la presse est l'ennemi du peuple américain » ?",
+        answer: "oui",
+        explanation: "En février 2017, il a tweeté : « The FAKE NEWS media is not my enemy, it is the enemy of the American People! »"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il affirmé que « les toilettes modernes nécessitent 15 tirages de chasse » ?",
+        answer: "oui",
+        explanation: "En décembre 2019, il s'est plaint : « People are flushing toilets 10 times, 15 times, as opposed to once » pour critiquer les réglementations environnementales."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il poussé le Premier ministre du Monténégro lors d'un sommet de l'OTAN pour se mettre devant ?",
+        answer: "oui",
+        explanation: "En mai 2017, lors du sommet de l'OTAN à Bruxelles, Trump a écarté le Premier ministre Duško Marković pour se placer au premier rang des dirigeants."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit que « le vent tue toutes les oiseaux » en parlant des éoliennes ?",
+        answer: "oui",
+        explanation: "Il a déclaré en décembre 2019 : « I never understood wind. They're manufactured tremendous — if you're into this — tremendous fumes. Gases. They kill all the birds. »"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il prétendu que sa cérémonie d'investiture en 2017 avait attiré plus de monde que celle d'Obama ?",
+        answer: "oui",
+        explanation: "Malgré des photos aériennes montrant clairement une foule plus petite, Trump et son attaché de presse Sean Spicer ont affirmé que c'était « la plus grande audience d'investiture, point final »."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit : « Je suis un très bon joueur de golf. Probablement le meilleur de tous les présidents » ?",
+        answer: "oui",
+        explanation: "Il s'est vanté de ses talents de golfeur à de multiples reprises et a affirmé avoir gagné plusieurs tournois dans ses propres clubs de golf."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il affirmé que « George Washington aurait dû mieux protéger ses aéroports » pendant la guerre d'Indépendance ?",
+        answer: "oui",
+        explanation: "Lors du discours du 4 juillet 2019, il a déclaré que l'armée continentale avait « pris le contrôle des aéroports » pendant la guerre de 1775. Les avions n'ont été inventés qu'en 1903."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit : « Je pourrais être le meilleur président que Dieu ait jamais créé » ?",
+        answer: "non",
+        explanation: "Faux ! Bien qu'il se soit souvent qualifié de meilleur président, il n'a jamais utilisé cette formulation exacte impliquant Dieu."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il utilisé un faux billet de 1 million de dollars à son effigie comme cadeau lors de meetings ?",
+        answer: "non",
+        explanation: "Faux ! Des supporters ont créé de faux billets, mais Trump ne les a jamais distribués lui-même."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il fait vendre des baskets dorées à son effigie à 399$ la paire ?",
+        answer: "oui",
+        explanation: "En février 2024, lors de la Sneaker Con, Trump a lancé ses « Trump Gold Sneakers » à 399$, qui se sont vendues en quelques heures."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il vendu des NFT de lui-même déguisé en super-héros, cowboy et astronaute ?",
+        answer: "oui",
+        explanation: "En décembre 2022, il a lancé sa collection de « Trump Digital Trading Cards » à 99$ chacune, le montrant dans des poses héroïques diverses."
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il dit que « Tim Cook est un grand dirigeant d'entreprise parce qu'il m'appelle quand il a un problème » ?",
+        answer: "oui",
+        explanation: "En août 2019, il a déclaré : « I had a very good meeting with Tim Cook. He's become a friend of mine... He calls me whenever there's a problem. »"
+    },
+    {
+        category: "trump",
+        type: "yesno",
+        question: "Trump a-t-il appelé Tim Cook « Tim Apple » en public ?",
+        answer: "oui",
+        explanation: "En mars 2019, lors d'une réunion du conseil consultatif, il a appelé le PDG d'Apple « Tim Apple ». Il a ensuite prétendu que c'était pour « gagner du temps »."
     }
 ];

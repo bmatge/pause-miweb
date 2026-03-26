@@ -97,7 +97,8 @@
         "celebrites": { icon: "⭐", label: "Célébrités", cssClass: "cat-celebrites" },
         "geek":       { icon: "🎮", label: "Geek", cssClass: "cat-geek" },
         "science":    { icon: "🔬", label: "Science", cssClass: "cat-science" },
-        "histoire":   { icon: "📜", label: "Histoire", cssClass: "cat-histoire" }
+        "histoire":   { icon: "📜", label: "Histoire", cssClass: "cat-histoire" },
+        "trump":      { icon: "🍊", label: "Trump", cssClass: "cat-trump" }
     };
 
     // ═══════════════════════════════════════
@@ -123,6 +124,8 @@
     const playerTurnName = $("#player-turn-name");
     const questionArea = $("#question-area");
     const questionCategory = $("#question-category");
+    const questionImageContainer = $("#question-image-container");
+    const questionImage = $("#question-image");
     const questionText = $("#question-text");
     const questionHint = $("#question-hint");
     const mcqAnswers = $("#mcq-answers");
@@ -343,6 +346,8 @@
 
     function resetQuestionArea() {
         questionArea.classList.add("hidden");
+        questionImageContainer.classList.add("hidden");
+        questionImage.src = "";
         resultArea.classList.add("hidden");
         mcqAnswers.classList.add("hidden");
         freeAnswer.classList.add("hidden");
@@ -364,6 +369,15 @@
         roundCounter.textContent = `Question ${state.questionCount}`;
         questionCategory.textContent = `${catInfo.icon} ${catInfo.label}`;
         questionCategory.className = `category-badge ${catInfo.cssClass}`;
+        // Display image if present
+        if (q.image) {
+            questionImage.src = q.image;
+            questionImageContainer.classList.remove("hidden");
+        } else {
+            questionImageContainer.classList.add("hidden");
+            questionImage.src = "";
+        }
+
         questionText.textContent = q.question;
         questionHint.textContent = q.hint || "";
 
