@@ -30,6 +30,7 @@
     --cat-science: #55efc4;
     --cat-histoire: #fab1a0;
     --cat-trump: #ff7675;
+    --cat-anime-disney: #b787ff;
 }
 
 body {
@@ -720,6 +721,7 @@ body {
 .category-badge.cat-science    { color: var(--cat-science);    background: rgba(85, 239, 196, 0.15); }
 .category-badge.cat-histoire   { color: var(--cat-histoire);   background: rgba(250, 177, 160, 0.15); }
 .category-badge.cat-trump      { color: var(--cat-trump);      background: rgba(255, 118, 117, 0.15); }
+.category-badge.cat-anime-disney { color: var(--cat-anime-disney); background: rgba(183, 135, 255, 0.15); }
 
 /* === Category icons (mask-based, inherit currentColor) === */
 .cat-casse-tete::before,
@@ -729,7 +731,8 @@ body {
 .cat-geek::before,
 .cat-science::before,
 .cat-histoire::before,
-.cat-trump::before {
+.cat-trump::before,
+.cat-anime-disney::before {
     content: "";
     display: inline-block;
     width: 1.1em;
@@ -783,4 +786,9 @@ body {
 .cat-trump::before {
     -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 11h3l11-6v14L6 13H3v-2Z'/><path d='M10 14v4a2 2 0 0 1-4 0v-3'/></svg>");
     mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 11h3l11-6v14L6 13H3v-2Z'/><path d='M10 14v4a2 2 0 0 1-4 0v-3'/></svg>");
+}
+
+.cat-anime-disney::before {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'><circle cx='12' cy='14' r='7'/><circle cx='5' cy='6' r='3.5'/><circle cx='19' cy='6' r='3.5'/></svg>");
+    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'><circle cx='12' cy='14' r='7'/><circle cx='5' cy='6' r='3.5'/><circle cx='19' cy='6' r='3.5'/></svg>");
 }

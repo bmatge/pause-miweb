@@ -2955,5 +2955,787 @@ const QUESTIONS_DB = [
         question: "Trump a-t-il dit : \"Autism — very sad — but it's because of shampoo. Nobody checks the shampoo.\" (L'autisme — très triste — mais c'est à cause du shampoing. Personne ne vérifie le shampoing.) ?",
         answer: "non",
         explanation: "Faux ! Citation inventée. Bien que Trump ait fait le lien entre vaccins et autisme (également faux), il n'a jamais mentionné le shampoing."
+    },
+
+    // ═══════════════════════════════════════
+    // 🐭 ANIME & DISNEY (des grands classiques Disney aux shonen modernes)
+    // ═══════════════════════════════════════
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Quelle est l'année de sortie du premier long-métrage d'animation Disney, Blanche-Neige et les Sept Nains ?",
+        options: ["1929", "1937", "1942", "1950"],
+        answer: 1,
+        explanation: "Sorti le 21 décembre 1937, c'est aussi le premier long-métrage d'animation en couleur et en son stéréo de l'histoire du cinéma américain."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Pinocchio (1940), comment s'appelle le grillon qui sert de conscience au pantin de bois ?",
+        options: ["Jiminy Cricket", "Timothy Mouse", "Figaro", "Gideon"],
+        answer: 0,
+        explanation: "Jiminy Cricket devient officiellement la « conscience » de Pinocchio dans le film ; il chante « When You Wish Upon a Star »."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Bambi (1942), comment s'appelle le lapin qui devient son meilleur ami ?",
+        options: ["Bugs", "Panpan", "Féline", "Fleur"],
+        answer: 1,
+        explanation: "Panpan (Thumper en VO) tape du pied en permanence. Fleur est la moufette, Féline est la biche amoureuse de Bambi."
+    },
+    {
+        category: "anime-disney",
+        type: "free",
+        question: "Dans La Petite Sirène (1989), comment s'appelle le petit poisson jaune et bleu, meilleur ami d'Ariel ?",
+        answers: ["polochon", "Polochon", "Flounder", "flounder"],
+        explanation: "Polochon en VF, Flounder en VO. Il accompagne Ariel dans toutes ses aventures sous-marines."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans La Belle au bois dormant (1959), comment s'appellent les trois bonnes fées ?",
+        options: ["Flora, Pâquerette, Pimprenelle", "Bella, Stella, Luna", "Rose, Marie, Violette", "Aurore, Éveil, Matin"],
+        answer: 0,
+        explanation: "Flora (rouge), Pâquerette (vert), Pimprenelle (bleu) offrent à Aurore les dons de beauté, de chant et de sommeil protecteur."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Quel est le vrai nom du capitaine Crochet dans Peter Pan (1953) ?",
+        options: ["James Hook", "Edward Teach", "Long John Silver", "Blackbeard Jones"],
+        answer: 0,
+        explanation: "Le capitaine Crochet (Hook en VO) se nomme James Bartholomew Hook. Il a perdu sa main droite, dévorée par un crocodile."
+    },
+    {
+        category: "anime-disney",
+        type: "yesno",
+        question: "Dans Dumbo (1941), la plume magique que l'éléphanteau tient dans sa trompe est réellement enchantée ?",
+        answer: "non",
+        explanation: "Faux ! La plume est un simple placebo donné par Timothée. Dumbo vole grâce à ses grandes oreilles — la plume le rassure, c'est tout."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Les 101 Dalmatiens (1961), combien de chiots Pongo et Perdita ont-ils eux-mêmes (avant de recueillir les autres) ?",
+        options: ["7", "12", "15", "21"],
+        answer: 2,
+        explanation: "Perdita donne naissance à 15 chiots. Avec les 84 dalmatiens rachetés à Cruella, cela fait un total de 99 chiots + les 2 parents = 101."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Le Livre de la Jungle (1967), quel animal est Baloo ?",
+        options: ["Un tigre", "Un ours", "Une panthère", "Un loup"],
+        answer: 1,
+        explanation: "Baloo est un ours paresseux qui enseigne à Mowgli la philosophie du « il en faut peu pour être heureux »."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Les Aristochats (1970), comment s'appelle la chatte blanche, mère de la famille ?",
+        options: ["Duchesse", "Marie", "Félicie", "Blanche"],
+        answer: 0,
+        explanation: "Duchesse est la mère. Marie, Toulouse et Berlioz sont ses trois chatons. Thomas O'Malley est le matou de gouttière qui les sauve."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Robin des Bois (1973) version Disney, quel animal incarne le prince Jean ?",
+        options: ["Un renard", "Un loup", "Un lion", "Un ours"],
+        answer: 2,
+        explanation: "Le prince Jean est un lion (pouce qu'il suce) ; Robin des Bois est un renard ; le shérif de Nottingham, un loup."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans La Belle et la Bête (1991), quel objet enchanté est devenu l'horloge nommée « Big Ben » en VF ?",
+        options: ["Une pendule de grand-père", "Une théière", "Un chandelier", "Une armoire"],
+        answer: 0,
+        explanation: "Big Ben (Cogsworth en VO) est la pendule strictement réglée. Lumière est le chandelier, Mrs Samovar la théière, Zip la petite tasse."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Aladdin (1992), quel est le nom du tigre de Jasmine ?",
+        options: ["Shere Khan", "Rajah", "Tigger", "Simba"],
+        answer: 1,
+        explanation: "Rajah protège farouchement Jasmine. Il accueille Aladdin à coups de crocs lors de leur première rencontre."
+    },
+    {
+        category: "anime-disney",
+        type: "free",
+        question: "Dans Le Roi Lion (1994), comment s'appelle le roi, père de Simba ?",
+        answers: ["Mufasa", "mufasa"],
+        explanation: "Mufasa est tué par son propre frère Scar, qui le fait tomber dans un troupeau de gnous en faisant croire à Simba que c'est de sa faute."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Mulan (1998), quel est le nom du petit dragon rouge qui accompagne l'héroïne ?",
+        options: ["Mushu", "Cri-Kee", "Shang", "Ling"],
+        answer: 0,
+        explanation: "Mushu est un dragon miniature envoyé par les ancêtres par erreur. Cri-Kee est le grillon porte-bonheur."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Hercule (1997), combien y a-t-il de Muses qui racontent l'histoire en chantant ?",
+        options: ["3", "5", "7", "9"],
+        answer: 1,
+        explanation: "Les cinq Muses (Calliope, Clio, Melpomène, Terpsichore, Thalie) servent de chœur gospel tout au long du film."
+    },
+    {
+        category: "anime-disney",
+        type: "yesno",
+        question: "Pocahontas est basé sur un personnage historique réel ?",
+        answer: "oui",
+        explanation: "Vrai : Pocahontas (v. 1596-1617) était fille d'un chef amérindien Powhatan. Disney a très largement romancé sa relation avec John Smith."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Lilo & Stitch (2002), quel est le numéro d'expérience de Stitch ?",
+        options: ["624", "625", "626", "627"],
+        answer: 2,
+        explanation: "Stitch est officiellement l'Expérience 626, une créature génétiquement conçue pour détruire — mais qu'Ohana va transformer."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans La Reine des Neiges (Frozen, 2013), comment s'appelle la sœur cadette d'Elsa ?",
+        options: ["Anna", "Ariel", "Aurore", "Alice"],
+        answer: 0,
+        explanation: "Anna part à la recherche d'Elsa quand celle-ci fuit après avoir révélé ses pouvoirs glacés."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Raiponce (2010), quelle est la longueur approximative de ses cheveux magiques ?",
+        options: ["7 mètres", "14 mètres", "21 mètres", "30 mètres"],
+        answer: 2,
+        explanation: "Les cheveux de Raiponce mesurent environ 21 mètres (70 pieds), tissés de magie solaire qui guérit et rajeunit."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Zootopie (2016), quelle espèce animale est l'héroïne Judy Hopps ?",
+        options: ["Une renarde", "Une lapine", "Une écureuille", "Une souris"],
+        answer: 1,
+        explanation: "Judy Hopps est la première lapine officier de police de Zootopie. Elle fait équipe avec Nick Wilde, un renard arnaqueur."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Vaiana (Moana, 2016), quel demi-dieu polynésien accompagne l'héroïne ?",
+        options: ["Tangaroa", "Maui", "Pele", "Hei Hei"],
+        answer: 1,
+        explanation: "Maui, le demi-dieu tatoué, a volé le cœur de Te Fiti. Hei Hei est le coq stupide embarqué par accident."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Encanto (2021), quel est le seul membre de la famille Madrigal sans pouvoir magique ?",
+        options: ["Isabela", "Luisa", "Mirabel", "Dolores"],
+        answer: 2,
+        explanation: "Mirabel est la seule sans don à son cinquième anniversaire. C'est précisément ce qui la rend centrale pour sauver la maison magique."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Wish : Asha et la bonne étoile (2023), dans quel royaume se déroule l'histoire ?",
+        options: ["Rosas", "Corona", "Arendelle", "Far Far Away"],
+        answer: 0,
+        explanation: "Rosas est le royaume dirigé par le roi Magnifico, qui garde prisonniers les vœux de ses sujets."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Toy Story (1995), quel est le métier officiel du jouet Buzz l'Éclair ?",
+        options: ["Cow-boy de l'Ouest", "Ranger de l'espace", "Pilote de course", "Super-héros"],
+        answer: 1,
+        explanation: "Buzz l'Éclair est un « Space Ranger » de la Star Command. Il ignore d'abord qu'il est un jouet et se croit réellement en mission."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Quel est le tout premier long-métrage sorti par les studios Pixar ?",
+        options: ["1001 pattes", "Toy Story", "Monstres & Cie", "Le Monde de Nemo"],
+        answer: 1,
+        explanation: "Toy Story (1995) est à la fois le premier Pixar et le premier long-métrage entièrement généré en images de synthèse de l'histoire."
+    },
+    {
+        category: "anime-disney",
+        type: "free",
+        question: "Dans Monstres & Cie (2001), comment s'appelle la petite fille humaine (VF) ?",
+        answers: ["Bouh", "bouh", "Boo", "boo"],
+        explanation: "« Bouh » (Boo en VO), en réalité Mary, se glisse à Monstropolis via sa porte de placard et bouleverse la vie de Sulli et Bob."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Le Monde de Nemo (2003), quel type de poisson est Nemo ?",
+        options: ["Poisson-clown", "Poisson-chirurgien", "Poisson-ange", "Poisson-rouge"],
+        answer: 0,
+        explanation: "Nemo et son père Marin sont des poissons-clowns (Amphiprion ocellaris). Dory est, elle, un chirurgien à queue jaune (Paracanthurus hepatus)."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Les Indestructibles (2004), quels sont les super-pouvoirs de Violette, la fille aînée ?",
+        options: ["Super force et vol", "Super vitesse", "Élasticité", "Invisibilité et champs de force"],
+        answer: 3,
+        explanation: "Violette peut devenir invisible et créer des boucliers énergétiques. Flèche court à toute vitesse, Jack-Jack a des pouvoirs multiples."
+    },
+    {
+        category: "anime-disney",
+        type: "free",
+        question: "Dans Ratatouille (2007), comment s'appelle le rat qui rêve de devenir chef cuisinier ?",
+        answers: ["Rémy", "Remy", "rémy", "remy"],
+        explanation: "Rémy dirige les mains de Linguini depuis sa toque pour cuisiner dans le restaurant du défunt chef Gusteau."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans WALL-E (2008), comment s'appelle le gigantesque vaisseau sur lequel vivent les humains ?",
+        options: ["Axiom", "Nostromo", "Icarus", "Prometheus"],
+        answer: 0,
+        explanation: "L'Axiom, appartenant à la corporation Buy n Large, héberge les humains obèses et sédentaires pendant que la Terre se régénère."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Là-Haut (2009), quel oiseau exotique géant et coloré Russell adopte-t-il ?",
+        options: ["Un toucan nommé Toto", "Un oiseau nommé Kevin", "Un phénix nommé Phoenix", "Un paon nommé Paulo"],
+        answer: 1,
+        explanation: "Kevin s'avère en fait être une femelle qui cherche à retrouver ses petits. Dug, le chien parlant, reste la mascotte comique du film."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Vice-Versa (Inside Out, 2015), combien d'émotions principales guident Riley dans le premier film ?",
+        options: ["4", "5", "6", "7"],
+        answer: 1,
+        explanation: "Joie, Tristesse, Colère, Peur et Dégoût. Le deuxième opus en ajoute quatre nouvelles liées à l'adolescence (Anxiété, Envie, Ennui, Embarras)."
+    },
+    {
+        category: "anime-disney",
+        type: "free",
+        question: "Dans Coco (2017), quel instrument de musique joue le jeune Miguel ?",
+        answers: ["guitare", "la guitare", "Guitare", "une guitare"],
+        explanation: "Miguel rêve de devenir musicien comme son idole Ernesto de la Cruz. Sa guitare en forme de crâne l'emmène au Pays des Morts."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Soul (2020), quel instrument joue Joe Gardner ?",
+        options: ["Saxophone", "Trompette", "Piano", "Batterie"],
+        answer: 2,
+        explanation: "Joe est pianiste de jazz. Il tombe dans un trou juste avant son grand concert et doit naviguer entre le Grand Avant et le Grand Après."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Luca (2021), dans quel pays se déroule l'histoire ?",
+        options: ["Espagne", "Italie", "Grèce", "Portugal"],
+        answer: 1,
+        explanation: "L'action se passe dans le village fictif de Portorosso, sur la côte ligurienne italienne, inspiré des Cinque Terre."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Alerte Rouge (Turning Red, 2022), en quel animal Mei Lee se transforme-t-elle sous le coup de l'émotion ?",
+        options: ["Un tigre rouge", "Un panda roux géant", "Un renard roux", "Un raton laveur"],
+        answer: 1,
+        explanation: "La transformation en panda roux est un don familial hérité de son ancêtre Sun Yee, déclenché par les émotions fortes."
+    },
+    {
+        category: "anime-disney",
+        type: "yesno",
+        question: "Dans Cars (2006), aucun être humain n'apparaît de tout le film ?",
+        answer: "oui",
+        explanation: "Vrai : le monde de Cars est entièrement peuplé de véhicules anthropomorphes — pas un seul humain, pas même à l'arrière-plan."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans 1001 pattes (A Bug's Life, 1998), quel insecte est le héros Tilt ?",
+        options: ["Un criquet", "Une coccinelle", "Une fourmi", "Une mante religieuse"],
+        answer: 2,
+        explanation: "Tilt est une fourmi ouvrière inventeuse. Il part recruter des « guerriers » pour défendre la colonie contre les sauterelles de Le Borgne."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Vaiana (2016), quel animal de basse-cour embarque par erreur avec l'héroïne ?",
+        options: ["Un cochon nommé Pua", "Un coq nommé Hei Hei", "Un chien nommé Poï", "Une chèvre nommée Lei"],
+        answer: 1,
+        explanation: "Hei Hei, le coq aussi adorable qu'idiot, monte à bord par accident. Pua le cochon, lui, reste sur l'île de Motunui."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Le Roi Lion, comment s'appellent le suricate et le phacochère amis de Simba ?",
+        options: ["Timon et Pumbaa", "Rafiki et Zazu", "Scar et Sarabi", "Ed et Banzai"],
+        answer: 0,
+        explanation: "Timon (suricate) et Pumbaa (phacochère) enseignent à Simba le « Hakuna Matata » — pas de soucis. Ed et Banzai sont deux des hyènes."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans La Belle et la Bête, quelle fleur enchantée mesure le temps qui reste à la Bête pour briser le sortilège ?",
+        options: ["Un lys", "Une rose", "Une tulipe", "Une orchidée"],
+        answer: 1,
+        explanation: "Si le dernier pétale de la rose tombe avant que la Bête n'apprenne à aimer et à être aimée, le sortilège devient irréversible."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Quel est le titre original (japonais) du manga connu en France sous le nom de Nicky Larson ?",
+        options: ["Dragon Ball", "City Hunter", "Hokuto no Ken", "Lupin III"],
+        answer: 1,
+        explanation: "City Hunter (シティーハンター, 1985-1991) de Tsukasa Hōjō. Le héros Ryo Saeba a été rebaptisé « Nicky Larson » pour l'adaptation française."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Goldorak, comment s'appelle le pilote du robot géant ?",
+        options: ["Alcor", "Actarus", "Vega", "Procyon"],
+        answer: 1,
+        explanation: "Actarus, prince d'Euphor réfugié sur Terre, pilote Goldorak. Alcor (Koji en VO) est son fidèle ami, pilote du Soucoupoïde."
+    },
+    {
+        category: "anime-disney",
+        type: "free",
+        question: "Dans Heidi, comment s'appelle l'ami chevrier d'Heidi dans la montagne ?",
+        answers: ["Pierre", "pierre", "Peter", "peter"],
+        explanation: "Pierre (Peter en VO) garde les chèvres du village. Il est amoureux d'Heidi et jaloux de Clara dans la série Nippon Animation de 1974."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Combien y a-t-il de Dragon Balls (boules de cristal) à rassembler dans le manga d'Akira Toriyama ?",
+        options: ["5", "6", "7", "8"],
+        answer: 2,
+        explanation: "Les sept boules, ornées de 1 à 7 étoiles, permettent d'invoquer le dragon Shenron pour obtenir un vœu."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Saint Seiya (Les Chevaliers du Zodiaque), quel chevalier porte l'armure de bronze de Pégase ?",
+        options: ["Shiryu", "Hyoga", "Seiya", "Ikki"],
+        answer: 2,
+        explanation: "Seiya porte Pégase, Shiryu le Dragon, Hyoga le Cygne, Shun Andromède, Ikki le Phénix — les cinq chevaliers de bronze."
+    },
+    {
+        category: "anime-disney",
+        type: "free",
+        question: "Quel est le vrai prénom japonais du héros connu en France sous le nom d'Olive (Captain Tsubasa) ?",
+        answers: ["Tsubasa", "tsubasa", "Tsubasa Ozora", "Ozora Tsubasa"],
+        explanation: "Tsubasa Ozora devient « Olivier Atton » en VF. Son ami Taro Misaki devient « Thomas Price » — le célèbre duo Olive et Tom."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Sailor Moon, quel est le nom du chat noir parlant qui guide Usagi ?",
+        options: ["Artémis", "Luna", "Diana", "Phobos"],
+        answer: 1,
+        explanation: "Luna (noire) accompagne Usagi / Sailor Moon ; Artémis (blanc) accompagne Minako / Sailor Venus. Diana est leur fille venue du futur."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Cowboy Bebop, comment s'appelle le vaisseau de l'équipage de chasseurs de primes ?",
+        options: ["Le Bebop", "Le Swordfish", "Le Nostromo", "L'Outlaw Star"],
+        answer: 0,
+        explanation: "Le Bebop est le vaisseau-mère, piloté par Jet Black. Le Swordfish II est le vaisseau de combat personnel de Spike Spiegel."
+    },
+    {
+        category: "anime-disney",
+        type: "free",
+        question: "Dans Neon Genesis Evangelion, quel est le prénom du pilote de l'Unité 01 ?",
+        answers: ["Shinji", "shinji", "Shinji Ikari", "Ikari Shinji"],
+        explanation: "Shinji Ikari, 14 ans, est le fils du commandant Gendō Ikari. Il pilote l'EVA-01, qui héberge l'âme de sa mère Yui."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Le film Akira (1988) de Katsuhiro Ōtomo se déroule dans quelle ville ?",
+        options: ["Tokyo", "Neo-Tokyo", "Osaka", "Kyoto"],
+        answer: 1,
+        explanation: "Neo-Tokyo, en 2019, reconstruite après une explosion apocalyptique en 1988. Le film est une référence absolue du cyberpunk japonais."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Quelle est la protagoniste du manga/anime Ghost in the Shell ?",
+        options: ["Rei Ayanami", "Motoko Kusanagi", "Asuka Langley", "Misato Katsuragi"],
+        answer: 1,
+        explanation: "Le « Major » Motoko Kusanagi dirige la Section 9 de cybersécurité. Son corps est entièrement cybernétique, seul son cerveau est d'origine."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "En quelle année est sorti Mon Voisin Totoro de Hayao Miyazaki ?",
+        options: ["1984", "1988", "1992", "1997"],
+        answer: 1,
+        explanation: "Sorti en 1988, en double programme avec Le Tombeau des lucioles de Takahata. Totoro est devenu la mascotte officielle du Studio Ghibli."
+    },
+    {
+        category: "anime-disney",
+        type: "free",
+        question: "Dans Le Voyage de Chihiro, en quel animal les parents de Chihiro sont-ils transformés pour avoir mangé la nourriture des esprits ?",
+        answers: ["cochons", "cochon", "des cochons", "en cochons", "porcs"],
+        explanation: "Les parents deviennent des cochons voraces dans le restaurant du monde des esprits. Chihiro doit travailler pour Yubaba pour les sauver."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Princesse Mononoké, par quels animaux San, l'héroïne, a-t-elle été élevée ?",
+        options: ["Les loups", "Les sangliers", "Les cerfs", "Les singes"],
+        answer: 0,
+        explanation: "San a été recueillie par la déesse-louve Moro. Elle se considère elle-même comme une louve et déteste les humains qui détruisent la forêt."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Le Château ambulant (2004), comment s'appelle le jeune sorcier qui vit dans le château ?",
+        options: ["Calcifer", "Howl", "Markl", "Mustachios"],
+        answer: 1,
+        explanation: "Howl (Hauru en VO) est le sorcier beau et vaniteux. Calcifer est le démon-feu qui alimente et déplace le château ; Markl est son apprenti."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Kiki la petite sorcière (1989), quel est le nom du chat noir de Kiki ?",
+        options: ["Jiji", "Luna", "Totoro", "Mimi"],
+        answer: 0,
+        explanation: "Jiji est le familier insolent de Kiki. Quand Kiki perd ses pouvoirs, elle ne peut plus le comprendre — il redevient un simple chat."
+    },
+    {
+        category: "anime-disney",
+        type: "yesno",
+        question: "Hayao Miyazaki est l'un des co-fondateurs du Studio Ghibli ?",
+        answer: "oui",
+        explanation: "Vrai : Miyazaki fonde Ghibli en juin 1985 avec Isao Takahata et le producteur Toshio Suzuki, grâce au succès de Nausicaä."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Nausicaä de la vallée du vent (1984), quel est le nom de la vallée où vit l'héroïne ?",
+        options: ["La Vallée du Vent", "La Vallée du Soleil", "La Vallée des Brumes", "La Vallée Sainte"],
+        answer: 0,
+        explanation: "La Vallée du Vent est protégée des spores toxiques de la Mer de la Décomposition par les vents marins qui la balayent en permanence."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Le Château dans le ciel, quel est le nom de l'île céleste légendaire que cherchent les héros ?",
+        options: ["Atlantis", "Laputa", "Avalon", "Valinor"],
+        answer: 1,
+        explanation: "Laputa, ancienne cité volante issue d'une civilisation disparue, est maintenue en l'air par un énorme cristal de lévitation (volucite)."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Porco Rosso (1992), en quel animal le pilote héros a-t-il été transformé par une malédiction ?",
+        options: ["Un chien", "Un cochon", "Un ours", "Un renard"],
+        answer: 1,
+        explanation: "L'ancien as de la chasse italienne Marco Pagot est devenu un cochon anthropomorphe — cochon rouge / « Porco Rosso »."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Naruto, quel est le nom du village caché dans lequel vit le héros ?",
+        options: ["Suna", "Konoha", "Kiri", "Kumo"],
+        answer: 1,
+        explanation: "Konohagakure (« Village caché des Feuilles ») est dirigé par le Hokage. Les quatre autres grands villages sont Suna, Kiri, Kumo et Iwa."
+    },
+    {
+        category: "anime-disney",
+        type: "free",
+        question: "Dans One Piece, comment s'appelle le capitaine de l'équipage au Chapeau de paille ?",
+        answers: ["Luffy", "luffy", "Monkey D. Luffy", "Monkey D Luffy", "Monkey D. Luffy"],
+        explanation: "Monkey D. Luffy, au corps élastique après avoir mangé le fruit du Gomu Gomu, rêve de devenir le Roi des Pirates."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans One Piece, comment s'appelle le trésor légendaire que recherchent tous les pirates ?",
+        options: ["Le Grand Line", "Le One Piece", "Le Gold Roger", "Le Fruit du Démon"],
+        answer: 1,
+        explanation: "Le « One Piece » est le trésor ultime laissé par Gol D. Roger à Raftel. Grand Line est la route dangereuse qui y mène."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Bleach, comment s'appelle le héros aux cheveux orange qui devient shinigami ?",
+        options: ["Naruto Uzumaki", "Ichigo Kurosaki", "Luffy Monkey", "Natsu Dragnir"],
+        answer: 1,
+        explanation: "Ichigo Kurosaki reçoit les pouvoirs de Rukia Kuchiki et devient « Substitute Shinigami » pour protéger sa famille des Hollows."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Fullmetal Alchemist, comment s'appelle le frère cadet d'Edward Elric, enfermé dans une armure ?",
+        options: ["Alphonse", "Roy", "Scar", "Ling"],
+        answer: 0,
+        explanation: "Alphonse (Al) a perdu son corps dans la transmutation ratée de leur mère. Son âme est scellée dans une armure de métal par Edward."
+    },
+    {
+        category: "anime-disney",
+        type: "free",
+        question: "Dans Death Note, quel est le nom du shinigami qui fait tomber son cahier dans le monde des humains ?",
+        answers: ["Ryuk", "ryuk", "Ryuuk", "ryuuk"],
+        explanation: "Ryuk laisse tomber son Death Note par ennui. Light Yagami le ramasse et entame son règne de « Kira » ; seul Ryuk peut voir Light."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Hunter × Hunter, quel est le but principal de Gon au début de l'histoire ?",
+        options: ["Devenir roi des pirates", "Retrouver son père Ging", "Venger sa mère", "Devenir le plus fort"],
+        answer: 1,
+        explanation: "Gon Freecss passe l'examen de Hunter parce que son père Ging, qu'il n'a jamais connu, est un Hunter légendaire."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Code Geass, quel est l'alias masqué sous lequel agit le prince Lelouch vi Britannia ?",
+        options: ["Zero", "Suzaku", "C.C.", "Knightmare"],
+        answer: 0,
+        explanation: "Zero, le leader masqué des Chevaliers Noirs, utilise le pouvoir du Geass pour imposer ses ordres d'un simple regard."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans L'Attaque des Titans, comment s'appelle le héros principal ?",
+        options: ["Levi Ackerman", "Eren Jäger", "Armin Arlert", "Jean Kirschtein"],
+        answer: 1,
+        explanation: "Eren Jäger (ou Yeager) jure d'exterminer les titans après la mort de sa mère lors de la chute du Mur Maria."
+    },
+    {
+        category: "anime-disney",
+        type: "free",
+        question: "Dans L'Attaque des Titans, combien de murs concentriques protègent l'humanité au début de l'histoire ?",
+        answers: ["3", "trois", "3 murs", "trois murs"],
+        explanation: "Trois murs : Maria (extérieur), Rose (intermédiaire), Sina (central). Chacun porte le nom d'une déesse honi de leur mythologie."
+    },
+    {
+        category: "anime-disney",
+        type: "yesno",
+        question: "Dans Dragon Ball Z, Son Goku atteint-il le stade Super Saiyan pour la première fois lors de son combat contre Freezer ?",
+        answer: "oui",
+        explanation: "Vrai : sur Namek, déclenchée par la mort de Krillin tué par Freezer, la transformation fait de Goku le premier Super Saiyan depuis 1000 ans."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Demon Slayer (Kimetsu no Yaiba), comment s'appelle la sœur de Tanjiro, transformée en démone ?",
+        options: ["Kanao", "Nezuko", "Shinobu", "Mitsuri"],
+        answer: 1,
+        explanation: "Nezuko Kamado est l'unique survivante du massacre familial. Tanjiro devient pourfendeur pour trouver un moyen de la rendre humaine."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Quelle respiration Tanjiro utilise-t-il principalement au début de Demon Slayer ?",
+        options: ["Respiration du Feu", "Respiration de l'Eau", "Respiration de la Foudre", "Respiration du Vent"],
+        answer: 1,
+        explanation: "Tanjiro apprend la Respiration de l'Eau auprès d'Urokodaki, avant de découvrir plus tard sa vraie nature : la Respiration du Soleil (Hinokami)."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans My Hero Academia, quel est le surnom public du héros All Might ?",
+        options: ["Le Symbole de la Paix", "Le Héros Numéro 1 Absolu", "L'Homme le Plus Puissant", "Le Sauveur Ultime"],
+        answer: 0,
+        explanation: "All Might est connu comme « le Symbole de la Paix ». Son vrai nom est Toshinori Yagi ; il transmet One For All à Izuku Midoriya."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Jujutsu Kaisen, quel est le nom de l'enseignant surpuissant aux yeux bleus bandés ?",
+        options: ["Geto", "Gojo", "Nanami", "Sukuna"],
+        answer: 1,
+        explanation: "Satoru Gojo, considéré comme le plus fort du monde, possède les « Six Yeux » et la Technique sans Limite. Il bande ses yeux pour préserver son énergie."
+    },
+    {
+        category: "anime-disney",
+        type: "free",
+        question: "Dans Chainsaw Man, comment s'appelle le petit chien-démon qui fusionne avec Denji pour le sauver ?",
+        answers: ["Pochita", "pochita"],
+        explanation: "Pochita, le démon-tronçonneuse minuscule, devient le cœur de Denji. C'est pourquoi tirer la corde lui fait sortir une tronçonneuse de la tête."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Spy × Family, quel est le vrai métier de Loid Forger, le père de famille ?",
+        options: ["Médecin", "Espion", "Chef cuisinier", "Professeur"],
+        answer: 1,
+        explanation: "« Loid » est en réalité l'espion Twilight. Sa femme Yor est tueuse à gages, sa fille adoptive Anya est télépathe — aucun ne connaît les secrets des autres (sauf Anya)."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Frieren (Frieren : Au-delà de la fin du voyage), en quoi l'héroïne se distingue-t-elle de ses compagnons ?",
+        options: ["C'est une déesse", "C'est une elfe quasi immortelle", "C'est une démone", "C'est un ange"],
+        answer: 1,
+        explanation: "Frieren est une mage elfe à la durée de vie de plusieurs millénaires. Le récit suit sa reprise de conscience de l'importance des humains après la mort de son compagnon Himmel."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Oshi no Ko, quel est le métier d'Ai Hoshino au début de l'histoire ?",
+        options: ["Actrice de théâtre", "Idole de J-pop", "Mannequin", "Chanteuse d'opéra"],
+        answer: 1,
+        explanation: "Ai est l'idole montante du groupe B-Komachi. Elle cache sa grossesse à ses fans pour protéger sa carrière et sa vie."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Solo Leveling, comment s'appelle le chasseur faible qui devient progressivement le plus puissant ?",
+        options: ["Sung Jin-Woo", "Yoo Jin-Ho", "Cha Hae-In", "Goto Ryuji"],
+        answer: 0,
+        explanation: "Sung Jin-Woo, classé E, reçoit un système secret qui lui permet de monter en niveau — chose impossible pour les autres chasseurs."
+    },
+    {
+        category: "anime-disney",
+        type: "yesno",
+        question: "Le manga One Piece d'Eiichiro Oda a commencé sa publication en 1997 ?",
+        answer: "oui",
+        explanation: "Vrai : premier chapitre dans le Weekly Shōnen Jump du 22 juillet 1997. Il est encore en cours aujourd'hui — l'un des plus longs mangas de l'histoire."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Quel studio a animé l'adaptation télévisée de Demon Slayer (Kimetsu no Yaiba) ?",
+        options: ["MAPPA", "Studio Ghibli", "Ufotable", "Bones"],
+        answer: 2,
+        explanation: "Ufotable est célèbre pour ses décors peints et sa fusion 2D/3D, notamment spectaculaire sur l'arc du train Infini et celui des quartiers réservés."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Dan Da Dan, quels deux types de créatures surnaturelles s'affrontent dès le début ?",
+        options: ["Extraterrestres et yokai", "Zombies et fantômes", "Anges et démons", "Vampires et loups-garous"],
+        answer: 0,
+        explanation: "Momo croit aux fantômes, Okarun aux aliens. Leur pari les fait rencontrer chacun l'autre camp — et tous deux se retrouvent possédés."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Jujutsu Kaisen, quelle relique maudite Yuji Itadori ingère-t-il dès le premier épisode ?",
+        options: ["Un des doigts de Sukuna", "Un fruit du démon", "Une pierre magique", "Un sabre ancien"],
+        answer: 0,
+        explanation: "Yuji avale l'un des vingt doigts momifiés de Ryomen Sukuna pour sauver ses amis, devenant le réceptacle du Roi des Fléaux."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "En quelle année a commencé la publication du manga Akira de Katsuhiro Ōtomo ?",
+        options: ["1972", "1982", "1988", "1995"],
+        answer: 1,
+        explanation: "Akira paraît de décembre 1982 à 1990 dans le magazine Young Magazine. Ōtomo réalisera lui-même l'adaptation animée de 1988."
+    },
+    {
+        category: "anime-disney",
+        type: "yesno",
+        question: "Le Voyage de Chihiro a-t-il remporté l'Oscar du meilleur film d'animation ?",
+        answer: "oui",
+        explanation: "Vrai : Oscar en 2003. Il reste à ce jour le seul film d'animation non anglophone à avoir remporté cette récompense."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Made in Abyss, quel est le moteur principal du voyage de Riko et Reg dans le gouffre ?",
+        options: ["Un trésor légendaire", "Retrouver la mère de Riko", "Un artefact magique", "Un démon scellé"],
+        answer: 1,
+        explanation: "Riko descend dans l'Abîme pour retrouver sa mère Lyza, exploratrice légendaire dont le sifflet blanc est revenu à la surface."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Vinland Saga, à quel peuple et quelle époque l'histoire se rattache-t-elle principalement ?",
+        options: ["Samouraïs au Japon", "Vikings en Europe médiévale", "Spartiates en Grèce antique", "Mongols en Asie centrale"],
+        answer: 1,
+        explanation: "L'œuvre de Makoto Yukimura suit Thorfinn, Vikings d'Islande au XIᵉ siècle, inspiré des sagas historiques scandinaves."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Le Roi Lion, qui est le véritable responsable de la mort de Mufasa ?",
+        options: ["Simba, par accident", "Scar", "Les hyènes", "Un gnou"],
+        answer: 1,
+        explanation: "Scar, jaloux du trône, déclenche la débandade et jette Mufasa dans le vide. Il fait ensuite croire à Simba que c'est de sa faute pour l'exiler."
+    },
+    {
+        category: "anime-disney",
+        type: "free",
+        question: "Quelle est la célèbre devise que Buzz l'Éclair clame en levant le poing ?",
+        answers: ["Vers l'infini et au-delà", "Vers l'infini et au-delà !", "vers l'infini et au-delà", "Vers l'infini, et au-delà", "To infinity and beyond"],
+        explanation: "« Vers l'infini et au-delà ! » (« To infinity and beyond! ») — la devise officielle des Space Rangers de la Star Command."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Zootopie, quelle est l'espèce du compagnon arnaqueur de Judy, Nick Wilde ?",
+        options: ["Loup", "Coyote", "Renard roux", "Chacal"],
+        answer: 2,
+        explanation: "Nick est un renard roux, espèce stigmatisée comme « sournoise » à Zootopie. Leur duo contre-pieds le préjugé prédateur/proie."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Vice-Versa 2 (2024), quelle nouvelle émotion prend le pouvoir dans la tête de Riley à l'adolescence ?",
+        options: ["Jalousie", "Anxiété", "Honte", "Ennui"],
+        answer: 1,
+        explanation: "Anxiété devient le personnage central et antagoniste du film, aux côtés d'Ennui, Envie et Embarras — les nouvelles émotions pubertaires."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans La Reine des Neiges, quel est le nom du renne de Kristoff ?",
+        options: ["Olaf", "Sven", "Marshmallow", "Hans"],
+        answer: 1,
+        explanation: "Sven est le fidèle renne de Kristoff, auquel Kristoff prête régulièrement sa propre voix dans leurs dialogues imaginaires."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Quel est le numéro de course de Flash McQueen sur sa carrosserie dans Cars ?",
+        options: ["43", "51", "86", "95"],
+        answer: 3,
+        explanation: "Le « 95 » est une référence à 1995, année de sortie de Toy Story — le premier long-métrage Pixar."
+    },
+    {
+        category: "anime-disney",
+        type: "free",
+        question: "Dans Le Voyage de Chihiro, comment s'appelle le dragon blanc mystérieux qui l'aide ?",
+        answers: ["Haku", "haku", "Nigihayami Kohaku Nushi"],
+        explanation: "Haku est en réalité l'esprit de la rivière Kohaku, asservi par la sorcière Yubaba. Chihiro lui rend son vrai nom : Nigihayami Kohaku Nushi."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans Naruto, quel démon à queues est scellé à l'intérieur du héros depuis sa naissance ?",
+        options: ["Shukaku (1 queue)", "Kyubi (9 queues)", "Isobu (3 queues)", "Matatabi (2 queues)"],
+        answer: 1,
+        explanation: "Kurama, le renard à 9 queues (Kyubi), a été scellé dans Naruto nouveau-né par son père, le Quatrième Hokage Minato."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans My Hero Academia, quel est le nom du super-pouvoir qu'All Might transmet à Izuku Midoriya ?",
+        options: ["One For All", "All For One", "Full Cowling", "Plus Ultra"],
+        answer: 0,
+        explanation: "One For All, un Alter qui cumule la force de tous ses porteurs successifs, s'oppose à All For One, Alter de voler les Alters des autres."
+    },
+    {
+        category: "anime-disney",
+        type: "mcq",
+        question: "Dans L'Étrange Noël de Monsieur Jack (1993), quel est le nom du héros, roi des citrouilles de Halloween Town ?",
+        options: ["Jack Skellington", "Oogie Boogie", "Dr. Finkelstein", "Sally"],
+        answer: 0,
+        explanation: "Jack Skellington, squelette filiforme et roi des citrouilles, s'éprend de Noël. Sally est la poupée de chiffon amoureuse de lui ; Oogie Boogie est le méchant."
     }
 ];

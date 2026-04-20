@@ -91,7 +91,8 @@
         'geek': 'Geek',
         'science': 'Science',
         'histoire': 'Histoire',
-        'trump': 'Trump'
+        'trump': 'Trump',
+        'anime-disney': 'Anime & Disney'
     };
 
     socket.on('game:started', () => {

@@ -231,7 +231,7 @@ io.on('connection', (socket) => {
     socket.on('host:create', async (data, callback) => {
         const room = createRoom();
         room.createdAt = Date.now();
-        room.categories = data.categories || ['casse-tete', 'actualites', 'fakenews', 'celebrites', 'geek', 'science', 'histoire', 'trump'];
+        room.categories = data.categories || ['casse-tete', 'actualites', 'fakenews', 'celebrites', 'geek', 'science', 'histoire', 'trump', 'anime-disney'];
         room.questionCount = data.questionCount || 20;
         room.hostSocket = socket.id;
 

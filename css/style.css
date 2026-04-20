@@ -55,6 +55,7 @@
     --cat-science: #7dffc5;
     --cat-histoire: #ffb498;
     --cat-trump: #ff7a7a;
+    --cat-anime-disney: #b787ff;
 }
 
 body {
@@ -325,6 +326,7 @@ body::before {
 .cat-science    { color: var(--cat-science); }
 .cat-histoire   { color: var(--cat-histoire); }
 .cat-trump      { color: var(--cat-trump); }
+.cat-anime-disney { color: var(--cat-anime-disney); }
 
 .category-toggle input:checked + .cat-casse-tete { background: rgba(255, 138, 101, 0.15); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), 0 0 18px rgba(255, 138, 101, 0.25); }
 .category-toggle input:checked + .cat-actualites { background: rgba(75, 163, 255, 0.15);  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), 0 0 18px rgba(75, 163, 255, 0.25); }
@@ -334,6 +336,7 @@ body::before {
 .category-toggle input:checked + .cat-science    { background: rgba(125, 255, 197, 0.15); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), 0 0 18px rgba(125, 255, 197, 0.25); }
 .category-toggle input:checked + .cat-histoire   { background: rgba(255, 180, 152, 0.15); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), 0 0 18px rgba(255, 180, 152, 0.25); }
 .category-toggle input:checked + .cat-trump      { background: rgba(255, 122, 122, 0.15); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), 0 0 18px rgba(255, 122, 122, 0.25); }
+.category-toggle input:checked + .cat-anime-disney { background: rgba(183, 135, 255, 0.15); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), 0 0 18px rgba(183, 135, 255, 0.25); }
 
 /* === Buttons === */
 .btn {
@@ -1227,7 +1230,8 @@ body::before {
 .cat-geek::before,
 .cat-science::before,
 .cat-histoire::before,
-.cat-trump::before {
+.cat-trump::before,
+.cat-anime-disney::before {
     content: "";
     display: inline-block;
     width: 1.1em;
@@ -1281,4 +1285,9 @@ body::before {
 .cat-trump::before {
     -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 11h3l11-6v14L6 13H3v-2Z'/><path d='M10 14v4a2 2 0 0 1-4 0v-3'/></svg>");
     mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 11h3l11-6v14L6 13H3v-2Z'/><path d='M10 14v4a2 2 0 0 1-4 0v-3'/></svg>");
+}
+
+.cat-anime-disney::before {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'><circle cx='12' cy='14' r='7'/><circle cx='5' cy='6' r='3.5'/><circle cx='19' cy='6' r='3.5'/></svg>");
+    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'><circle cx='12' cy='14' r='7'/><circle cx='5' cy='6' r='3.5'/><circle cx='19' cy='6' r='3.5'/></svg>");
 }
