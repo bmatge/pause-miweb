@@ -26,6 +26,46 @@
     ];
 
     // ═══════════════════════════════════════
+    // Fun content (phrases, emojis)
+    // ═══════════════════════════════════════
+    const SUCCESS_EMOJIS = ["🎉", "🔥", "⚡", "💯", "🙌", "🚀", "✨", "💫", "🎯", "🌟", "🏆"];
+    const FAIL_EMOJIS    = ["😅", "😬", "🤦", "😭", "🙈", "💀", "😵‍💫", "😫", "🫠"];
+
+    const SUCCESS_PHRASES = [
+        "Bonne réponse !",
+        "Dans le mille !",
+        "Bien vu !",
+        "Pas mal du tout !",
+        "Tu gères !",
+        "Pile poil !",
+        "Imparable !",
+        "Top !",
+        "Ça c'est envoyé !",
+        "Bravo !",
+        "Nickel !"
+    ];
+
+    const FAIL_PHRASES = [
+        "Raté !",
+        "Aïe aïe aïe…",
+        "Oh non !",
+        "Ouille !",
+        "Dommage…",
+        "Pas cette fois !",
+        "Hmm, non.",
+        "Perdu !",
+        "Bien essayé…",
+        "Pas de chance !"
+    ];
+
+    const STREAK_PHRASES_3 = ["🔥 En feu !", "⚡ Imbattable !", "🚀 Déchaîné·e !", "💎 Tu brilles !"];
+    const STREAK_PHRASES_5 = ["🔥🔥 Inarrêtable !", "💥 LÉGENDAIRE !", "👑 Maître absolu !"];
+
+    const BURST_EMOJIS = ["🎉", "⭐", "✨", "💫", "🔥", "🎊", "💥", "🌟"];
+
+    const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+    // ═══════════════════════════════════════
     // Sound Effects (Web Audio API)
     // ═══════════════════════════════════════
     const AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -89,6 +129,64 @@
             osc2.start(now);
             osc2.stop(now + 0.4);
         } catch (e) { /* Audio not supported */ }
+    }
+
+    // ═══════════════════════════════════════
+    // Fun Effects (flash, burst, shake, toast)
+    // ═══════════════════════════════════════
+    function flashScreen(type) {
+        const el = document.createElement("div");
+        el.className = `flash-overlay flash-${type}`;
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 700);
+    }
+
+    function shakeScreenEl(el) {
+        el.classList.remove("screen-shake");
+        // Force reflow so the animation replays even on rapid retriggers
+        void el.offsetWidth;
+        el.classList.add("screen-shake");
+        setTimeout(() => el.classList.remove("screen-shake"), 600);
+    }
+
+    function launchEmojiBurst(origin, emojis, count = 12) {
+        const rect = origin.getBoundingClientRect();
+        if (rect.width === 0 && rect.height === 0) return;
+
+        const container = document.createElement("div");
+        container.className = "emoji-burst";
+        container.style.left = (rect.left + rect.width / 2) + "px";
+        container.style.top = (rect.top + rect.height / 2) + "px";
+        document.body.appendChild(container);
+
+        for (let i = 0; i < count; i++) {
+            const e = document.createElement("span");
+            e.className = "emoji-float";
+            e.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            // Upward cone with random spread
+            const angle = -Math.PI / 2 + (Math.random() - 0.5) * Math.PI * 0.95;
+            const distance = 90 + Math.random() * 160;
+            e.style.setProperty("--tx", Math.cos(angle) * distance + "px");
+            e.style.setProperty("--ty", Math.sin(angle) * distance + "px");
+            e.style.setProperty("--rot", (Math.random() - 0.5) * 120 + "deg");
+            e.style.animationDelay = (Math.random() * 0.25) + "s";
+            e.style.fontSize = (1.3 + Math.random() * 1.4) + "rem";
+            container.appendChild(e);
+        }
+
+        setTimeout(() => container.remove(), 2600);
+    }
+
+    function showToast(message, type = "info") {
+        const el = document.createElement("div");
+        el.className = `toast toast-${type}`;
+        el.textContent = message;
+        document.body.appendChild(el);
+        requestAnimationFrame(() => el.classList.add("visible"));
+        setTimeout(() => {
+            el.classList.remove("visible");
+            setTimeout(() => el.remove(), 400);
+        }, 2800);
     }
 
     const CATEGORY_INFO = {
@@ -276,7 +374,7 @@
         $$(".category-toggle input:checked").forEach(cb => cats.push(cb.value));
 
         if (cats.length === 0) {
-            alert("Sélectionnez au moins une catégorie !");
+            showToast("Sélectionnez au moins une catégorie !", "warning");
             return;
         }
 
@@ -286,6 +384,8 @@
             score: 0,
             correct: 0,
             total: 0,
+            streak: 0,
+            bestStreak: 0,
             color: PLAYER_COLORS[i % PLAYER_COLORS.length]
         }));
         state.currentPlayerIndex = 0;
@@ -525,37 +625,71 @@
         let points = 0;
         if (isCorrect) {
             player.correct++;
+            player.streak++;
+            if (player.streak > player.bestStreak) player.bestStreak = player.streak;
             points = question.type === "free" ? 3 : question.type === "yesno" ? 1 : 2;
             player.score += points;
+        } else {
+            player.streak = 0;
         }
 
+        // Sound + screen-wide feedback
         if (isCorrect) {
             playCorrectSound();
+            flashScreen("correct");
         } else {
             playWrongSound();
+            flashScreen("wrong");
+            shakeScreenEl(screenGame);
         }
 
-        resultIcon.textContent = isCorrect ? "🎉" : "😅";
-        resultText.textContent = isCorrect ? "Bonne réponse !" : "Mauvaise réponse !";
+        // Pick emoji + phrase (streak-aware on success)
+        let emoji, phrase;
+        if (isCorrect) {
+            emoji = pick(SUCCESS_EMOJIS);
+            if (player.streak >= 5)      phrase = pick(STREAK_PHRASES_5);
+            else if (player.streak >= 3) phrase = pick(STREAK_PHRASES_3);
+            else                         phrase = pick(SUCCESS_PHRASES);
+        } else {
+            emoji = pick(FAIL_EMOJIS);
+            phrase = pick(FAIL_PHRASES);
+        }
+
+        resultIcon.textContent = emoji;
+        resultText.textContent = phrase;
         resultText.className = `result-text ${isCorrect ? "correct" : "wrong"}`;
         resultExplanation.textContent = question.explanation || "";
 
         if (isCorrect) {
-            resultPoints.textContent = `+${points} point${points > 1 ? "s" : ""} !`;
-            if (points === 3) {
-                launchConfetti();
+            let pointsHTML = `+${points} point${points > 1 ? "s" : ""} !`;
+            if (player.streak >= 2) {
+                const fireCount = Math.min(player.streak - 1, 3);
+                const fire = "🔥".repeat(fireCount);
+                pointsHTML += ` <span class="streak-pill">${fire} combo x${player.streak}</span>`;
             }
+            resultPoints.innerHTML = pointsHTML;
+            resultPoints.style.color = "";
+        } else if (question.type === "free") {
+            resultPoints.textContent = `Réponse attendue : ${question.answers[0]}`;
+            resultPoints.style.color = "var(--gray)";
         } else {
             resultPoints.textContent = "";
-            if (question.type === "free") {
-                resultPoints.textContent = `Réponse attendue : ${question.answers[0]}`;
-                resultPoints.style.color = "var(--gray)";
-            }
+            resultPoints.style.color = "";
         }
 
         resultArea.classList.remove("hidden");
         btnNext.classList.remove("hidden");
         renderScoreBar();
+
+        // Deferred: emoji burst + confetti after layout
+        if (isCorrect) {
+            requestAnimationFrame(() => {
+                launchEmojiBurst(resultArea, BURST_EMOJIS, 14);
+                if (points === 3 || player.streak >= 5) {
+                    launchConfetti();
+                }
+            });
+        }
 
         // Animate score pill
         const pill = $(`#score-pill-${state.currentPlayerIndex}`);
@@ -601,6 +735,9 @@
                 ? Math.round((player.correct / player.total) * 100)
                 : 0;
             const medal = rank === 0 ? "🥇" : rank === 1 ? "🥈" : rank === 2 ? "🥉" : "";
+            const streakInfo = player.bestStreak >= 2
+                ? ` · meilleure série 🔥&nbsp;x${player.bestStreak}`
+                : "";
 
             return `
                 <div class="final-score-card rank-${rank + 1}" style="animation-delay: ${rank * 0.15}s">
@@ -608,7 +745,7 @@
                     <span class="final-avatar" style="background:${player.color}">${player.name.charAt(0).toUpperCase()}</span>
                     <div class="final-info">
                         <div class="final-name">${player.name}</div>
-                        <div class="final-stats">${player.correct}/${player.total} bonnes réponses (${accuracy}%)</div>
+                        <div class="final-stats">${player.correct}/${player.total} bonnes réponses (${accuracy}%)${streakInfo}</div>
                     </div>
                     <span class="final-score-value">${player.score}</span>
                 </div>
@@ -628,6 +765,8 @@
             p.score = 0;
             p.correct = 0;
             p.total = 0;
+            p.streak = 0;
+            p.bestStreak = 0;
         });
         state.currentPlayerIndex = 0;
         state.questionCount = 0;
