@@ -920,235 +920,821 @@ const QUESTIONS_DB = [
     },
 
     // ═══════════════════════════════════════
-    // 🎮 GEEK (jeux vidéo, tech, pop culture, manga, SF)
+    // 🎮 GEEK (tech, informatique, culture geek)
     // ═══════════════════════════════════════
+
+    // --- Histoire de l'informatique ---
     {
         category: "geek",
         type: "mcq",
-        question: "Dans Minecraft, quel minerai est le plus rare ?",
-        options: ["Diamant", "Émeraude", "Netherite", "Lapis-lazuli"],
+        question: "Qui est considéré·e comme la première programmeuse de l'histoire ?",
+        options: ["Grace Hopper", "Ada Lovelace", "Hedy Lamarr", "Margaret Hamilton"],
+        answer: 1,
+        explanation: "Ada Lovelace a écrit le premier algorithme destiné à être exécuté par la machine analytique de Babbage, au XIXe siècle."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "En quelle année a été créé le premier ordinateur électronique programmable, l'ENIAC ?",
+        options: ["1943", "1946", "1951", "1958"],
+        answer: 1,
+        explanation: "L'ENIAC a été achev�� en 1946 à l'université de Pennsylvanie."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Qui a inventé le concept de machine universelle qui porte son nom ?",
+        options: ["John von Neumann", "Claude Shannon", "Alan Turing", "Alonzo Church"],
         answer: 2,
-        explanation: "La Netherite (débris antiques) est le minerai le plus rare de Minecraft."
-    },
-    {
-        category: "geek",
-        type: "free",
-        question: "Quel est le vrai nom complet de Mario (le plombier de Nintendo) ?",
-        answers: ["mario mario"],
-        explanation: "Son nom complet est Mario Mario ! Confirmé par Nintendo et le film de 1993."
+        explanation: "La machine de Turing (1936) est le modèle théorique fondamental de l'informatique."
     },
     {
         category: "geek",
         type: "mcq",
-        question: "Dans Star Wars, quelle est la couleur du sabre laser de Mace Windu ?",
-        options: ["Bleu", "Vert", "Violet", "Rouge"],
-        answer: 2,
-        explanation: "Mace Windu (Samuel L. Jackson) a un sabre laser violet, unique chez les Jedi."
-    },
-    {
-        category: "geek",
-        type: "mcq",
-        question: "Quelle console a popularisé le jeu Tetris dans les années 90 ?",
-        options: ["NES", "Game Boy", "Mega Drive", "Super Nintendo"],
+        question: "Quelle entreprise a produit le premier ordinateur personnel commercial grand public en 1977 ?",
+        options: ["IBM avec le PC", "Apple avec l'Apple II", "Commodore avec le PET", "Tandy avec le TRS-80"],
         answer: 1,
-        explanation: "Tetris sur Game Boy (1989) s'est vendu à plus de 35 millions d'exemplaires."
+        explanation: "L'Apple II est le plus emblématique des micro-ordinateurs de 1977 (le PET et le TRS-80 sortent aussi cette année-là)."
     },
     {
         category: "geek",
         type: "mcq",
-        question: "Dans Harry Potter, quel est le Patronus de Harry ?",
-        options: ["Un phénix", "Un loup", "Un cerf", "Un aigle"],
-        answer: 2,
-        explanation: "Le Patronus de Harry est un cerf, comme celui de son père James."
-    },
-    {
-        category: "geek",
-        type: "free",
-        question: "Quel héros de jeu vidéo porte un bonnet vert et est le frère de Mario ?",
-        answers: ["luigi"],
-        explanation: "Luigi, le frère de Mario, toujours dans son ombre mais très apprécié !"
-    },
-    {
-        category: "geek",
-        type: "mcq",
-        question: "Dans Fortnite, comment s'appelle le bus qui transporte les joueurs ?",
-        options: ["Le Bus Royal", "Le Battle Bus", "Le Bus Storm", "Le Sky Bus"],
+        question: "Le « bug » informatique doit son nom à quel incident célèbre ?",
+        options: ["Un papillon mort dans un tube à vide", "Un papillon de nuit coincé dans un relais du Mark II (Grace Hopper, 1947)", "Une erreur de calcul de l'ENIAC", "Un virus ayant planté l'ARPANET"],
         answer: 1,
-        explanation: "Le Battle Bus transporte les joueurs au début de chaque partie."
+        explanation: "Grace Hopper a documenté un vrai insecte (moth) trouvé dans un relais du Harvard Mark II en 1947."
     },
     {
         category: "geek",
         type: "mcq",
-        question: "Dans quel manga Monkey D. Luffy cherche-t-il le trésor 'One Piece' ?",
-        options: ["Naruto", "Dragon Ball", "One Piece", "Bleach"],
-        answer: 2,
-        explanation: "One Piece d'Eiichiro Oda, commencé en 1997, est le manga le plus vendu de l'histoire."
-    },
-    {
-        category: "geek",
-        type: "free",
-        question: "Dans le Seigneur des Anneaux, comment s'appelle le magicien qui accompagne les hobbits ?",
-        answers: ["gandalf", "gandalf le gris", "gandalf le blanc", "mithrandir"],
-        explanation: "Gandalf le Gris, puis Gandalf le Blanc, aussi connu sous le nom de Mithrandir."
-    },
-    {
-        category: "geek",
-        type: "mcq",
-        question: "Quel personnage de manga possède un cahier capable de tuer quiconque dont le nom y est écrit ?",
-        options: ["Naruto", "Light Yagami", "Goku", "Eren"],
+        question: "Qui a fondé Microsoft en 1975 avec Bill Gates ?",
+        options: ["Steve Ballmer", "Paul Allen", "Nathan Myhrvold", "Gabe Newell"],
         answer: 1,
-        explanation: "Light Yagami utilise le Death Note dans le manga éponyme de Tsugumi Ohba."
+        explanation: "Paul Allen et Bill Gates ont co-fondé Microsoft à Albuquerque, Nouveau-Mexique."
     },
     {
         category: "geek",
         type: "mcq",
-        question: "Quel est le jeu vidéo le plus vendu de tous les temps ?",
-        options: ["GTA V", "Tetris", "Minecraft", "Wii Sports"],
-        answer: 2,
-        explanation: "Minecraft s'est vendu à plus de 300 millions d'exemplaires toutes plateformes confondues."
-    },
-    {
-        category: "geek",
-        type: "free",
-        question: "Comment s'appelle le personnage principal de la série de jeux Zelda ?",
-        answers: ["link"],
-        explanation: "C'est Link, pas Zelda ! Zelda est la princesse qu'il doit sauver."
-    },
-    {
-        category: "geek",
-        type: "mcq",
-        question: "Dans Pokémon, quel est le premier Pokémon du Pokédex ?",
-        options: ["Pikachu", "Bulbizarre", "Salamèche", "Mewtwo"],
-        answer: 1,
-        explanation: "Bulbizarre (Bulbasaur) est le numéro 001 du Pokédex national."
-    },
-    {
-        category: "geek",
-        type: "yesno",
-        question: "Dans Among Us, les joueurs doivent trouver l'imposteur parmi l'équipage.",
-        answer: "oui",
-        explanation: "Vrai ! Among Us est un jeu de déduction sociale où les crewmates cherchent les imposteurs."
-    },
-    {
-        category: "geek",
-        type: "mcq",
-        question: "Quel studio a créé les films d'animation 'Le Voyage de Chihiro' et 'Mon voisin Totoro' ?",
-        options: ["Pixar", "Studio Ghibli", "DreamWorks", "Toei Animation"],
-        answer: 1,
-        explanation: "Le Studio Ghibli, fondé par Hayao Miyazaki et Isao Takahata, est un trésor de l'animation japonaise."
-    },
-    {
-        category: "geek",
-        type: "mcq",
-        question: "Dans Dragon Ball, comment s'appelle la transformation ultime des Saiyans aux cheveux dorés ?",
-        options: ["Kaio-ken", "Super Saiyan", "Ultra Instinct", "Fusion"],
-        answer: 1,
-        explanation: "Le Super Saiyan est la transformation iconique de Goku, apparue pour la première fois face à Freezer."
-    },
-    {
-        category: "geek",
-        type: "free",
-        question: "Quel est le nom du robot aspirateur intelligent devenu un mème sur internet ?",
-        answers: ["roomba", "irobot roomba"],
-        explanation: "Le Roomba d'iRobot est devenu un mème culte, souvent filmé avec des chats dessus."
-    },
-    {
-        category: "geek",
-        type: "mcq",
-        question: "Quel jeu de survie en ligne met 100 joueurs sur une île avec une zone qui rétrécit ?",
-        options: ["Minecraft", "Fortnite", "Roblox", "Fall Guys"],
-        answer: 1,
-        explanation: "Fortnite Battle Royale, lancé en 2017, a popularisé le concept de Battle Royale."
-    },
-    {
-        category: "geek",
-        type: "free",
-        question: "Dans Naruto, quel est le jutsu signature de Naruto Uzumaki ?",
-        answers: ["rasengan", "multi clonage", "kage bunshin", "multiclonage"],
-        explanation: "Le Rasengan et le Multi-Clonage sont les techniques signatures de Naruto."
-    },
-    {
-        category: "geek",
-        type: "mcq",
-        question: "Quel est le nom du méchant principal de la saga 'L'Attaque des Titans' ?",
-        options: ["Eren Jäger", "Reiner Braun", "Levi Ackerman", "Zeke Jäger"],
+        question: "Quel était le nom du premier ordinateur Apple (1976) ?",
+        options: ["Apple I", "Apple Lisa", "Macintosh", "Newton"],
         answer: 0,
-        explanation: "Eren Jäger, initialement héros, devient l'antagoniste principal dans la dernière partie du manga."
-    },
-    {
-        category: "geek",
-        type: "yesno",
-        question: "Le premier jeu vidéo de l'histoire est Pong (1972).",
-        answer: "non",
-        explanation: "Faux ! Le premier est généralement considéré comme 'Tennis for Two' (1958) ou 'Spacewar!' (1962)."
+        explanation: "L'Apple I, conçu par Steve Wozniak, était vendu en kit à 666,66 $."
     },
     {
         category: "geek",
         type: "mcq",
-        question: "Dans quelle saga un anneau doit-il être détruit dans les flammes du Mont Doom ?",
-        options: ["Harry Potter", "Le Seigneur des Anneaux", "Game of Thrones", "Narnia"],
+        question: "Qui a écrit le livre fondateur « The Art of Computer Programming » ?",
+        options: ["Edsger Dijkstra", "Donald Knuth", "Niklaus Wirth", "Brian Kernighan"],
         answer: 1,
-        explanation: "Dans Le Seigneur des Anneaux de Tolkien, l'Anneau Unique doit être détruit dans la Montagne du Destin."
-    },
-    {
-        category: "geek",
-        type: "free",
-        question: "Quel est le nom du vaisseau de Han Solo dans Star Wars ?",
-        answers: ["faucon millenium", "millennium falcon", "millenium falcon", "le faucon millenium"],
-        explanation: "Le Faucon Millenium est le cargo corellien modifié de Han Solo et Chewbacca."
+        explanation: "Donald Knuth a commencé cette œuvre monumentale en 1962, toujours en cours d'écriture."
     },
     {
         category: "geek",
         type: "mcq",
-        question: "Quel jeu Nintendo Switch open-world a été élu jeu de l'année 2017 ?",
-        options: ["Super Mario Odyssey", "Zelda: Breath of the Wild", "Splatoon 2", "Xenoblade Chronicles 2"],
+        question: "En quelle année Douglas Engelbart a-t-il présenté « The Mother of All Demos » (souris, hypertexte, visioconférence…) ?",
+        options: ["1962", "1968", "1972", "1976"],
         answer: 1,
-        explanation: "Zelda: Breath of the Wild a révolutionné les jeux en monde ouvert et raflé les prix."
+        explanation: "Le 9 décembre 1968, Engelbart a présenté en 90 minutes la souris, le traitement de texte collaboratif et la visioconférence."
     },
     {
         category: "geek",
         type: "mcq",
-        question: "Dans le MCU, quel objet contient les 6 Pierres d'Infinité ?",
-        options: ["Le Tesseract", "Le Gantelet de l'Infini", "Le Sceptre de Loki", "L'Orbe"],
+        question: "Quel est le nom de la loi qui prédit le doublement du nombre de transistors tous les deux ans ?",
+        options: ["Loi de Metcalfe", "Loi de Moore", "Loi de Kryder", "Loi de Wirth"],
         answer: 1,
-        explanation: "Le Gantelet de l'Infini, forgé par les nains de Nidavellir, est utilisé par Thanos dans Infinity War."
+        explanation: "Gordon Moore a formulé cette observation en 1965. Elle s'est vérifiée pendant plus de 50 ans."
     },
+
+    // --- Langages de programmation ---
     {
         category: "geek",
-        type: "free",
-        question: "Quel personnage bleu de jeu vidéo Sega est connu pour sa vitesse ?",
-        answers: ["sonic", "sonic the hedgehog"],
-        explanation: "Sonic le Hérisson, mascotte de Sega depuis 1991, est connu pour sa vitesse supersonique."
-    },
-    {
-        category: "geek",
-        type: "yesno",
-        question: "Dans Minecraft, on peut aller dans un monde appelé 'Le Nether' en construisant un portail en obsidienne.",
-        answer: "oui",
-        explanation: "Vrai ! Le portail du Nether nécessite un cadre de 4x5 blocs d'obsidienne activé par du feu."
+        type: "mcq",
+        question: "Qui a créé le langage Python ?",
+        options: ["Larry Wall", "Guido van Rossum", "Bjarne Stroustrup", "James Gosling"],
+        answer: 1,
+        explanation: "Guido van Rossum a créé Python en 1991 aux Pays-Bas."
     },
     {
         category: "geek",
         type: "mcq",
-        question: "Quel jeu de cartes à collectionner japonais est le plus vendu au monde ?",
-        options: ["Yu-Gi-Oh!", "Pokémon", "Magic: The Gathering", "Dragon Ball Super Card Game"],
+        question: "D'où vient le nom « Python » du langage de programmation ?",
+        options: ["Du serpent", "De Monty Python", "D'un personnage de mythologie grecque", "D'un acronyme"],
         answer: 1,
-        explanation: "Les cartes Pokémon sont le jeu de cartes à collectionner le plus vendu avec plus de 52 milliards de cartes."
-    },
-    {
-        category: "geek",
-        type: "free",
-        question: "Dans Harry Potter, comment s'appelle l'école de sorcellerie ?",
-        answers: ["poudlard", "hogwarts"],
-        explanation: "Poudlard (Hogwarts en anglais) est l'école de sorcellerie dirigée par Albus Dumbledore."
+        explanation: "Guido van Rossum était fan des Monty Python's Flying Circus."
     },
     {
         category: "geek",
         type: "mcq",
-        question: "Quel jeu mobile a provoqué une folie mondiale en 2016 en utilisant la réalité augmentée ?",
-        options: ["Candy Crush", "Pokémon GO", "Clash Royale", "Angry Birds"],
+        question: "Qui a inventé le langage C ?",
+        options: ["Dennis Ritchie", "Ken Thompson", "Brian Kernighan", "Bjarne Stroustrup"],
+        answer: 0,
+        explanation: "Dennis Ritchie a créé le C aux Bell Labs entre 1969 et 1973."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "En quelle année JavaScript a-t-il été créé ?",
+        options: ["1993", "1995", "1998", "2000"],
         answer: 1,
-        explanation: "Pokémon GO de Niantic a fait sortir des millions de joueurs dans les rues pour attraper des Pokémon."
+        explanation: "Brendan Eich a créé JavaScript en 1995 chez Netscape."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Combien de temps Brendan Eich aurait-il mis pour concevoir la première version de JavaScript ?",
+        options: ["10 jours", "3 semaines", "2 mois", "6 mois"],
+        answer: 0,
+        explanation: "La légende (confirmée par Eich) veut que le prototype de JavaScript ait été écrit en 10 jours en mai 1995."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel langage a été créé par James Gosling chez Sun Microsystems ?",
+        options: ["C++", "Java", "C#", "Scala"],
+        answer: 1,
+        explanation: "Java est sorti en 1995, conçu pour être portable (« Write once, run anywhere »)."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel langage est connu pour son slogan « There's more than one way to do it » (TMTOWTDI) ?",
+        options: ["Python", "Ruby", "Perl", "PHP"],
+        answer: 2,
+        explanation: "Perl, créé par Larry Wall en 1987, est célèbre pour cette philosophie permissive."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel langage a été créé par Yukihiro Matsumoto (« Matz ») ?",
+        options: ["Ruby", "Lua", "Elixir", "Crystal"],
+        answer: 0,
+        explanation: "Matz a créé Ruby au Japon en 1995 avec l'objectif de rendre la programmation agréable."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel langage de programmation est nommé d'après un mathématicien français ?",
+        options: ["Haskell", "Pascal", "Ada", "Erlang"],
+        answer: 1,
+        explanation: "Pascal est nommé d'après Blaise Pascal. Ada vient d'Ada Lovelace (anglaise), Haskell de Haskell Curry (américain)."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel est le plus vieux langage de haut niveau encore utilisé aujourd'hui ?",
+        options: ["COBOL", "Fortran", "Lisp", "ALGOL"],
+        answer: 1,
+        explanation: "Fortran date de 1957 (Lisp de 1958, COBOL de 1959). ALGOL n'est plus utilisé."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel langage a été créé par Rasmus Lerdorf en 1994 ?",
+        options: ["PHP", "ASP", "Perl", "JSP"],
+        answer: 0,
+        explanation: "PHP était à l'origine « Personal Home Page Tools », un ensemble de scripts CGI."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Que signifiait à l'origine l'acronyme PHP ?",
+        options: ["Personal Home Page", "PHP Hypertext Preprocessor", "Programmable Hypertext Processor", "Pretty Home Pages"],
+        answer: 0,
+        explanation: "PHP signifiait « Personal Home Page » avant d'être rétro-acronymé en « PHP: Hypertext Preprocessor »."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel langage utilise l'indentation significative pour délimiter les blocs de code ?",
+        options: ["Ruby", "Python", "Perl", "Lua"],
+        answer: 1,
+        explanation: "Python impose l'indentation comme syntaxe, pas comme convention."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Qui est le créateur du langage C++ ?",
+        options: ["Dennis Ritchie", "Bjarne Stroustrup", "Anders Hejlsberg", "Linus Torvalds"],
+        answer: 1,
+        explanation: "Bjarne Stroustrup a créé C++ aux Bell Labs au début des années 1980."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Le langage Go a été développé principalement par quelle entreprise ?",
+        options: ["Microsoft", "Google", "Mozilla", "Facebook"],
+        answer: 1,
+        explanation: "Go (2009) a été créé chez Google par Robert Griesemer, Rob Pike et Ken Thompson."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Le langage Rust a été initialement développé par quelle organisation ?",
+        options: ["Google", "Mozilla", "Apache Foundation", "Red Hat"],
+        answer: 1,
+        explanation: "Rust a commencé comme projet personnel de Graydon Hoare chez Mozilla en 2006."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel langage est souvent associé à la première apparition du programme « Hello, World! » ?",
+        options: ["C (via Kernighan & Ritchie)", "BASIC", "Pascal", "COBOL"],
+        answer: 0,
+        explanation: "Le « Hello, World! » est apparu dans le livre « The C Programming Language » de Kernighan & Ritchie (1978)."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "TypeScript est un sur-ensemble de quel langage ?",
+        options: ["Java", "JavaScript", "CoffeeScript", "Dart"],
+        answer: 1,
+        explanation: "TypeScript ajoute le typage statique à JavaScript. Créé par Microsoft en 2012."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel langage fonctionnel est souvent associé à la plateforme téléphonique d'Ericsson ?",
+        options: ["Haskell", "OCaml", "Erlang", "F#"],
+        answer: 2,
+        explanation: "Erlang a été créé chez Ericsson pour gérer la téléphonie à haute disponibilité."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel langage utilise des parenthèses à profusion et des listes comme structure fondamentale ?",
+        options: ["Prolog", "Lisp", "Smalltalk", "Forth"],
+        answer: 1,
+        explanation: "Lisp (1958) est célèbre pour ses parenthèses imbriquées — « Lots of Irritating Superfluous Parentheses »."
+    },
+
+    // --- Systèmes d'exploitation & Open Source ---
+    {
+        category: "geek",
+        type: "mcq",
+        question: "En quelle année Linus Torvalds a-t-il annoncé Linux sur Usenet ?",
+        options: ["1989", "1991", "1993", "1995"],
+        answer: 1,
+        explanation: "Le 25 août 1991, Linus poste son célèbre message « I'm doing a (free) operating system (just a hobby) »."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "De quelle nationalité est Linus Torvalds ?",
+        options: ["Suédois", "Finlandais", "Norvégien", "Danois"],
+        answer: 1,
+        explanation: "Linus Torvalds est finlandais, né à Helsinki. Il est finno-suédois (minorité suédophone de Finlande)."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Qui a fondé la Free Software Foundation et lancé le projet GNU ?",
+        options: ["Eric S. Raymond", "Linus Torvalds", "Richard Stallman", "Bruce Perens"],
+        answer: 2,
+        explanation: "Richard Stallman a lancé GNU en 1983 et fondé la FSF en 1985."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Que signifie GNU ?",
+        options: ["General Network Utility", "GNU's Not Unix", "General New Unix", "Global Network Unified"],
+        answer: 1,
+        explanation: "GNU est un acronyme récursif : « GNU's Not Unix »."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quelle distribution Linux utilise le gestionnaire de paquets « pacman » ?",
+        options: ["Gentoo", "Arch Linux", "Slackware", "Void Linux"],
+        answer: 1,
+        explanation: "Arch Linux est connue pour pacman, sa philosophie KISS et sa documentation (le wiki Arch)."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quelle licence open source est la plus « virale » (copyleft fort) ?",
+        options: ["MIT", "BSD", "GPL", "Apache 2.0"],
+        answer: 2,
+        explanation: "La GPL (General Public License) oblige tout dérivé à rester sous GPL."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel est le nom du noyau utilisé par macOS ?",
+        options: ["Darwin (XNU)", "Mach", "BSD", "Cocoa"],
+        answer: 0,
+        explanation: "macOS utilise le noyau XNU (X is Not Unix), qui fait partie du projet open source Darwin."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quelle mascotte représente le projet BSD ?",
+        options: ["Un pingouin", "Un diablotin rouge", "Un gnou", "Un caméléon"],
+        answer: 1,
+        explanation: "Beastie, le diablotin rouge avec une fourche, est la mascotte de BSD depuis les années 1980."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Qui a créé Git en 2005 ?",
+        options: ["Junio Hamano", "Linus Torvalds", "Guido van Rossum", "Theo de Raadt"],
+        answer: 1,
+        explanation: "Linus Torvalds a créé Git en quelques semaines pour gérer le code du noyau Linux."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Pourquoi Linus Torvalds a-t-il créé Git ?",
+        options: ["Pour remplacer Subversion trop lent", "Suite à la rupture avec BitKeeper", "Par défi personnel pendant un week-end pluvieux", "Pour héberger le noyau Linux sur SourceForge"],
+        answer: 1,
+        explanation: "En 2005, la licence gratuite de BitKeeper a été révoquée, poussant Linus à créer son propre VCS."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel shell Unix est l'ancêtre de la plupart des shells modernes ?",
+        options: ["csh", "bash", "sh (Bourne shell)", "zsh"],
+        answer: 2,
+        explanation: "Le Bourne shell (sh), créé par Stephen Bourne en 1979, est l'ancêtre de bash, zsh, etc."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quelle commande Unix affiche les processus en cours ?",
+        options: ["`ls`", "`ps`", "`top` uniquement", "`proc`"],
+        answer: 1,
+        explanation: "La commande `ps` (process status) liste les processus. `top` les affiche en temps réel."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel éditeur de texte est associé à la rivalité historique avec Vim ?",
+        options: ["Nano", "Emacs", "Sublime Text", "Notepad++"],
+        answer: 1,
+        explanation: "La guerre Emacs vs Vim dure depuis les années 1980. Emacs est souvent qualifié de « système d'exploitation auquel il manque un bon éditeur »."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Dans Vim, quelle commande permet de quitter sans sauvegarder ?",
+        options: ["`:wq`", "`:q!`", "`:exit`", "`Ctrl+C`"],
+        answer: 1,
+        explanation: "`:q!` force la sortie sans sauvegarder. La blague « comment quitter Vim » est un classique du folklore dev."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel projet est à l'origine du système de fichiers ext4 ?",
+        options: ["FreeBSD", "Linux", "Solaris", "HP-UX"],
+        answer: 1,
+        explanation: "ext4 est le système de fichiers par défaut de la plupart des distributions Linux depuis 2008."
+    },
+
+    // --- Internet & Web ---
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Qui est considéré comme l'inventeur du World Wide Web ?",
+        options: ["Vint Cerf", "Tim Berners-Lee", "Marc Andreessen", "Robert Cailliau"],
+        answer: 1,
+        explanation: "Tim Berners-Lee a inventé le Web au CERN en 1989-1990."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Dans quel laboratoire le World Wide Web a-t-il été inventé ?",
+        options: ["Xerox PARC", "Bell Labs", "CERN", "MIT Media Lab"],
+        answer: 2,
+        explanation: "Le CERN à Genève, laboratoire de physique des particules, a vu naître le Web."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Que signifie HTTP ?",
+        options: ["HyperText Transfer Protocol", "High Transfer Text Protocol", "HyperText Transport Protocol", "Hybrid Text Transfer Protocol"],
+        answer: 0,
+        explanation: "HyperText Transfer Protocol, le protocole fondamental du Web."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel est le code de réponse HTTP pour « Not Found » ?",
+        options: ["403", "404", "500", "503"],
+        answer: 1,
+        explanation: "404 Not Found — probablement le code d'erreur le plus connu du grand public."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Que signifie le code HTTP 418 ?",
+        options: ["Too Many Requests", "I'm a teapot", "Unavailable For Legal Reasons", "Payment Required"],
+        answer: 1,
+        explanation: "« 418 I'm a teapot » est un poisson d'avril de 1998 (RFC 2324) devenu un easter egg permanent."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel fut le premier navigateur web graphique largement distribué ?",
+        options: ["Netscape Navigator", "Mosaic", "Internet Explorer", "WorldWideWeb (Nexus)"],
+        answer: 1,
+        explanation: "Mosaic (1993), créé par Marc Andreessen au NCSA, a démocratisé le Web auprès du grand public."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel protocole réseau est l'ancêtre d'Internet, initié par la DARPA ?",
+        options: ["NSFNET", "ARPANET", "BITNET", "USENET"],
+        answer: 1,
+        explanation: "ARPANET (1969) a été le premier réseau à utiliser la commutation de paquets."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "En quelle année le premier email a-t-il été envoyé par Ray Tomlinson ?",
+        options: ["1969", "1971", "1975", "1980"],
+        answer: 1,
+        explanation: "Ray Tomlinson a envoyé le premier email réseau en 1971 sur ARPANET."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Pourquoi Ray Tomlinson a-t-il choisi le symbole @ pour séparer l'utilisateur du domaine dans les emails ?",
+        options: ["C'était le seul caractère non utilisé dans les noms", "Il trouvait le signe esthétique", "C'était une convention militaire", "Il a hérité de la tradition du langage BCPL"],
+        answer: 0,
+        explanation: "Le @ n'apparaissait dans aucun nom de personne, ce qui en faisait un séparateur non ambigu."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Qui a créé le protocole TCP/IP avec Bob Kahn ?",
+        options: ["Jon Postel", "Vint Cerf", "Paul Baran", "Leonard Kleinrock"],
+        answer: 1,
+        explanation: "Vint Cerf et Bob Kahn ont publié la spécification de TCP en 1974."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Que signifie le « S » dans HTTPS ?",
+        options: ["Server", "Secure", "Safe", "Session"],
+        answer: 1,
+        explanation: "HTTPS = HTTP Secure, chiffré via TLS (anciennement SSL)."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel est le port par défaut du protocole SSH ?",
+        options: ["21", "22", "23", "25"],
+        answer: 1,
+        explanation: "SSH utilise le port 22 (21 = FTP, 23 = Telnet, 25 = SMTP)."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel moteur de recherche a été lancé en 1998 par Larry Page et Sergey Brin ?",
+        options: ["AltaVista", "Yahoo!", "Google", "Lycos"],
+        answer: 2,
+        explanation: "Google a été fondé en septembre 1998 dans un garage à Menlo Park."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Comment s'appelait Google à l'origine, pendant ses premiers mois de prototype ?",
+        options: ["Archie", "BackRub", "PageRank", "Stanford Search"],
+        answer: 1,
+        explanation: "BackRub analysait les « back links » pour classer les pages. Il a été renommé Google en 1997."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel site était à l'origine une encyclopédie « traditionnelle » avec comité éditorial avant de devenir Wikipedia ?",
+        options: ["Citizendium", "Nupedia", "Everything2", "Encarta"],
+        answer: 1,
+        explanation: "Nupedia (2000) était trop lente ; son wiki annexe est devenu Wikipedia en janvier 2001."
+    },
+
+    // --- Hackers, sécurité & folklore ---
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel ver informatique de 1988 a infecté environ 10 % d'Internet à l'époque ?",
+        options: ["Code Red", "Slammer", "Le ver de Morris", "ILOVEYOU"],
+        answer: 2,
+        explanation: "Le ver de Morris (Robert Tappan Morris) a paralysé environ 6000 machines, soit ~10 % d'Internet en 1988."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Qui est l'auteur du ver de Morris qui a infecté 10 % d'Internet en 1988 ?",
+        options: ["Kevin Mitnick", "Robert Tappan Morris", "Adrian Lamo", "Gary McKinnon"],
+        answer: 1,
+        explanation: "Robert Tappan Morris, alors étudiant à Cornell, a ��té le premier condamné sous le Computer Fraud and Abuse Act."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel hacker célèbre a été arrêté en 1995 après une longue traque par le FBI ?",
+        options: ["Kevin Mitnick", "Kevin Poulsen", "Adrian Lamo", "Gary McKinnon"],
+        answer: 0,
+        explanation: "Kevin Mitnick, le hacker le plus recherché des USA dans les années 90, a été arrêté grâce à Tsutomu Shimomura."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Que signifie l'acronyme DDoS ?",
+        options: ["Digital Denial of Service", "Distributed Denial of Service", "Domain Denial of Server", "Direct Denial of Service"],
+        answer: 1,
+        explanation: "Distributed Denial of Service : une attaque menée depuis de multiples machines pour saturer une cible."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel est le nom du framework open source célèbre pour les tests d'intrusion ?",
+        options: ["Nmap", "Wireshark", "Metasploit", "Burp Suite"],
+        answer: 2,
+        explanation: "Metasploit (2003) est le framework de référence pour le pentesting, maintenu par Rapid7."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quelle faille de 2014 dans OpenSSL a été baptisée du nom d'un cœur qui saigne ?",
+        options: ["Shellshock", "Heartbleed", "Spectre", "POODLE"],
+        answer: 1,
+        explanation: "Heartbleed (CVE-2014-0160) permettait de lire la mémoire des serveurs — catastrophe mondiale."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quelle faille matérielle affectant les CPU Intel a été révélée en janvier 2018 ?",
+        options: ["Meltdown", "Rowhammer", "Foreshadow", "ZombieLoad"],
+        answer: 0,
+        explanation: "Meltdown permettait à un processus de lire la mémoire du noyau via l'exécution spéculative."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quelle est la devise historique des hackers au sens noble du terme ?",
+        options: ["\"Information wants to be free\"", "\"Code is law\"", "\"Don't be evil\"", "\"Move fast and break things\""],
+        answer: 0,
+        explanation: "Phrase de Stewart Brand (1984), devenue le credo du mouvement hacker et de l'open source."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Qui a écrit « The Cathedral and the Bazaar », essai fondateur sur l'open source ?",
+        options: ["Richard Stallman", "Eric S. Raymond", "Bruce Perens", "Lawrence Lessig"],
+        answer: 1,
+        explanation: "Eric S. Raymond a publié cet essai en 1997, comparant le développement propriétaire (cathédrale) et open source (bazar)."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel lanceur d'alerte a révélé les programmes de surveillance de la NSA en 2013 ?",
+        options: ["Julian Assange", "Chelsea Manning", "Edward Snowden", "Daniel Ellsberg"],
+        answer: 2,
+        explanation: "Edward Snowden, ex-contractuel de la NSA, a révélé PRISM et d'autres programmes de surveillance de masse."
+    },
+
+    // --- Matériel & réseaux ---
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Que signifie CPU ?",
+        options: ["Central Processing Unit", "Computer Processing Unit", "Central Program Unit", "Control Processing Unit"],
+        answer: 0,
+        explanation: "Central Processing Unit — le processeur central qui exécute les instructions."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quelle société a été co-fondée par Gordon Moore et Robert Noyce en 1968 ?",
+        options: ["AMD", "Intel", "Texas Instruments", "Motorola"],
+        answer: 1,
+        explanation: "Intel (Integrated Electronics) a dominé le marché des processeurs pendant des décennies."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel composant réalise le calcul massivement parallèle pour le graphisme et le deep learning ?",
+        options: ["CPU", "GPU", "TPU uniquement", "FPU"],
+        answer: 1,
+        explanation: "Le GPU (Graphics Processing Unit) excelle dans le calcul parallèle, essentiel au machine learning."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quelle entreprise conçoit les architectures ARM ?",
+        options: ["AMD", "Intel", "Arm Ltd.", "Qualcomm"],
+        answer: 2,
+        explanation: "Arm Ltd. (Cambridge, UK) conçoit l'architecture et la licencie à d'autres (Apple, Qualcomm, Samsung…)."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quelle puce Apple a marqué la transition x86 → ARM sur Mac ?",
+        options: ["A14", "M1", "M2", "T2"],
+        answer: 1,
+        explanation: "La puce M1 (2020) a marqué l'abandon d'Intel sur les Mac avec des performances/watt spectaculaires."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Que signifie RAM ?",
+        options: ["Random Access Memory", "Read Access Memory", "Rapid Access Memory", "Runtime Active Memory"],
+        answer: 0,
+        explanation: "Random Access Memory — mémoire volatile à accès aléatoire (par opposition à séquentiel)."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Combien d'octets dans un kibioctet (KiB) ?",
+        options: ["1000", "1024", "1048", "1056"],
+        answer: 1,
+        explanation: "1 KiB = 2^10 = 1024 octets. Le kilooctet (kB) vaut 1000 octets (norme SI)."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel standard de câble est associé au port USB-C ?",
+        options: ["IEEE 1394", "USB 3.1 / 3.2 / 4", "eSATA", "HDMI 2.0"],
+        answer: 1,
+        explanation: "USB-C est le connecteur physique utilisé par USB 3.1, 3.2, 4 et aussi Thunderbolt 3/4."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quelle couche du modèle OSI gère les adresses IP ?",
+        options: ["Couche 2 (Liaison)", "Couche 3 (Réseau)", "Couche 4 (Transport)", "Couche 7 (Application)"],
+        answer: 1,
+        explanation: "La couche 3 (Réseau) gère l'adressage IP et le routage."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Combien de bits dans une adresse IPv4 ?",
+        options: ["16", "32", "64", "128"],
+        answer: 1,
+        explanation: "IPv4 utilise 32 bits (4 octets), soit ~4,3 milliards d'adresses possibles."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Combien de bits dans une adresse IPv6 ?",
+        options: ["64", "96", "128", "256"],
+        answer: 2,
+        explanation: "IPv6 utilise 128 bits, soit 3,4 × 10^38 adresses possibles."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel périphérique convertit les signaux numériques en analogiques pour Internet via ligne téléphonique ?",
+        options: ["Routeur", "Modem", "Switch", "Hub"],
+        answer: 1,
+        explanation: "MOdulateur-DEModulateur : le modem convertit entre numérique et analogique."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quelle entreprise a tenté de racheter Arm Ltd. en 2020 avant que l'acquisition n'échoue ?",
+        options: ["Apple", "Nvidia", "Microsoft", "Samsung"],
+        answer: 1,
+        explanation: "Nvidia a proposé 40 milliards $ à SoftBank en 2020, mais l'opération a échoué en 2022 face à l'opposition des régulateurs."
+    },
+
+    // --- Folklore & culture geek ---
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Que signifie « RTFM » ?",
+        options: ["Really This File Matters", "Read The Fucking Manual", "Run The Full Make", "Read The Fine Manual (variante polie)"],
+        answer: 1,
+        explanation: "« Read The Fucking Manual » — réponse classique des forums quand quelqu'un pose une question documentée."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Dans « Le Guide du voyageur galactique » de Douglas Adams, quelle est la réponse à la grande question sur la vie, l'univers et le reste ?",
+        options: ["7", "13", "42", "0"],
+        answer: 2,
+        explanation: "42, calculée par l'ordinateur Deep Thought en 7,5 millions d'années. La question, elle, reste inconnue."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Comment s'appelle le protagoniste de « Ready Player One » ?",
+        options: ["Wade Watts", "Art3mis", "Halliday", "Sorrento"],
+        answer: 0,
+        explanation: "Wade Watts (alias Parzival) est le héros du roman d'Ernest Cline (2011)."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quelle entreprise Linux a été rachetée par IBM en 2019 pour 34 milliards de dollars ?",
+        options: ["Canonical", "SUSE", "Red Hat", "Oracle"],
+        answer: 2,
+        explanation: "Red Hat, éditeur de RHEL et sponsor de Fedora, a été acquis par IBM."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel easter egg est accessible en tapant « do a barrel roll » sur Google ?",
+        options: ["La page clignote", "La page fait un tour complet sur elle-même", "Un mini-jeu apparaît", "Un tonneau roule à l'écran"],
+        answer: 1,
+        explanation: "La page entière fait une rotation à 360°, en référence au jeu Star Fox."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quelle est l'origine de l'expression « spam » pour désigner les courriels indésirables ?",
+        options: ["Un sketch des Monty Python", "Une marque de nourriture américaine (Hormel)", "Les deux — la marque a inspiré le sketch, qui a inspiré le terme informatique", "Un acronyme : Stupid Pointless Annoying Message"],
+        answer: 2,
+        explanation: "SPAM est une marque de viande en boîte ; les Monty Python en ont fait un sketch répétitif, d'où le terme pour les messages répétitifs."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Comment s'appelle l'écran d'erreur bleu historique de Windows ?",
+        options: ["Kernel Panic", "BSOD (Blue Screen of Death)", "Guru Meditation", "Fatal Error 404"],
+        answer: 1,
+        explanation: "Le BSOD (Blue Screen of Death) est l'écran d'erreur fatale de Windows depuis Windows 3.1."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Sur les ordinateurs Amiga, comment s'appelait l'écran d'erreur système ?",
+        options: ["Kernel Panic", "Guru Meditation", "Red Screen of Annoyance", "Sad Mac"],
+        answer: 1,
+        explanation: "« Guru Meditation » s'affichait en rouge sur fond noir — le nom venait d'un jeu interne chez Amiga."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Que signifie « FOSS » ?",
+        options: ["Free Open Source Software", "Freely Organized Source System", "Fully Open Source System", "Foundation of Open Source Standards"],
+        answer: 0,
+        explanation: "Free and Open Source Software — logiciel libre et open source."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quelle est la mascotte officielle du noyau Linux ?",
+        options: ["Un gnou (GNU)", "Un manchot nommé Tux", "Un diablotin rouge (BSD)", "Un caméléon (SUSE)"],
+        answer: 1,
+        explanation: "Tux le manchot a été dessiné par Larry Ewing en 1996. Linus Torvalds aimait les pingouins."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel nombre est traditionnellement associé au « leet speak » dans la culture hacker ?",
+        options: ["1337", "42", "666", "101"],
+        answer: 0,
+        explanation: "1337 = LEET = « elite ». Le leet speak remplace les lettres par des chiffres/symboles."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel site d'actualités tech, né en 1997, a popularisé la devise « News for nerds. Stuff that matters. » ?",
+        options: ["Digg", "Reddit", "Slashdot", "Hacker News"],
+        answer: 2,
+        explanation: "Slashdot (slashdot.org), créé par Rob Malda, a dominé l'actualité tech/geek avant Reddit."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Quel film de 1982 a popularisé le concept de cyberespace visuel avant le roman « Neuromancien » ?",
+        options: ["Akira", "Tron", "Ghost in the Shell", "WarGames"],
+        answer: 1,
+        explanation: "Tron (Disney, 1982) montre un programmeur aspiré dans un monde informatique. Neuromancien sort en 1984."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Qui a écrit le roman « Neuromancien » (1984), pionnier du cyberpunk ?",
+        options: ["Philip K. Dick", "William Gibson", "Bruce Sterling", "Neal Stephenson"],
+        answer: 1,
+        explanation: "William Gibson a inventé le terme « cyberespace » et lancé le genre cyberpunk avec ce roman."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Dans « Snow Crash » de Neal Stephenson, quel mot est inventé pour désigner l'univers virtuel immersif ?",
+        options: ["Cyberspace", "Metaverse", "Matrix", "Grid"],
+        answer: 1,
+        explanation: "Le terme « Metaverse » vient de Snow Crash (1992), bien avant que Facebook ne le récupère."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "En quelle année Wikipedia a-t-elle été lancée ?",
+        options: ["1999", "2001", "2003", "2005"],
+        answer: 1,
+        explanation: "Wikipedia a été lancée le 15 janvier 2001 par Jimmy Wales et Larry Sanger."
+    },
+    {
+        category: "geek",
+        type: "mcq",
+        question: "Que signifie la blague geek « There are 10 kinds of people in the world… » ?",
+        options: ["Ceux qui comprennent le binaire et ceux qui ne comprennent pas", "Ceux qui codent en C et les autres", "Ceux qui utilisent Vim et ceux qui utilisent Emacs", "Ceux qui aiment les chats et ceux qui mentent"],
+        answer: 0,
+        explanation: "10 en binaire = 2 en décimal. La blague est que « 10 » est interprété comme deux (en base 2) par les initiés."
     },
 
     // ═══════════════════════════════════════
