@@ -14,8 +14,9 @@ const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
 // Serve static files
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-// Also serve the shared questions file
+// Also serve the shared questions and styles files
 app.use('/js', express.static(path.join(__dirname, '..', 'js')));
+app.use('/css', express.static(path.join(__dirname, '..', 'css')));
 
 // ═══════════════════════════════════════
 // Game Rooms
