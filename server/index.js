@@ -79,8 +79,22 @@ const questionsFile = fs.readFileSync(path.join(__dirname, '..', 'js', 'question
 eval(questionsFile.replace('const ', 'global.'));
 QUESTIONS_DB = global.QUESTIONS_DB;
 
-// Assign stable IDs to questions (based on index)
-QUESTIONS_DB.forEach((q, i) => { q._id = i; });
+// Assign stable IDs to questions (hash of question text — survives pool reorders)
+const crypto = require('crypto');
+QUESTIONS_DB.forEach((q) => {
+    q._id = crypto.createHash('sha1').update(q.question).digest('hex').slice(0, 10);
+});
+
+// ═══════════════════════════════════════
+// Per-category time limits (seconds)
+// ═══════════════════════════════════════
+const CATEGORY_TIME_LIMIT = {
+    'casse-tete': 40
+};
+const DEFAULT_TIME_LIMIT = 20;
+function getTimeLimit(category) {
+    return CATEGORY_TIME_LIMIT[category] || DEFAULT_TIME_LIMIT;
+}
 
 // ═══════════════════════════════════════
 // Used questions tracking (persists to disk)
@@ -103,26 +117,52 @@ function saveUsedQuestions(usedSet) {
 
 let usedQuestions = loadUsedQuestions();
 
+function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
 function selectQuestions(categories, count) {
-    let pool = QUESTIONS_DB.filter(q => categories.includes(q.category));
+    // Build a shuffled per-category pool, preferring unused questions
+    function buildPools(skipUsedFilter) {
+        const pools = {};
+        for (const cat of categories) {
+            let catPool = QUESTIONS_DB.filter(q => q.category === cat);
+            if (!skipUsedFilter) {
+                catPool = catPool.filter(q => !usedQuestions.has(q._id));
+            }
+            pools[cat] = shuffle(catPool);
+        }
+        return pools;
+    }
 
-    // Prefer questions not yet used
-    let unused = pool.filter(q => !usedQuestions.has(q._id));
+    let pools = buildPools(false);
+    const availableCount = Object.values(pools).reduce((s, a) => s + a.length, 0);
 
-    // If not enough unused questions, reset the tracker
-    if (unused.length < count) {
+    // Not enough unused across all selected categories → reset tracker
+    if (availableCount < count) {
         usedQuestions = new Set();
         saveUsedQuestions(usedQuestions);
-        unused = pool;
+        pools = buildPools(true);
     }
 
-    // Shuffle and take `count`
-    for (let i = unused.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [unused[i], unused[j]] = [unused[j], unused[i]];
+    // Round-robin across categories (shuffled category order for variety)
+    const order = shuffle([...categories]);
+    const selected = [];
+    let madeProgress = true;
+    while (selected.length < count && madeProgress) {
+        madeProgress = false;
+        for (const cat of order) {
+            if (selected.length >= count) break;
+            if (pools[cat].length > 0) {
+                selected.push(pools[cat].shift());
+                madeProgress = true;
+            }
+        }
     }
-
-    const selected = unused.slice(0, count);
 
     // Mark as used
     selected.forEach(q => usedQuestions.add(q._id));
@@ -307,6 +347,9 @@ function sendNextQuestion(room) {
     room.currentQuestion = question;
     room.answers = new Map();
 
+    const timeLimit = getTimeLimit(question.category);
+    room.currentTimeLimitMs = timeLimit * 1000;
+
     // Send question to everyone (without answer)
     const questionData = {
         index: room.questionIndex + 1,
@@ -316,14 +359,14 @@ function sendNextQuestion(room) {
         question: question.question,
         image: question.image || null,
         options: question.type === 'mcq' ? question.options : null,
-        timeLimit: 20 // seconds
+        timeLimit
     };
 
     io.to(room.code).emit('game:question', questionData);
 
     // Start timer
-    room.timerEnd = Date.now() + 20000;
-    room.timer = setTimeout(() => endQuestion(room), 20000);
+    room.timerEnd = Date.now() + room.currentTimeLimitMs;
+    room.timer = setTimeout(() => endQuestion(room), room.currentTimeLimitMs);
 }
 
 function endQuestion(room) {
@@ -339,8 +382,9 @@ function endQuestion(room) {
             correct = checkAnswer(question, submission.answer);
             if (correct) {
                 const basePoints = getPoints(question.type);
-                // Speed bonus: up to 50% extra based on time left
-                bonus = Math.round(basePoints * (submission.timeLeft / 20000) * 0.5);
+                // Speed bonus: up to 50% extra based on fraction of time left
+                const totalMs = room.currentTimeLimitMs || 20000;
+                bonus = Math.round(basePoints * (submission.timeLeft / totalMs) * 0.5);
                 player.score += basePoints + bonus;
                 player.correct++;
             }
