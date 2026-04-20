@@ -92,14 +92,14 @@
     }
 
     const CATEGORY_INFO = {
-        "casse-tete": { icon: "🧩", label: "Casse-tête", cssClass: "cat-casse-tete" },
-        "actualites": { icon: "📰", label: "Actualités", cssClass: "cat-actualites" },
-        "fakenews":   { icon: "🤥", label: "Fake News", cssClass: "cat-fakenews" },
-        "celebrites": { icon: "⭐", label: "Célébrités", cssClass: "cat-celebrites" },
-        "geek":       { icon: "🎮", label: "Geek", cssClass: "cat-geek" },
-        "science":    { icon: "🔬", label: "Science", cssClass: "cat-science" },
-        "histoire":   { icon: "📜", label: "Histoire", cssClass: "cat-histoire" },
-        "trump":      { icon: "🍊", label: "Trump", cssClass: "cat-trump" }
+        "casse-tete": { label: "Casse-tête", cssClass: "cat-casse-tete" },
+        "actualites": { label: "Actualités", cssClass: "cat-actualites" },
+        "fakenews":   { label: "Fake News",  cssClass: "cat-fakenews" },
+        "celebrites": { label: "Célébrités", cssClass: "cat-celebrites" },
+        "geek":       { label: "Geek",       cssClass: "cat-geek" },
+        "science":    { label: "Science",    cssClass: "cat-science" },
+        "histoire":   { label: "Histoire",   cssClass: "cat-histoire" },
+        "trump":      { label: "Trump",      cssClass: "cat-trump" }
     };
 
     // ═══════════════════════════════════════
@@ -375,7 +375,7 @@
         const catInfo = CATEGORY_INFO[q.category];
 
         roundCounter.textContent = `Question ${state.questionCount}`;
-        questionCategory.textContent = `${catInfo.icon} ${catInfo.label}`;
+        questionCategory.textContent = catInfo.label;
         questionCategory.className = `category-badge ${catInfo.cssClass}`;
         // Display image if present
         if (q.image) {

@@ -84,14 +84,14 @@
     // Game
     // ═══════════════════════════════════════
     const CATEGORY_LABELS = {
-        'casse-tete': '🧩 Casse-tête',
-        'actualites': '📰 Actualités',
-        'fakenews': '🤥 Fake News',
-        'celebrites': '⭐ Célébrités',
-        'geek': '🎮 Geek',
-        'science': '🔬 Science',
-        'histoire': '📜 Histoire',
-        'trump': '🍊 Trump'
+        'casse-tete': 'Casse-tête',
+        'actualites': 'Actualités',
+        'fakenews': 'Fake News',
+        'celebrites': 'Célébrités',
+        'geek': 'Geek',
+        'science': 'Science',
+        'histoire': 'Histoire',
+        'trump': 'Trump'
     };
 
     socket.on('game:started', () => {
@@ -103,7 +103,9 @@
         clearInterval(timerInterval);
 
         document.getElementById('round-counter').textContent = `Question ${data.index}/${data.total}`;
-        document.getElementById('question-category').textContent = CATEGORY_LABELS[data.category] || data.category;
+        const catBadge = document.getElementById('question-category');
+        catBadge.className = `category-badge cat-${data.category}`;
+        catBadge.textContent = CATEGORY_LABELS[data.category] || data.category;
         document.getElementById('question-text').textContent = data.question;
         document.getElementById('answer-count').textContent = '0';
         document.getElementById('answer-total').textContent = document.getElementById('player-count')?.textContent || '?';
