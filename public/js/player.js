@@ -68,14 +68,14 @@
     // Game
     // ═══════════════════════════════════════
     const CATEGORY_LABELS = {
-        'casse-tete': '🧩 Casse-tête',
-        'actualites': '📰 Actualités',
-        'fakenews': '🤥 Fake News',
-        'celebrites': '⭐ Célébrités',
-        'geek': '🎮 Geek',
-        'science': '🔬 Science',
-        'histoire': '📜 Histoire',
-        'trump': '🍊 Trump'
+        'casse-tete': 'Casse-tête',
+        'actualites': 'Actualités',
+        'fakenews': 'Fake News',
+        'celebrites': 'Célébrités',
+        'geek': 'Geek',
+        'science': 'Science',
+        'histoire': 'Histoire',
+        'trump': 'Trump'
     };
 
     socket.on('game:started', () => {
@@ -87,7 +87,9 @@
         clearInterval(timerInterval);
 
         document.getElementById('p-round').textContent = `Question ${data.index}/${data.total}`;
-        document.getElementById('p-category').textContent = CATEGORY_LABELS[data.category] || data.category;
+        const pCat = document.getElementById('p-category');
+        pCat.className = `category-badge cat-${data.category}`;
+        pCat.textContent = CATEGORY_LABELS[data.category] || data.category;
         document.getElementById('p-question-text').textContent = data.question;
 
         // Hide all answer types
