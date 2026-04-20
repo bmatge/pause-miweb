@@ -1,0 +1,19 @@
+services:
+  quiz:
+    build: .
+    environment:
+      - PORT=3000
+      - BASE_URL=https://pause-miweb.matge.com
+    restart: unless-stopped
+    networks:
+      - ecosystem-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.pause-miweb.rule=Host(`pause-miweb.matge.com`)"
+      - "traefik.http.routers.pause-miweb.entrypoints=websecure"
+      - "traefik.http.routers.pause-miweb.tls.certresolver=letsencrypt"
+      - "traefik.http.services.pause-miweb.loadbalancer.server.port=3000"
+
+networks:
+  ecosystem-network:
+    external: true

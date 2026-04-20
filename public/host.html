@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pause Miweb - Hôte</title>
+    <link rel="stylesheet" href="css/multiplayer.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+</head>
+<body>
+    <!-- Écran de configuration -->
+    <div id="screen-setup" class="screen active">
+        <div class="container">
+            <div class="logo">
+                <h1>Pause<span>Miweb</span></h1>
+                <p class="tagline">Mode Multijoueur</p>
+            </div>
+
+            <div class="categories-setup">
+                <h2>Catégories</h2>
+                <div class="category-toggles">
+                    <label class="category-toggle"><input type="checkbox" value="casse-tete" checked><span class="cat-chip">🧩 Casse-tête</span></label>
+                    <label class="category-toggle"><input type="checkbox" value="actualites" checked><span class="cat-chip">📰 Actualités</span></label>
+                    <label class="category-toggle"><input type="checkbox" value="fakenews" checked><span class="cat-chip">🤥 Fake News</span></label>
+                    <label class="category-toggle"><input type="checkbox" value="celebrites" checked><span class="cat-chip">⭐ Célébrités</span></label>
+                    <label class="category-toggle"><input type="checkbox" value="geek" checked><span class="cat-chip">🎮 Geek</span></label>
+                    <label class="category-toggle"><input type="checkbox" value="science" checked><span class="cat-chip">🔬 Science</span></label>
+                    <label class="category-toggle"><input type="checkbox" value="histoire" checked><span class="cat-chip">📜 Histoire</span></label>
+                    <label class="category-toggle"><input type="checkbox" value="trump" checked><span class="cat-chip">🍊 Trump</span></label>
+                </div>
+            </div>
+
+            <div class="question-count-setup">
+                <h2>Nombre de questions</h2>
+                <div class="count-selector">
+                    <button class="btn btn-count" data-count="10">10</button>
+                    <button class="btn btn-count active" data-count="20">20</button>
+                    <button class="btn btn-count" data-count="30">30</button>
+                    <button class="btn btn-count" data-count="50">50</button>
+                </div>
+            </div>
+
+            <button id="btn-create" class="btn btn-primary btn-large">Créer la partie</button>
+        </div>
+    </div>
+
+    <!-- Écran Lobby -->
+    <div id="screen-lobby" class="screen">
+        <div class="container">
+            <div class="logo">
+                <h1>Pause<span>Miweb</span></h1>
+            </div>
+
+            <div class="lobby-content">
+                <div class="qr-section">
+                    <img id="qr-code" src="" alt="QR Code">
+                    <div class="room-code">Code : <span id="room-code">----</span></div>
+                    <div class="join-url" id="join-url"></div>
+                </div>
+
+                <div class="players-section">
+                    <h2>Joueurs connectés (<span id="player-count">0</span>)</h2>
+                    <div id="players-list" class="players-grid"></div>
+                </div>
+            </div>
+
+            <button id="btn-start" class="btn btn-primary btn-large" disabled>En attente de joueurs...</button>
+        </div>
+    </div>
+
+    <!-- Écran de jeu (hôte) -->
+    <div id="screen-game" class="screen">
+        <div class="container">
+            <div class="game-header">
+                <div class="standings-bar" id="standings-bar"></div>
+                <div class="round-info">
+                    <span id="round-counter">Question 1/20</span>
+                    <span id="timer" class="timer">20</span>
+                </div>
+            </div>
+
+            <div id="question-display" class="question-display">
+                <div class="category-badge" id="question-category"></div>
+                <div class="question-image-container hidden" id="question-image-container">
+                    <img id="question-image" class="question-image" src="" alt="">
+                </div>
+                <div class="question-text" id="question-text"></div>
+                <div id="mcq-options" class="mcq-options hidden"></div>
+            </div>
+
+            <div class="answer-progress">
+                <span id="answer-count">0</span> / <span id="answer-total">0</span> ont répondu
+            </div>
+        </div>
+    </div>
+
+    <!-- Écran résultats de question -->
+    <div id="screen-question-results" class="screen">
+        <div class="container">
+            <div class="result-header">
+                <div class="correct-answer">
+                    <span class="label">Bonne réponse :</span>
+                    <span id="correct-answer-text" class="answer-text"></span>
+                </div>
+                <div id="explanation" class="explanation hidden"></div>
+            </div>
+
+            <div id="question-results-list" class="results-list"></div>
+
+            <div class="standings-section">
+                <h3>Classement</h3>
+                <div id="standings-list" class="standings-list"></div>
+            </div>
+
+            <button id="btn-next" class="btn btn-primary btn-large">Question suivante</button>
+        </div>
+    </div>
+
+    <!-- Écran résultats finaux -->
+    <div id="screen-final" class="screen">
+        <div class="container">
+            <div class="final-header">
+                <h1>🏆 Résultats Finaux</h1>
+            </div>
+            <div id="final-podium" class="podium"></div>
+            <div id="final-rankings" class="final-rankings"></div>
+            <button id="btn-new-game" class="btn btn-primary btn-large">Nouvelle partie</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/host.js"></script>
+</body>
+</html>

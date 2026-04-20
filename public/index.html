@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pause Miweb - Le Quizz</title>
+    <link rel="stylesheet" href="css/multiplayer.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+    <style>
+        .mode-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 400px;
+            margin: 2rem auto 0;
+        }
+        .mode-card {
+            display: block;
+            background: var(--bg-card);
+            border: 2px solid var(--bg-card-light);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+            text-decoration: none;
+            color: var(--white);
+            transition: all 0.2s;
+        }
+        .mode-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(108, 92, 231, 0.3);
+        }
+        .mode-icon {
+            font-size: 3rem;
+            margin-bottom: 0.8rem;
+        }
+        .mode-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+        .mode-desc {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="screen active">
+        <div class="container" style="text-align: center;">
+            <div class="logo">
+                <h1>Pause<span>Miweb</span></h1>
+                <p class="tagline">Le quizz en famille !</p>
+            </div>
+
+            <div class="mode-selector">
+                <a href="solo.html" class="mode-card">
+                    <div class="mode-icon">🎮</div>
+                    <div class="mode-title">Mode Solo / Local</div>
+                    <div class="mode-desc">Jouez à tour de rôle sur le même écran</div>
+                </a>
+                <a href="host.html" class="mode-card">
+                    <div class="mode-icon">📡</div>
+                    <div class="mode-title">Mode Multijoueur</div>
+                    <div class="mode-desc">Chacun joue sur son téléphone, style Kahoot</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
