@@ -78,14 +78,56 @@ const questionsFile = fs.readFileSync(path.join(__dirname, '..', 'js', 'question
 eval(questionsFile.replace('const ', 'global.'));
 QUESTIONS_DB = global.QUESTIONS_DB;
 
+// Assign stable IDs to questions (based on index)
+QUESTIONS_DB.forEach((q, i) => { q._id = i; });
+
+// ═══════════════════════════════════════
+// Used questions tracking (persists to disk)
+// ═══════════════════════════════════════
+const DATA_DIR = path.join(__dirname, '..', 'data');
+if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
+const USED_FILE = path.join(DATA_DIR, 'used-questions.json');
+
+function loadUsedQuestions() {
+    try {
+        return new Set(JSON.parse(fs.readFileSync(USED_FILE, 'utf-8')));
+    } catch {
+        return new Set();
+    }
+}
+
+function saveUsedQuestions(usedSet) {
+    fs.writeFileSync(USED_FILE, JSON.stringify([...usedSet]));
+}
+
+let usedQuestions = loadUsedQuestions();
+
 function selectQuestions(categories, count) {
     let pool = QUESTIONS_DB.filter(q => categories.includes(q.category));
-    // Shuffle and take `count`
-    for (let i = pool.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [pool[i], pool[j]] = [pool[j], pool[i]];
+
+    // Prefer questions not yet used
+    let unused = pool.filter(q => !usedQuestions.has(q._id));
+
+    // If not enough unused questions, reset the tracker
+    if (unused.length < count) {
+        usedQuestions = new Set();
+        saveUsedQuestions(usedQuestions);
+        unused = pool;
     }
-    return pool.slice(0, count);
+
+    // Shuffle and take `count`
+    for (let i = unused.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [unused[i], unused[j]] = [unused[j], unused[i]];
+    }
+
+    const selected = unused.slice(0, count);
+
+    // Mark as used
+    selected.forEach(q => usedQuestions.add(q._id));
+    saveUsedQuestions(usedQuestions);
+
+    return selected;
 }
 
 // ═══════════════════════════════════════

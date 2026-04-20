@@ -5,6 +5,8 @@ services:
       - PORT=3000
       - BASE_URL=https://pause-miweb.matge.com
     restart: unless-stopped
+    volumes:
+      - quiz-data:/app/data
     networks:
       - ecosystem-network
     labels:
@@ -13,6 +15,9 @@ services:
       - "traefik.http.routers.pause-miweb.entrypoints=websecure"
       - "traefik.http.routers.pause-miweb.tls.certresolver=letsencrypt"
       - "traefik.http.services.pause-miweb.loadbalancer.server.port=3000"
+
+volumes:
+  quiz-data:
 
 networks:
   ecosystem-network:
