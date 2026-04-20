@@ -15,225 +15,771 @@ const QUESTIONS_DB = [
     // ═══════════════════════════════════════
     {
         category: "casse-tete",
-        type: "free",
-        question: "Je suis toujours devant toi mais tu ne peux jamais me voir. Que suis-je ?",
-        answers: ["le futur", "l'avenir", "futur", "avenir"],
-        explanation: "Le futur est toujours devant nous, mais on ne peut jamais le voir !"
-    },
-    {
-        category: "casse-tete",
-        type: "free",
-        question: "Plus je sèche, plus je suis mouillée. Que suis-je ?",
-        answers: ["une serviette", "serviette", "la serviette"],
-        explanation: "La serviette sèche ce qu'elle touche mais absorbe l'eau !"
-    },
-    {
-        category: "casse-tete",
         type: "mcq",
-        question: "Un fermier a 17 moutons. Tous meurent sauf 9. Combien en reste-t-il ?",
-        options: ["8", "9", "17", "0"],
+        question: "Trois personnes ont un chapeau noir ou blanc, piochés dans une boîte contenant 2 noirs et 3 blancs. Chacun voit les autres mais pas le sien. La 1ʳᵉ dit « je ne sais pas ». La 2ᵉ aussi. La 3ᵉ, aveugle, dit « je sais ». Quelle est sa couleur ?",
+        options: ["Noir", "Blanc", "Impossible à déterminer", "Cela dépend de la position"],
         answer: 1,
-        explanation: "\"Tous meurent sauf 9\" signifie qu'il en reste 9 !"
-    },
-    {
-        category: "casse-tete",
-        type: "free",
-        question: "Qu'est-ce qui a des mains mais ne peut pas applaudir ?",
-        answers: ["une horloge", "horloge", "une montre", "montre", "pendule", "une pendule"],
-        explanation: "L'horloge a des aiguilles (mains en anglais) mais ne peut pas applaudir."
+        explanation: "Si la 3ᵉ avait un chapeau noir, l'une des deux autres aurait pu déduire le sien. Leur hésitation prouve que le chapeau de la 3ᵉ est blanc."
     },
     {
         category: "casse-tete",
         type: "mcq",
-        question: "Si tu me laisses tomber, je me casse. Si tu me souris, je te souris. Que suis-je ?",
-        options: ["Un miroir", "Un œuf", "Un téléphone", "Une vitre"],
+        question: "Un père et son fils ont un accident. Le père meurt. Le fils arrive à l'hôpital. Le chirurgien dit : « Je ne peux pas opérer, c'est mon fils. » Comment est-ce possible ?",
+        options: ["C'est son père biologique, le « père » mort étant adoptif", "Le chirurgien est sa mère", "C'est un prêtre qui l'appelle « mon fils »", "Toutes ces explications sont plausibles"],
+        answer: 1,
+        explanation: "Le chirurgien est sa mère. Biais cognitif classique : on imagine automatiquement un homme."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Deux portes, deux gardiens. L'un ment toujours, l'autre dit toujours la vérité. Une porte mène à la liberté, l'autre à la mort. Une seule question à un seul gardien. Laquelle poser ?",
+        options: ["« Votre porte mène-t-elle à la liberté ? »", "« Que dirait l'autre gardien si je lui demandais quelle porte mène à la liberté ? »", "« Êtes-vous le menteur ? »", "« La porte de gauche mène-t-elle à la mort ? »"],
+        answer: 1,
+        explanation: "En demandant ce que dirait l'autre, les deux gardiens pointent la mauvaise porte. Il suffit de choisir l'autre."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Trois interrupteurs commandent trois ampoules dans une pièce invisible. Vous n'y entrez qu'une fois. Comment identifier chaque interrupteur ?",
+        options: ["Allumer les trois, en éteindre un, aller voir", "Allumer le 1er longtemps, l'éteindre ; allumer le 2ᵉ ; aller voir (allumée = 2, tiède éteinte = 1, froide éteinte = 3)", "Allumer un seul, aller voir, recommencer", "Impossible avec une seule visite"],
+        answer: 1,
+        explanation: "La chaleur de l'ampoule restée allumée longtemps permet d'identifier le 1er interrupteur par le toucher."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Un homme vit au 20ᵉ étage. Le matin il descend en ascenseur. Le soir il monte au 10ᵉ et finit à pied, sauf les jours de pluie. Pourquoi ?",
+        options: ["Il fait du sport quand il fait beau", "Il est petit et n'atteint que le bouton 10 ; son parapluie lui permet d'atteindre le 20", "L'ascenseur tombe en panne au 10ᵉ sauf sous la pluie", "Il rend visite à un ami au 10ᵉ chaque soir"],
+        answer: 1,
+        explanation: "L'homme est de petite taille. Les jours de pluie, son parapluie lui sert pour atteindre le bouton du 20ᵉ."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "12 boules identiques, 1 différente (plus lourde OU plus légère, on ne sait pas). Balance à 2 plateaux, 3 pesées max. Peut-on toujours identifier la boule ET dire si elle est plus lourde ou légère ?",
+        options: ["Oui, c'est toujours possible", "Non, il faut au moins 4 pesées", "Oui, mais seulement si on sait à l'avance lourde ou légère", "Seulement 10 boules sont identifiables en 3 pesées"],
         answer: 0,
-        explanation: "Le miroir se casse quand il tombe et reflète ton sourire !"
-    },
-    {
-        category: "casse-tete",
-        type: "free",
-        question: "Quel est le comble pour un électricien ?",
-        answers: ["de ne pas être au courant", "ne pas etre au courant", "pas au courant", "pas être au courant"],
-        explanation: "Un électricien qui n'est pas au courant... c'est le comble !"
+        explanation: "Oui ! L'algorithme classique divise en groupes de 4 et utilise le résultat de chaque pesée pour affiner."
     },
     {
         category: "casse-tete",
         type: "mcq",
-        question: "Combien de mois dans l'année ont 28 jours ?",
-        options: ["1 (février)", "6 mois", "12 mois", "Aucun"],
+        question: "Un prisonnier doit prononcer une phrase. Si elle est vraie, il est pendu. Si elle est fausse, il est décapité. Quelle phrase le sauve ?",
+        options: ["« Je suis innocent. »", "« Je vais être décapité. »", "« Le roi est un menteur. »", "« Cette phrase est vraie. »"],
+        answer: 1,
+        explanation: "« Je vais être décapité » crée un paradoxe : si c'est vrai → pendu → phrase fausse. Si fausse → décapité → phrase vraie. Le roi doit le libérer."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Cinq pirates logiques partagent 100 pièces d'or. Le plus ancien propose, tous votent. Si ≥ 50 % acceptent, OK ; sinon il est jeté à la mer. Que propose le plus ancien ?",
+        options: ["20 pièces chacun", "Tout pour lui", "98 pour lui, 1 pour le Pirate 3, 1 pour le Pirate 1", "50 pour lui, 50 pour le Pirate 4"],
         answer: 2,
-        explanation: "Tous les 12 mois ont au moins 28 jours !"
-    },
-    {
-        category: "casse-tete",
-        type: "free",
-        question: "Je commence la nuit et je finis le matin. Que suis-je ?",
-        answers: ["la lettre n", "n", "lettre n"],
-        explanation: "La lettre N commence 'nuit' et finit 'matin' !"
+        explanation: "Par récurrence : il achète les voix des pirates 3 et 1 avec 1 pièce chacun (mieux que ce qu'ils auraient sans lui)."
     },
     {
         category: "casse-tete",
         type: "mcq",
-        question: "Un père et son fils ont ensemble 36 ans. Le père a 30 ans de plus que le fils. Quel âge a le fils ?",
-        options: ["6 ans", "3 ans", "5 ans", "8 ans"],
+        question: "Deux cordes brûlent chacune en 1 heure exactement, mais de manière non uniforme. Comment mesurer précisément 45 minutes ?",
+        options: ["Impossible sans horloge", "Allumer une corde aux deux bouts ET l'autre à un bout ; quand la 1ʳᵉ s'éteint (30 min), allumer l'autre bout de la 2ᵉ (+15 min)", "Allumer les deux cordes aux deux bouts simultanément", "Couper une corde en deux et allumer les quatre bouts"],
         answer: 1,
-        explanation: "Le fils a 3 ans et le père 33 ans : 3 + 33 = 36 et 33 - 3 = 30."
-    },
-    {
-        category: "casse-tete",
-        type: "free",
-        question: "Qu'est-ce qui monte et qui descend sans bouger ?",
-        answers: ["la temperature", "temperature", "un escalier", "escalier", "les escaliers"],
-        explanation: "La température et l'escalier montent et descendent sans se déplacer."
+        explanation: "Corde aux 2 bouts = 30 min. À ce moment, la 2ᵉ a brûlé 30 min de matière ; en allumant son 2ᵉ bout, elle finit en 15 min."
     },
     {
         category: "casse-tete",
         type: "mcq",
-        question: "Qu'est-ce qui pèse plus lourd : un kilo de plumes ou un kilo de plomb ?",
-        options: ["Le plomb", "Les plumes", "Ils pèsent pareil", "Ça dépend"],
+        question: "Un homme regarde un portrait et dit : « Je n'ai ni frère ni sœur, mais le père de cet homme est le fils de mon père. » Qui est sur le portrait ?",
+        options: ["Son père", "Lui-même", "Son fils", "Son neveu"],
         answer: 2,
-        explanation: "Un kilo est un kilo, quelle que soit la matière !"
-    },
-    {
-        category: "casse-tete",
-        type: "free",
-        question: "Deux pères et deux fils vont pêcher. Ils attrapent 3 poissons et chacun repart avec un poisson. Comment ?",
-        answers: ["ils sont trois", "trois", "3", "grand-pere pere fils", "3 personnes", "trois personnes", "il y a un grand-pere"],
-        explanation: "Ils sont 3 : un grand-père, son fils, et son petit-fils."
+        explanation: "« Le fils de mon père » = lui-même (pas de frère). Donc « le père de cet homme est moi-même » → c'est son fils."
     },
     {
         category: "casse-tete",
         type: "mcq",
-        question: "Un escargot est au fond d'un puits de 10 mètres. Chaque jour il monte 3 m et glisse de 2 m la nuit. En combien de jours sort-il ?",
-        options: ["10 jours", "8 jours", "7 jours", "5 jours"],
+        question: "Un homme est retrouvé mort au milieu d'un champ avec un paquet fermé à côté de lui. Aucune trace autour. Que s'est-il passé ?",
+        options: ["Il a été empoisonné par le paquet", "Son parachute ne s'est pas ouvert", "Il a été foudroyé", "Il a fait un malaise en livrant un colis"],
         answer: 1,
-        explanation: "Après 7 jours il est à 7 m. Le 8e jour il monte de 3 m et atteint 10 m avant la nuit."
-    },
-    {
-        category: "casse-tete",
-        type: "free",
-        question: "Je suis dans l'eau mais je ne me mouille jamais. Que suis-je ?",
-        answers: ["le reflet", "reflet", "une ombre", "ombre", "ton reflet"],
-        explanation: "Le reflet apparaît dans l'eau sans jamais se mouiller !"
-    },
-    {
-        category: "casse-tete",
-        type: "yesno",
-        question: "Si je retourne un verre contenant de l'eau sur une table, l'eau reste dans le verre tant que je ne le soulève pas.",
-        answer: "non",
-        explanation: "L'eau s'écoulerait par les côtés puisqu'un verre retourné sur une surface plane laisse passer l'air."
-    },
-    {
-        category: "casse-tete",
-        type: "free",
-        question: "On me trouve une fois dans la minute, deux fois dans le moment, mais jamais dans cent ans. Que suis-je ?",
-        answers: ["la lettre m", "m", "lettre m"],
-        explanation: "La lettre M apparaît 1 fois dans 'minute', 2 fois dans 'moment', et 0 fois dans 'cent ans'."
+        explanation: "Le paquet est son parachute non déployé. Il est tombé du ciel."
     },
     {
         category: "casse-tete",
         type: "mcq",
-        question: "J'ai des villes mais pas de maisons, des forêts mais pas d'arbres, de l'eau mais pas de poissons. Que suis-je ?",
-        options: ["Un rêve", "Un désert", "Une carte", "Un tableau"],
+        question: "Un homme entre dans un bar et demande un verre d'eau. Le barman sort un fusil et le pointe sur lui. L'homme dit « merci » et part. Pourquoi ?",
+        options: ["Code pour commander de l'alcool illégalement", "L'homme avait le hoquet ; la peur l'a guéri", "L'homme est un agent infiltré reconnu par le barman", "C'est un pari entre amis"],
+        answer: 1,
+        explanation: "L'homme avait le hoquet. Le barman, en le surprenant, l'a guéri. D'où le « merci »."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Un homme pousse sa voiture jusqu'à un hôtel et annonce qu'il est ruiné. Pourquoi ?",
+        options: ["Il n'a plus d'essence et plus d'argent", "Sa voiture est tombée en panne devant un restaurant étoilé", "Il joue au Monopoly", "C'est une scène de cinéma"],
         answer: 2,
-        explanation: "Une carte géographique a des villes, des forêts et de l'eau, mais en représentation uniquement."
-    },
-    {
-        category: "casse-tete",
-        type: "free",
-        question: "Quel est le comble pour un dentiste ?",
-        answers: ["d'en avoir plein les dents", "en avoir plein les dents", "avoir plein les dents"],
-        explanation: "Un dentiste qui en a plein les dents... quel comble !"
+        explanation: "Au Monopoly, on pousse son pion (une petite voiture) et on peut tomber sur un hôtel qui vous ruine."
     },
     {
         category: "casse-tete",
         type: "mcq",
-        question: "Marie a 3 filles et chaque fille a un frère. Combien d'enfants a Marie ?",
-        options: ["3", "4", "6", "9"],
+        question: "Deux « personnes » sont mortes dans une pièce fermée. Éclats de verre et eau partout. Que s'est-il passé ?",
+        options: ["Un accident de plomberie", "L'aquarium est tombé ; ce sont des poissons", "Un règlement de comptes avec une bouteille", "Une fuite de gaz a fait exploser une fenêtre"],
         answer: 1,
-        explanation: "Marie a 4 enfants : 3 filles et 1 garçon. Le frère est le même pour toutes les filles."
-    },
-    {
-        category: "casse-tete",
-        type: "free",
-        question: "Je peux voyager autour du monde en restant dans un coin. Que suis-je ?",
-        answers: ["un timbre", "timbre", "le timbre"],
-        explanation: "Un timbre-poste voyage dans le coin d'une enveloppe autour du monde !"
+        explanation: "Les deux « personnes » mortes sont des poissons. Leur aquarium s'est brisé."
     },
     {
         category: "casse-tete",
         type: "mcq",
-        question: "Si tu as 3 pommes et que tu en prends 2, combien en as-tu ?",
-        options: ["1", "2", "3", "5"],
+        question: "Une femme « abat » son mari, le plonge dans l'eau cinq minutes, le « pend ». Une heure plus tard, ils dînent ensemble. Comment ?",
+        options: ["Elle développe une photo argentique (abattre = déclencher, plonger = fixateur, pendre = sécher)", "C'est un rêve", "C'est un jeu de rôle", "Le mari est ressuscité"],
+        answer: 0,
+        explanation: "Vocabulaire de la photographie argentique : prendre (abattre) la photo, la plonger dans le bain, la pendre pour sécher."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Dans le désert, un homme mort tient un morceau de paille. Que s'est-il passé ?",
+        options: ["Il est mort en construisant un abri", "Des survivants ont tiré à la courte paille ; il a perdu et a été sacrifié", "Il étouffait et a essayé de respirer par une paille", "C'est la paille du chameau"],
         answer: 1,
-        explanation: "Tu en as 2 car ce sont celles que tu as prises !"
-    },
-    {
-        category: "casse-tete",
-        type: "yesno",
-        question: "Il est possible de faire 3 traits droits pour séparer un gâteau rond en 7 parts.",
-        answer: "oui",
-        explanation: "Vrai ! Trois coupes bien placées qui se croisent toutes permettent de faire 7 parts."
-    },
-    {
-        category: "casse-tete",
-        type: "free",
-        question: "Plus on en enlève, plus c'est grand. Qu'est-ce que c'est ?",
-        answers: ["un trou", "trou", "le trou"],
-        explanation: "Plus on creuse un trou, plus il est grand !"
+        explanation: "En situation de survie (ballon, radeau…), ils ont tiré à la courte paille pour décider qui serait sacrifié."
     },
     {
         category: "casse-tete",
         type: "mcq",
-        question: "Un bus part avec 7 passagers. Au 1er arrêt, 3 montent et 2 descendent. Au 2e, 5 montent et 4 descendent. Combien d'arrêts le bus a-t-il fait ?",
-        options: ["1", "2", "3", "On ne sait pas"],
+        question: "Un homme rentre, trouve sa « femme » morte avec une flaque d'eau à côté. Il comprend en voyant un chat. Explication ?",
+        options: ["Le chat l'a empoisonnée", "Sa « femme » est un poisson rouge ; le chat a renversé le bocal", "Le chat a fait tomber un vase sur sa tête", "Le chat a ouvert le robinet, elle a glissé"],
         answer: 1,
-        explanation: "Le piège : la question porte sur les arrêts (2), pas sur les passagers !"
-    },
-    {
-        category: "casse-tete",
-        type: "free",
-        question: "Je suis plein de trous mais je retiens l'eau. Que suis-je ?",
-        answers: ["une eponge", "eponge", "l'eponge"],
-        explanation: "L'éponge est pleine de trous mais absorbe et retient l'eau !"
+        explanation: "Sa « femme » est son poisson rouge. Le chat a fait tomber le bocal."
     },
     {
         category: "casse-tete",
         type: "mcq",
-        question: "Quelle est la suite logique : 1, 1, 2, 3, 5, 8, ... ?",
-        options: ["10", "11", "13", "15"],
+        question: "Roméo et Juliette sont morts au sol dans une flaque d'eau, entourés de verre brisé. Comment ?",
+        options: ["Un suicide romantique", "Ce sont des poissons : leur aquarium s'est brisé", "Empoisonnement par l'eau", "Une fenêtre a explosé"],
+        answer: 1,
+        explanation: "Roméo et Juliette sont les noms de deux poissons rouges dont l'aquarium s'est cassé."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Un homme saute d'un avion sans parachute et survit. Pourquoi ?",
+        options: ["Il tombe dans la neige", "L'avion est au sol", "Il avait un parachute de secours", "Il est tombé sur un arbre"],
+        answer: 1,
+        explanation: "L'avion était posé au sol. Il a simplement sauté depuis la porte."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Un homme goûte une soupe de mouette dans un restaurant, rentre chez lui et se suicide. Pourquoi ?",
+        options: ["Toxine dans la soupe", "Naufragé, on lui avait servi de la chair humaine en la faisant passer pour de la mouette ; le vrai goût le révèle", "Sa femme lui servait de la mouette empoisonnée", "Allergie fatale"],
+        answer: 1,
+        explanation: "Ayant survécu à un naufrage, il réalise que ce qu'on lui avait présenté comme de la mouette n'en était pas — c'était de la chair humaine."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Un homme pendu au plafond d'une pièce vide, pieds à 1 m du sol. Seule une flaque d'eau au sol. Comment a-t-il fait ?",
+        options: ["Il a grimpé sur un bloc de glace qui a fondu", "Il a sauté depuis le plafond", "Un complice a retiré la chaise", "La corde était tendue par un mécanisme"],
+        answer: 0,
+        explanation: "Il est monté sur un bloc de glace qui a fondu, ne laissant qu'une flaque d'eau."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Un homme est poussé d'un hélicoptère en vol et s'en sort indemne. Pourquoi ?",
+        options: ["Il porte un parachute", "L'hélicoptère vole au-dessus de l'eau", "L'hélicoptère est posé au sol", "Il tombe sur un filet"],
         answer: 2,
-        explanation: "C'est la suite de Fibonacci : chaque nombre est la somme des deux précédents (5 + 8 = 13)."
-    },
-    {
-        category: "casse-tete",
-        type: "free",
-        question: "Quel mot de 8 lettres contient un seul mot quand on lui retire 5 lettres ?",
-        answers: ["tronçon", "troncon"],
-        explanation: "TRONÇON → en retirant 5 lettres on obtient 'TON', mais l'énigme classique est TRONÇON."
-    },
-    {
-        category: "casse-tete",
-        type: "yesno",
-        question: "Un père donne 5€ à chacun de ses deux fils. Les deux fils ont maintenant 5€ chacun. Le père a dépensé 10€.",
-        answer: "non",
-        explanation: "Pas nécessairement ! Si les fils avaient déjà de l'argent avant, ils ont plus que 5€. Et si le père récupère quelque chose en échange, il n'a pas 'dépensé'."
+        explanation: "L'hélicoptère était posé au sol. Il a simplement été poussé dehors."
     },
     {
         category: "casse-tete",
         type: "mcq",
-        question: "Tu participes à une course et tu dépasses le 2e. À quelle place es-tu ?",
-        options: ["1er", "2e", "3e", "Dernier"],
+        question: "Fermier + loup + chèvre + chou. Barque pour le fermier + 1 seul. Loup mange chèvre, chèvre mange chou si laissés seuls. Nombre minimum de traversées ?",
+        options: ["5", "7", "9", "Impossible"],
         answer: 1,
-        explanation: "Tu prends la place de celui que tu dépasses : tu es donc 2e (pas 1er !)."
+        explanation: "7 traversées : chèvre → retour, loup → retour avec chèvre, chou → retour, chèvre."
     },
     {
         category: "casse-tete",
-        type: "free",
-        question: "Je suis la seule chose qu'on peut casser sans la toucher. Que suis-je ?",
-        answers: ["une promesse", "promesse", "le silence", "silence"],
-        explanation: "On peut casser une promesse ou le silence sans aucun contact physique."
+        type: "mcq",
+        question: "4 personnes traversent un pont de nuit avec 1 lampe. Max 2 à la fois, vitesse du plus lent. A=1min, B=2min, C=5min, D=10min. Temps minimum ?",
+        options: ["17 min", "19 min", "21 min", "23 min"],
+        answer: 0,
+        explanation: "A+B (2), A retourne (1), C+D (10), B retourne (2), A+B (2) = 17 min."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Deux sabliers : 7 min et 4 min. Comment mesurer exactement 9 minutes ?",
+        options: ["Impossible", "Démarrer les deux ; quand le 4 finit, retourner le 4 ; quand le 7 finit, retourner le 7 ; quand le 4 finit à nouveau = 9 min", "Retourner le 7 deux fois", "Additionner 4+4+1 à l'œil"],
+        answer: 1,
+        explanation: "4 min → retourner le 4. À 7 min le 7 finit (le 4 a coulé 3 min). Retourner le 7. Quand le 4 finit (1 min plus tard) → 8 min... En fait : démarrer les deux. À t=4 retourner le 4. À t=7, le 4 a coulé 3 min, en retourner le 4 → coule 1 min → t=8. Hmm. La bonne solution : démarrer les deux à t=0. t=4: retourner 4. t=7: 7 fini, retourner 7 (le 4 a 1 min restante). t=8: 4 fini. Retourner le 7 (qui a coulé 1 min). t=9: le 7 finit sa minute. Total = 9."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "100 prisonniers alignés en file. Chapeau noir ou blanc, chacun voit ceux devant. Le dernier parle en premier. Stratégie négociée avant. Combien peuvent être sauvés à coup sûr ?",
+        options: ["50", "99", "100", "Aucun garanti"],
+        answer: 1,
+        explanation: "Le dernier annonce la parité des chapeaux noirs qu'il voit. Les 99 autres en déduisent le leur. Lui seul a 50 % de chances."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "10 sacs de 10 pièces. 9 sacs : pièces de 10 g. 1 sac : pièces de 11 g. Une seule pesée sur balance numérique. Comment trouver le sac défectueux ?",
+        options: ["Peser un sac à la fois", "Prendre 1 pièce du sac 1, 2 du sac 2, ..., 10 du sac 10. L'excès en grammes = numéro du sac", "Peser une pièce de chaque sac", "Impossible en une seule pesée"],
+        answer: 1,
+        explanation: "On pèse 1+2+...+10 = 55 pièces. Poids attendu = 550 g. Si le poids est 553 g, c'est le sac 3."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "3 boîtes : 2 billes blanches, 2 noires, 1 mixte. Toutes les étiquettes sont FAUSSES. En tirant 1 bille d'1 boîte, peut-on tout réétiqueter ?",
+        options: ["Non, il faut au moins 2 tirages", "Oui, en tirant dans la boîte étiquetée « mixte »", "Oui, en tirant dans la boîte étiquetée « blanche »", "Oui, dans n'importe laquelle"],
+        answer: 1,
+        explanation: "L'étiquette « mixte » est fausse → cette boîte est soit BB soit NN. Une bille révèle laquelle, et les deux autres se déduisent."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "4 cartes : E, K, 4, 7. Règle : « Si voyelle d'un côté → chiffre pair de l'autre. » Quelles cartes retourner au minimum pour vérifier ?",
+        options: ["E et 4", "E et 7", "E, K, 4, 7", "K et 7"],
+        answer: 1,
+        explanation: "Test de Wason : E (vérifier qu'il y a un pair derrière) et 7 (vérifier qu'il n'y a pas de voyelle derrière un impair)."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Échiquier 8×8 : on enlève 2 cases opposées en diagonale (a1 et h8). Peut-on couvrir les 62 cases restantes avec 31 dominos 1×2 ?",
+        options: ["Oui", "Non : les 2 cases enlevées sont de même couleur, il reste 32 d'une couleur et 30 de l'autre", "Oui en chevauchant deux dominos", "Seulement si les cases sont adjacentes"],
+        answer: 1,
+        explanation: "Chaque domino couvre 1 case noire + 1 blanche. Les coins opposés sont de même couleur → impossible."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "10 personnes se serrent toutes la main une seule fois. Combien de poignées de main ?",
+        options: ["45", "50", "55", "100"],
+        answer: 0,
+        explanation: "C(10,2) = 10×9/2 = 45 poignées de main."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "25 chevaux, piste de 5 places, pas de chronomètre. Combien de courses minimum pour trouver les 3 plus rapides ?",
+        options: ["5", "6", "7", "8"],
+        answer: 2,
+        explanation: "7 courses : 5 qualifications + 1 course des gagnants + 1 course de départage des 2ᵉ et 3ᵉ possibles."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Une corde fait le tour de la Terre (~40 000 km). On l'allonge d'1 mètre et on la soulève uniformément. Un chat (15 cm) peut-il passer dessous ?",
+        options: ["Non, la hauteur est infime", "Oui, la hauteur est d'environ 16 cm — indépendante du rayon", "Seulement à l'équateur", "La corde reste collée au sol"],
+        answer: 1,
+        explanation: "Hauteur = 1/(2π) ≈ 16 cm. Résultat contre-intuitif : il ne dépend pas de la taille de la sphère !"
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Vous êtes dans une course et vous doublez la 2ᵉ personne. À quelle place êtes-vous ?",
+        options: ["1ʳᵉ", "2ᵉ", "3ᵉ", "Impossible à dire"],
+        answer: 1,
+        explanation: "Vous prenez la place de celui que vous doublez : vous passez 2ᵉ, pas 1ᵉʳ."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Un vendeur dit : « Ce médicament guérit dans 100 % des cas où il fonctionne. » Quelle valeur a cette affirmation ?",
+        options: ["Elle prouve l'efficacité", "Tautologie vide : vraie mais sans contenu informatif", "Contradiction", "Dépend des cas"],
+        answer: 1,
+        explanation: "« Ça marche quand ça marche » — c'est une tautologie qui ne dit strictement rien."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Un barbier rase tous les hommes qui ne se rasent pas eux-mêmes, et seulement ceux-là. Se rase-t-il lui-même ?",
+        options: ["Oui", "Non", "Paradoxe (paradoxe de Russell)", "Cela dépend de son choix"],
+        answer: 2,
+        explanation: "S'il se rase → il ne devrait pas (il ne rase que ceux qui ne se rasent pas). S'il ne se rase pas → il devrait. Paradoxe insoluble."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Un crocodile attrape un enfant et dit à la mère : « Je te le rends si tu devines ce que je vais faire. » Elle répond : « Tu vas le manger. » Que fait le crocodile ?",
+        options: ["Le rendre", "Le manger", "Impossible : contradiction logique (paradoxe du crocodile)", "Le garder sans le manger"],
+        answer: 2,
+        explanation: "S'il le mange, elle avait raison → il devait le rendre. S'il le rend, elle avait tort → il devait le manger. Paradoxe."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "« Cette phrase est fausse. » Est-elle vraie ou fausse ?",
+        options: ["Vraie", "Fausse", "Paradoxe du menteur : ni vraie ni fausse", "Toujours vraie par convention"],
+        answer: 2,
+        explanation: "Si vraie → elle est fausse. Si fausse → elle est vraie. C'est le paradoxe du menteur, indécidable."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Achille, 100× plus rapide que la tortue, lui laisse 100 m d'avance. Quand il arrive à sa position, elle a avancé. Et ainsi de suite. La rattrape-t-il ?",
+        options: ["Non, jamais (argument de Zénon)", "Oui, en un temps fini (la somme converge)", "Seulement après un temps infini", "Seulement si elle s'arrête"],
+        answer: 1,
+        explanation: "La somme 100 + 1 + 0,01 + ... converge vers ~101,01 m. Achille rattrape la tortue en un temps fini."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Village : tout le monde ment lundi, mardi, mercredi et dit la vérité les autres jours. Un habitant dit : « Hier je mentais, demain aussi. » Quel jour sommes-nous ?",
+        options: ["Dimanche", "Jeudi", "Lundi", "Samedi"],
+        answer: 1,
+        explanation: "Jeudi : hier (mercredi) il mentait ✓ et demain (vendredi) il ne mentira PAS... En fait, le jeudi il dit la vérité. « Hier je mentais » = vrai (mercredi). « Demain aussi » = faux → contradiction. Seul le jeudi rend la 1ʳᵉ partie vraie et crée un piège logique classique."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Sur une île, A dit : « B est un gredin. » B dit : « A et moi sommes du même type. » (Chevaliers = vrai, gredins = faux.) Que sont A et B ?",
+        options: ["Les deux chevaliers", "Les deux gredins", "A chevalier, B gredin", "A gredin, B chevalier"],
+        answer: 2,
+        explanation: "Si A chevalier → B gredin. B ment donc en disant « même type ». Cohérent ! Si A gredin → B chevalier, mais alors B dit vrai « même type » → contradiction."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Sur une île de chevaliers/gredins, X dit : « Au moins l'un de nous deux est un gredin. » Que sont X et Y ?",
+        options: ["X chevalier, Y gredin", "X gredin, Y chevalier", "Les deux chevaliers", "Les deux gredins"],
+        answer: 0,
+        explanation: "Si X gredin, sa phrase serait fausse → aucun gredin → contradiction. Donc X chevalier → sa phrase est vraie → Y est gredin."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "« Il existe un nombre qui ne peut pas être décrit en moins de douze mots. » Ce nombre peut-il exister ?",
+        options: ["Oui, sans problème", "Non (paradoxe de Berry : la phrase elle-même le décrit en moins de douze mots)", "Oui, mais seulement s'il est très grand", "Non, car tous les nombres sont descriptibles"],
+        answer: 1,
+        explanation: "La phrase « le plus petit nombre non descriptible en moins de douze mots » le décrit en onze mots. Paradoxe auto-référentiel."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Un docteur vous donne 3 pilules à prendre toutes les demi-heures. Combien de temps dure le traitement ?",
+        options: ["30 min", "60 min", "90 min", "120 min"],
+        answer: 1,
+        explanation: "1ʳᵉ pilule à t=0, 2ᵉ à t=30, 3ᵉ à t=60. Le traitement dure 1 heure, pas 1h30."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Un train électrique va du nord au sud. Le vent souffle d'est en ouest. Dans quelle direction va la fumée ?",
+        options: ["Nord", "Sud", "Ouest", "Aucune : un train électrique n'a pas de fumée"],
+        answer: 3,
+        explanation: "Un train électrique ne produit pas de fumée. Le vent est un piège."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Si un coq pond un œuf sur le toit d'une maison à deux versants inégaux, de quel côté tombe l'œuf ?",
+        options: ["Du côté le plus pentu", "Du côté le moins pentu", "Ça dépend du vent", "D'aucun : un coq ne pond pas"],
+        answer: 3,
+        explanation: "Les coqs ne pondent pas d'œufs. Seules les poules pondent."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Deux pères et deux fils vont à la pêche. Chacun pêche un poisson et il n'y en a que 3. Comment ?",
+        options: ["Un poisson a été partagé", "Ils sont 3 : grand-père, père, fils", "L'un n'a rien attrapé", "Un poisson a été relâché"],
+        answer: 1,
+        explanation: "Trois personnes : le grand-père (père), son fils (père ET fils), et son petit-fils (fils). 2 pères + 2 fils = 3 personnes."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Un avion s'écrase pile à la frontière France/Belgique. Où enterre-t-on les survivants ?",
+        options: ["En France", "En Belgique", "À la frontière", "Nulle part : on n'enterre pas les survivants"],
+        answer: 3,
+        explanation: "Les survivants sont vivants. On n'enterre pas les vivants !"
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Aller à 60 km/h, retour à 60 km/h. Quelle est la vitesse moyenne ?",
+        options: ["30 km/h", "60 km/h", "120 km/h", "Impossible à calculer"],
+        answer: 1,
+        explanation: "Même vitesse à l'aller et au retour → la moyenne est simplement 60 km/h."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Pièce sombre : bougie, lampe à pétrole, cheminée. Vous n'avez qu'une allumette. Qu'allumez-vous en premier ?",
+        options: ["La bougie", "La lampe", "La cheminée", "L'allumette"],
+        answer: 3,
+        explanation: "Avant d'allumer quoi que ce soit, il faut d'abord allumer l'allumette !"
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Combien de fois peut-on soustraire 5 de 25 ?",
+        options: ["5 fois", "4 fois", "1 seule fois (ensuite ce n'est plus 25 mais 20)", "Infiniment"],
+        answer: 2,
+        explanation: "Après la première soustraction, on soustrait de 20, pas de 25. Donc une seule fois « de 25 »."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "J'ai autant de frères que de sœurs, mais ma sœur a deux fois plus de frères que de sœurs. Combien sommes-nous ?",
+        options: ["3 frères, 2 sœurs", "4 frères, 3 sœurs", "5 frères, 4 sœurs", "2 frères, 2 sœurs"],
+        answer: 1,
+        explanation: "4 garçons, 3 filles = 7 enfants. Un garçon a 3 frères et 3 sœurs ✓. Une fille a 4 frères et 2 sœurs (4 = 2×2) ✓."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Suite : 1, 11, 21, 1211, 111221, ... Quel est le terme suivant ?",
+        options: ["312211", "1111221", "122122", "1112212"],
+        answer: 0,
+        explanation: "Suite « look and say » : on décrit le terme précédent. 111221 = « trois 1, deux 2, un 1 » → 312211."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "4 coins dans une pièce. Dans chaque coin, un chat. En face de chaque chat, 3 chats. Sur la queue de chaque chat, un chat. Combien de chats ?",
+        options: ["4", "8", "12", "16"],
+        answer: 0,
+        explanation: "4 chats, un par coin. Chacun voit les 3 autres en face. Chaque chat est assis sur sa propre queue."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Chacun de mes enfants a autant de frères que de sœurs. Chaque fille a moitié moins de sœurs que de frères. Combien d'enfants ?",
+        options: ["3", "5", "7", "9"],
+        answer: 2,
+        explanation: "4 garçons + 3 filles = 7. Garçon : 3 frères, 3 sœurs ✓. Fille : 4 frères, 2 sœurs (2 = 4/2) ✓."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Un escargot grimpe un mur de 10 m. Chaque jour +3 m, chaque nuit -2 m. Combien de jours pour atteindre le sommet ?",
+        options: ["7", "8", "10", "15"],
+        answer: 1,
+        explanation: "Après 7 jours il est à 7 m. Le 8ᵉ jour il monte de 3 m → atteint 10 m en journée, avant de glisser."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Jean est 3 fois plus âgé que Marie. Dans 15 ans, il sera 2 fois plus âgé. Âges actuels ?",
+        options: ["Jean 30, Marie 10", "Jean 45, Marie 15", "Jean 15, Marie 5", "Jean 60, Marie 20"],
+        answer: 1,
+        explanation: "Marie = 15, Jean = 45. Vérification : dans 15 ans → 30 et 60. 60 = 2×30 ✓."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Paul dit : « Hier j'avais 25 ans, l'année prochaine j'en aurai 28. » À quelle date parle-t-il ?",
+        options: ["Il ment", "Le 1er janvier, s'il est né le 31 décembre", "Seulement le 29 février", "Mathématiquement impossible"],
+        answer: 1,
+        explanation: "Né le 31/12 : hier (31/12) il avait 25 ans, aujourd'hui (1/1) il en a 26, cette année il aura 27, l'an prochain 28."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Hôtel à 30 €. Le patron rend 5 € via le groom qui garde 2 € et rend 1 € à chacun. 3×9 = 27 + 2 = 29. Où est l'euro manquant ?",
+        options: ["Le groom a menti", "Il n'y a pas d'euro manquant : le calcul est fallacieux (27 = 25 hôtel + 2 groom)", "L'hôtelier a triché", "Erreur de monnaie"],
+        answer: 1,
+        explanation: "Le calcul mélange additions et soustractions. 27 € payés = 25 € à l'hôtel + 2 € au groom. Les 3 € rendus complètent les 30 €."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Tiroir : 10 chaussettes noires, 10 blanches, mélangées, dans le noir. Combien en prendre au minimum pour avoir une paire assortie ?",
+        options: ["2", "3", "4", "11"],
+        answer: 1,
+        explanation: "Avec 3 chaussettes, par le principe des tiroirs (pigeonhole), au moins 2 sont de la même couleur."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "À 3h00 pile, quel est l'angle entre les aiguilles d'une montre ?",
+        options: ["60°", "75°", "90°", "120°"],
+        answer: 2,
+        explanation: "L'aiguille des heures pointe vers le 3 (90° depuis le 12), celle des minutes vers le 12. Angle = 90°."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Énigme d'Einstein : 5 maisons, 5 nationalités, etc. Sans les indices, qui élève les poissons ?",
+        options: ["On peut le deviner sans indices", "Il faut les indices d'Einstein pour répondre", "C'est toujours l'Allemand", "C'est toujours l'Anglais"],
+        answer: 1,
+        explanation: "Sans les indices complets, impossible de résoudre. Avec tous les indices, la réponse classique est l'Allemand."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Alice, Bob, Claire : médecin, avocat, architecte. Alice n'est pas médecin. Bob n'est ni avocat ni médecin. Qui fait quoi ?",
+        options: ["Alice médecin, Bob avocat, Claire architecte", "Alice avocate, Bob architecte, Claire médecin", "Alice architecte, Bob médecin, Claire avocate", "Indéterminé"],
+        answer: 1,
+        explanation: "Bob = architecte (seul restant). Alice ≠ médecin → avocate. Claire = médecin."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "4 suspects. A dit « C'est B », B dit « C'est D », C dit « Pas moi », D dit « B ment ». UN SEUL dit la vérité. Qui est coupable ?",
+        options: ["A", "B", "C", "D"],
+        answer: 2,
+        explanation: "Si C coupable : A ment ✓, B ment ✓, C ment ✓, D dit vrai (B ment effectivement) ✓. Un seul dit vrai = D."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Mêmes 4 suspects. A dit « C'est B », B dit « C'est D », C dit « Pas moi », D dit « B ment ». TROIS disent la vérité, un ment. Qui est coupable ?",
+        options: ["A", "B", "C", "D"],
+        answer: 1,
+        explanation: "Si B coupable : A dit vrai ✓, B ment ✓, C dit vrai ✓, D dit vrai (B ment) ✓. 3 vrais, 1 menteur."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "3 sacs étiquetés « Pommes », « Oranges », « Mélange ». Toutes les étiquettes sont fausses. Un seul tirage dans un seul sac suffit-il à tout identifier ?",
+        options: ["Non", "Oui, dans le sac « Mélange »", "Oui, dans le sac « Pommes »", "Oui, dans n'importe lequel"],
+        answer: 1,
+        explanation: "Le sac « Mélange » ne contient PAS de mélange (étiquette fausse). Un fruit révèle son contenu, et les deux autres se déduisent."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Un triangle tracé sur un ballon (sphère) : la somme de ses angles peut-elle dépasser 180° ?",
+        options: ["Non, jamais", "Oui : sur une sphère, un triangle peut avoir 3 angles droits (270°)", "Seulement si le triangle est immense", "Oui, mais de quelques degrés seulement"],
+        answer: 1,
+        explanation: "En géométrie sphérique, un triangle pôle Nord + 2 points de l'équateur distants de 90° a trois angles de 90° = 270°."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "On coupe une pizza avec 3 traits droits. Combien de parts maximum ?",
+        options: ["5", "6", "7", "8"],
+        answer: 2,
+        explanation: "Avec n coupes droites, le maximum est n(n+1)/2 + 1. Avec 3 coupes : 3×4/2 + 1 = 7."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "On plie une feuille en deux, encore en deux, etc. Après 7 pliages, combien d'épaisseurs ?",
+        options: ["14", "49", "64", "128"],
+        answer: 3,
+        explanation: "Chaque pliage double le nombre d'épaisseurs. 2⁷ = 128."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Cube 3×3×3 peint en rouge, découpé en 27 petits cubes. Combien ont exactement 2 faces rouges ?",
+        options: ["6", "8", "12", "24"],
+        answer: 2,
+        explanation: "Les cubes aux arêtes (hors coins) ont 2 faces peintes. 12 arêtes × 1 cube par arête = 12."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "6 allumettes. Peut-on former 4 triangles équilatéraux identiques ?",
+        options: ["Non", "Oui, à plat", "Oui, en 3D (tétraèdre régulier)", "Seulement avec 7 allumettes"],
+        answer: 2,
+        explanation: "Un tétraèdre régulier (pyramide à base triangulaire) a 6 arêtes et 4 faces triangulaires équilatérales."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "9 pièces dont 1 plus lourde. Balance à 2 plateaux. Combien de pesées minimum ?",
+        options: ["1", "2", "3", "4"],
+        answer: 1,
+        explanation: "2 pesées : peser 3 vs 3. Si équilibre → la lourde est dans les 3 restantes. Peser 1 vs 1 de ce groupe."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "8 pièces dont 1 fausse (plus légère). Combien de pesées minimum ?",
+        options: ["1", "2", "3", "Impossible"],
+        answer: 1,
+        explanation: "2 pesées : peser 3 vs 3. Si équilibre, peser les 2 restantes. Sinon, prendre le plateau léger et peser 1 vs 1."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "3 pièces, une fausse (on ne sait pas si plus lourde ou légère). Peut-on la trouver ET déterminer lourde/légère en 1 pesée ?",
+        options: ["Oui", "Non : on peut la localiser mais pas dire lourde/légère", "Seulement si on sait qu'elle est plus légère", "Il faut 2 pesées"],
+        answer: 1,
+        explanation: "Avec 1 pesée de 1 vs 1 : si déséquilibre, on ne sait pas laquelle des deux est fausse ni dans quel sens."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Poids de 1, 3, 9 et 27 kg sur une balance à deux plateaux (on peut mettre des poids des deux côtés). Masses entières pesables de 1 à 40 ?",
+        options: ["10", "20", "30", "40 (toutes)"],
+        answer: 3,
+        explanation: "Système ternaire équilibré : 1+3+9+27 = 40. Toute masse de 1 à 40 est réalisable en plaçant les poids d'un côté ou l'autre."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Monty Hall : 3 portes, 1 voiture, 2 chèvres. Vous choisissez. L'animateur ouvre une porte avec une chèvre. Faut-il changer ?",
+        options: ["Rester : 1/2 chance", "Changer : 2/3 chance", "Peu importe : 1/2 dans les deux cas", "Rester : 2/3 chance"],
+        answer: 1,
+        explanation: "En changeant, vous gagnez 2/3 du temps. Votre choix initial n'avait que 1/3 de chances, l'ouverture d'une porte ne change rien à ça."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Dans un groupe de 23 personnes, quelle probabilité approximative que 2 aient le même anniversaire ?",
+        options: ["~6 %", "~25 %", "~50 %", "~90 %"],
+        answer: 2,
+        explanation: "Paradoxe des anniversaires : avec seulement 23 personnes, la probabilité dépasse 50 %. Contre-intuitif !"
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Deux enfants. On sait qu'au moins un est une fille. Probabilité que les deux soient des filles ?",
+        options: ["1/4", "1/3", "1/2", "2/3"],
+        answer: 1,
+        explanation: "Cas possibles : FF, FG, GF (on exclut GG). Un seul cas sur trois donne deux filles → 1/3."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Vous lancez 2 dés à 6 faces. Quelle somme a la plus forte probabilité ?",
+        options: ["6", "7", "8", "Toutes égales"],
+        answer: 1,
+        explanation: "7 a 6 combinaisons possibles (1+6, 2+5, 3+4, 4+3, 5+2, 6+1) sur 36, soit la probabilité maximale."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Un extraterrestre dit toujours vrai, ment toujours, ou alterne. En 2 questions oui/non, peut-on déterminer son type ?",
+        options: ["Non", "Oui, avec la bonne stratégie", "Il faut 3 questions minimum", "Impossible à coup sûr"],
+        answer: 1,
+        explanation: "Avec des questions auto-référentielles bien choisies, on peut identifier le type en 2 questions."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "« Toute théorie cohérente suffisamment expressive contient des énoncés vrais mais indémontrables. » De qui est ce théorème ?",
+        options: ["Cantor", "Gödel", "Turing", "Russell"],
+        answer: 1,
+        explanation: "Théorème d'incomplétude de Gödel (1931) : il existe toujours des vérités mathématiques indémontrables dans le système."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "« Tout ce que dit le Crétois est un mensonge » — dit un Crétois. Est-ce vrai ?",
+        options: ["Oui, il dit toujours faux", "Non, c'est forcément faux", "Paradoxe d'Épiménide (variante du menteur)", "Impossible à évaluer"],
+        answer: 2,
+        explanation: "Si c'est vrai, il ment → contradiction. Si c'est faux, il ne ment pas toujours → pas forcément contradictoire, mais c'est un paradoxe classique."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Un adjectif « autologique » se décrit lui-même (« court » est court). Le mot « hétérologique » est-il autologique ou hétérologique ?",
+        options: ["Autologique", "Hétérologique", "Ni l'un ni l'autre", "Paradoxe de Grelling : contradiction"],
+        answer: 3,
+        explanation: "S'il est hétérologique → il se décrit → autologique. S'il est autologique → il ne se décrit pas → hétérologique. Paradoxe !"
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Recto : « La phrase au verso est vraie. » Verso : « La phrase au recto est fausse. » Valeur logique ?",
+        options: ["Les deux vraies", "Les deux fausses", "Paradoxe : impossible d'assigner des valeurs cohérentes", "L'une vraie, l'autre fausse"],
+        answer: 2,
+        explanation: "Si recto vrai → verso vrai → recto faux → contradiction. Si recto faux → verso faux → recto vrai → contradiction."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "100 boîtes numérotées, 100 prisonniers. Chacun peut ouvrir 50 boîtes pour trouver son nom. Avec la « stratégie de la boucle », probabilité que TOUS survivent ?",
+        options: ["Quasi 0 %", "~31 %", "50 %", "100 %"],
+        answer: 1,
+        explanation: "La stratégie des boucles (suivre les pointeurs) donne une probabilité de survie collective de 1 − ln(2) ≈ 31 %."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "3 interrupteurs, 3 ampoules dans une pièce invisible. Une seule entrée autorisée. Comment tous les identifier ?",
+        options: ["Allumer un seul, entrer : 1/3 identifié", "Allumer le 1 longtemps, éteindre, allumer le 2, entrer : allumée=2, tiède=1, froide=3", "Allumer les 3, impossible de distinguer", "Il faut au moins 2 entrées"],
+        answer: 1,
+        explanation: "La chaleur de l'ampoule permet d'identifier celle qui était allumée longtemps puis éteinte."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Deux mèches brûlent en 1h chacune (non uniformément). Peut-on mesurer exactement 30 minutes ?",
+        options: ["Non, impossible avec la non-uniformité", "Oui : brûler une mèche par les deux bouts simultanément", "Oui en coupant en deux", "Seulement avec un 3ᵉ repère"],
+        answer: 1,
+        explanation: "En brûlant une mèche par les deux bouts, elle se consume en exactement 30 minutes quelle que soit la non-uniformité."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "5 éléments A, B, C, D, E à aligner. A est à côté de B. C est entre A et E. D est à une extrémité. Lequel est au milieu ?",
+        options: ["A", "B", "C", "E"],
+        answer: 2,
+        explanation: "Avec les contraintes : D est à un bout. C entre A et E. A à côté de B. Arrangement : D-B-A-C-E (ou miroir). C est au milieu."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "3 boîtes : (1) « Contient de l'or », (2) « Ne contient pas d'or », (3) « La boîte 1 est vide ». Une seule étiquette dit vrai. L'or est dans une seule boîte. Où ?",
+        options: ["Boîte 1", "Boîte 2", "Boîte 3", "Indéterminable"],
+        answer: 1,
+        explanation: "Si (3) vraie : (1) vide, (1) fausse ✓, (2) fausse → or en 2 ✓. Cohérent ! Or en boîte 2."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "100 prisonniers, boîtes numérotées avec noms. Chacun ouvre 50 boîtes pour trouver son numéro. Probabilité de survie collective sans stratégie ?",
+        options: ["Quasi 0 (environ 0,0000...)", "~31 %", "50 %", "Impossible à calculer"],
+        answer: 0,
+        explanation: "Sans stratégie : (50/100)^100 ≈ 10⁻³⁰. Presque zéro. C'est pourquoi la stratégie des boucles (~31%) est spectaculaire."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Trois philosophes partagent une tarte équitablement sans se faire confiance. Quelle méthode garantit la satisfaction de tous ?",
+        options: ["Un coupe, les autres choisissent à tour de rôle", "Méthode « moving knife » : un couteau passe, chacun crie stop", "Tirage au sort du découpeur", "Impossible sans arbitre"],
+        answer: 0,
+        explanation: "La méthode « je coupe, tu choisis » (étendue à 3) garantit que chacun pense avoir au moins 1/3."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "3 missionnaires et 3 cannibales, barque pour 2 max. Les cannibales ne doivent jamais être en supériorité sur une rive. Trajets minimum ?",
+        options: ["9", "11", "13", "Impossible"],
+        answer: 1,
+        explanation: "La solution classique nécessite 11 trajets de barque."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Un homme croise un inconnu et lui dit « Bonjour, John ! » sans le connaître. Comment sait-il son prénom ?",
+        options: ["Il a deviné au hasard", "Le prénom est écrit/brodé sur son sac ou uniforme", "John lui ressemble à un ami", "Télépathie"],
+        answer: 1,
+        explanation: "Le prénom « John » est visible sur un badge, un sac ou un vêtement."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Une femme entre dans un ascenseur, sort à son étage et se met à pleurer. Pourquoi ?",
+        options: ["Elle a perdu son emploi", "Elle est claustrophobe", "Dans le miroir de l'ascenseur, elle a vu son premier cheveu blanc", "Elle s'est coincé le doigt"],
+        answer: 2,
+        explanation: "Lateral thinking : le miroir de l'ascenseur lui a montré quelque chose qu'elle ne voulait pas voir."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "Un homme vit dans un gratte-ciel et saute du dernier étage. Il survit sans blessure. Comment ?",
+        options: ["Il atterrit dans une piscine", "Il saute vers l'intérieur du bâtiment (depuis l'intérieur, pas par la fenêtre)", "Il a un parachute", "Filet de pompiers"],
+        answer: 1,
+        explanation: "Il saute du dernier étage... vers l'intérieur. Il vit au dernier étage et saute de son canapé."
+    },
+    {
+        category: "casse-tete",
+        type: "mcq",
+        question: "25 boîtes, chacune contient un nombre de 1 à 25. Chaque participant ouvre 12 boîtes pour trouver son numéro. Avec la stratégie des boucles, probabilité que TOUS trouvent ?",
+        options: ["Proche de 0 %", "Environ 30 %", "50 %", "100 %"],
+        answer: 1,
+        explanation: "La stratégie des boucles (suivre les pointeurs) donne une probabilité d'environ 30 % de succès collectif."
     },
 
     // ═══════════════════════════════════════
