@@ -16,6 +16,7 @@
         questionCount: 0,
         usedQuestions: new Set(),
         selectedCategories: [],
+        lastCategory: null,
         answered: false
     };
 
@@ -291,6 +292,7 @@
         state.questionCount = 0;
         state.usedQuestions = new Set();
         state.selectedCategories = cats;
+        state.lastCategory = null;
         state.answered = false;
         state.currentQuestion = null;
 
@@ -332,15 +334,21 @@
     }
 
     function pickRandomQuestion() {
-        const available = getAvailableQuestions();
+        let available = getAvailableQuestions();
         if (available.length === 0) {
             // Reset used questions if all used
             state.usedQuestions.clear();
             return pickRandomQuestion();
         }
+        // Rotation: avoid picking the same category twice in a row when possible
+        if (state.selectedCategories.length > 1 && state.lastCategory) {
+            const other = available.filter(q => q.category !== state.lastCategory);
+            if (other.length > 0) available = other;
+        }
         const q = available[Math.floor(Math.random() * available.length)];
         const index = QUESTIONS_DB.indexOf(q);
         state.usedQuestions.add(index);
+        state.lastCategory = q.category;
         return q;
     }
 
@@ -624,6 +632,7 @@
         state.currentPlayerIndex = 0;
         state.questionCount = 0;
         state.usedQuestions.clear();
+        state.lastCategory = null;
         state.answered = false;
         state.currentQuestion = null;
 
