@@ -612,13 +612,19 @@ body {
     cursor: pointer;
     transition: all 0.2s;
 }
-.btn-answer:hover {
-    border-color: var(--primary);
-    background: var(--bg-card-light);
+/* Hover only on devices with a real pointer — prevents sticky :hover on touch,
+   which otherwise keeps the last-tapped button highlighted across questions. */
+@media (hover: hover) {
+    .btn-answer:hover {
+        border-color: var(--primary);
+        background: var(--bg-card-light);
+    }
 }
 .btn-answer:active {
     transform: scale(0.97);
 }
+.btn-answer:focus { outline: none; }
+.btn-answer:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 .btn-vrai { border-left: 4px solid var(--success); }
 .btn-faux { border-left: 4px solid var(--danger); }
 

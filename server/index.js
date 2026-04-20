@@ -343,7 +343,18 @@ function sendNextQuestion(room) {
         return;
     }
 
-    const question = room.questions[room.questionIndex];
+    const baseQuestion = room.questions[room.questionIndex];
+
+    // Shuffle MCQ options per session so correct answer position is unpredictable.
+    // We clone the question and remap the answer index ; QUESTIONS_DB stays untouched.
+    let question = baseQuestion;
+    if (baseQuestion.type === 'mcq' && Array.isArray(baseQuestion.options)) {
+        const order = shuffle(baseQuestion.options.map((_, i) => i));
+        const shuffledOptions = order.map(i => baseQuestion.options[i]);
+        const newAnswerIndex = order.indexOf(baseQuestion.answer);
+        question = { ...baseQuestion, options: shuffledOptions, answer: newAnswerIndex };
+    }
+
     room.currentQuestion = question;
     room.answers = new Map();
 
