@@ -632,222 +632,396 @@ const QUESTIONS_DB = [
     // ═══════════════════════════════════════
     // 🤥 FAKE NEWS (mythes, idées reçues, vrai/faux)
     // ═══════════════════════════════════════
+
+    // --- Corps humain ---
     {
         category: "fakenews",
         type: "yesno",
-        question: "La Grande Muraille de Chine est visible depuis l'espace à l'œil nu.",
+        question: "Les humains n'utilisent que 10 % de leur cerveau.",
         answer: "non",
-        explanation: "C'est un mythe ! La Grande Muraille est trop étroite pour être vue depuis l'espace."
+        explanation: "Faux ! L'IRM montre que la quasi-totalité du cerveau est active. Ce mythe vient d'une mauvaise interprétation de travaux du XIXe siècle."
     },
     {
         category: "fakenews",
         type: "yesno",
-        question: "Les humains n'utilisent que 10% de leur cerveau.",
+        question: "Les cheveux et les ongles continuent de pousser après la mort.",
         answer: "non",
-        explanation: "Faux ! Les IRM montrent que nous utilisons la quasi-totalité de notre cerveau."
+        explanation: "Faux ! La peau se déshydrate et se rétracte, donnant l'illusion que les ongles et cheveux s'allongent."
     },
     {
         category: "fakenews",
         type: "yesno",
-        question: "Le miel est le seul aliment qui ne se périme jamais.",
+        question: "Le corps humain contient assez de fer pour fabriquer un petit clou.",
         answer: "oui",
-        explanation: "Vrai ! Du miel vieux de 3000 ans retrouvé dans des tombes égyptiennes était encore comestible."
-    },
-    {
-        category: "fakenews",
-        type: "yesno",
-        question: "Napoléon était très petit pour son époque.",
-        answer: "non",
-        explanation: "Faux ! Napoléon mesurait environ 1,69 m, taille moyenne pour l'époque."
-    },
-    {
-        category: "fakenews",
-        type: "yesno",
-        question: "Les poissons rouges ont une mémoire de 3 secondes.",
-        answer: "non",
-        explanation: "Faux ! Des études montrent que les poissons rouges peuvent se souvenir de choses pendant des mois."
-    },
-    {
-        category: "fakenews",
-        type: "yesno",
-        question: "La foudre ne frappe jamais deux fois au même endroit.",
-        answer: "non",
-        explanation: "Faux ! L'Empire State Building est frappé environ 25 fois par an !"
-    },
-    {
-        category: "fakenews",
-        type: "yesno",
-        question: "Il y a plus d'étoiles dans l'univers que de grains de sable sur Terre.",
-        answer: "oui",
-        explanation: "Vrai ! On estime environ 10²⁴ étoiles contre 10¹⁹ grains de sable."
-    },
-    {
-        category: "fakenews",
-        type: "yesno",
-        question: "Les carottes améliorent la vision nocturne.",
-        answer: "non",
-        explanation: "C'est une légende créée par la propagande britannique pendant la WWII pour cacher l'existence du radar."
-    },
-    {
-        category: "fakenews",
-        type: "yesno",
-        question: "Cléopâtre vivait plus proche dans le temps de l'alunissage que de la construction des pyramides.",
-        answer: "oui",
-        explanation: "Vrai ! Les pyramides datent de ~2560 av. J.-C., Cléopâtre de ~30 av. J.-C., et l'alunissage de 1969."
-    },
-    {
-        category: "fakenews",
-        type: "yesno",
-        question: "Les bananes sont radioactives.",
-        answer: "oui",
-        explanation: "Vrai ! Les bananes contiennent du potassium-40, un isotope radioactif. Mais en quantité inoffensive."
-    },
-    {
-        category: "fakenews",
-        type: "yesno",
-        question: "On avale en moyenne 8 araignées par an en dormant.",
-        answer: "non",
-        explanation: "Faux ! C'est un mythe. Les vibrations du sommeil éloignent les araignées."
-    },
-    {
-        category: "fakenews",
-        type: "yesno",
-        question: "Les autruches mettent leur tête dans le sable quand elles ont peur.",
-        answer: "non",
-        explanation: "Faux ! Elles se couchent au sol pour se fondre dans le paysage, ce qui donne cette impression."
-    },
-    {
-        category: "fakenews",
-        type: "mcq",
-        question: "Quelle affirmation sur les chats est VRAIE ?",
-        options: ["Ils voient en noir et blanc", "Ils ont 9 vies", "Ils ronronnent pour se soigner", "Ils retombent toujours sur leurs pattes"],
-        answer: 2,
-        explanation: "Le ronronnement des chats produit des vibrations qui favorisent la cicatrisation osseuse."
-    },
-    {
-        category: "fakenews",
-        type: "mcq",
-        question: "Lequel de ces faits est FAUX ?",
-        options: ["Les koalas dorment 22h par jour", "Les dauphins dorment un œil ouvert", "Les flamants sont roses à la naissance", "Les vaches ont des meilleurs amis"],
-        answer: 2,
-        explanation: "Les flamants naissent gris/blancs. Leur couleur rose vient des pigments de leur alimentation (crevettes)."
-    },
-    {
-        category: "fakenews",
-        type: "yesno",
-        question: "Le sucre rend les enfants hyperactifs.",
-        answer: "non",
-        explanation: "Faux ! Plusieurs études scientifiques n'ont trouvé aucun lien entre sucre et hyperactivité."
-    },
-    {
-        category: "fakenews",
-        type: "yesno",
-        question: "Les tournesols suivent le soleil tout au long de la journée.",
-        answer: "non",
-        explanation: "Seuls les jeunes tournesols tournent. Une fois adultes, ils restent orientés vers l'est."
-    },
-    {
-        category: "fakenews",
-        type: "yesno",
-        question: "Les chiens ne voient qu'en noir et blanc.",
-        answer: "non",
-        explanation: "Faux ! Les chiens voient en nuances de bleu et jaune, mais pas le rouge ni le vert."
-    },
-    {
-        category: "fakenews",
-        type: "mcq",
-        question: "Lequel de ces faits est VRAI ?",
-        options: ["Les chauves-souris sont aveugles", "Les éléphants ont peur des souris", "Les corbeaux peuvent reconnaître des visages humains", "Les poules ne peuvent pas voler"],
-        answer: 2,
-        explanation: "Les corbeaux ont une mémoire remarquable et peuvent se souvenir de visages humains pendant des années."
+        explanation: "Vrai ! Environ 3 à 4 grammes de fer, de quoi forger un clou de 5 cm."
     },
     {
         category: "fakenews",
         type: "yesno",
         question: "On perd la majorité de sa chaleur corporelle par la tête.",
         answer: "non",
-        explanation: "Faux ! La tête ne représente que ~10% de la surface corporelle. La perte de chaleur est proportionnelle."
+        explanation: "Faux ! La tête ne représente que ~10 % de la surface du corps. La perte de chaleur est proportionnelle à la surface exposée."
     },
     {
         category: "fakenews",
         type: "yesno",
-        question: "Les Vikings portaient des casques à cornes.",
+        question: "Le sang désoxygéné est bleu dans les veines.",
         answer: "non",
-        explanation: "Faux ! C'est une invention du XIXe siècle. Les vrais casques vikings étaient simples en métal."
-    },
-    {
-        category: "fakenews",
-        type: "mcq",
-        question: "Quelle affirmation sur l'espace est FAUSSE ?",
-        options: ["Il n'y a pas de son dans l'espace", "Le Soleil est une étoile", "Il fait toujours froid dans l'espace", "La Lune s'éloigne de la Terre chaque année"],
-        answer: 2,
-        explanation: "Dans l'espace, la température varie énormément : au soleil elle dépasse 120°C, à l'ombre elle descend sous -150°C."
+        explanation: "Faux ! Le sang est toujours rouge. Les veines paraissent bleues à cause de la façon dont la lumière traverse la peau."
     },
     {
         category: "fakenews",
         type: "yesno",
-        question: "Albert Einstein a échoué en mathématiques à l'école.",
+        question: "Craquer ses doigts donne de l'arthrose.",
         answer: "non",
-        explanation: "Faux ! Einstein excellait en maths. Cette légende vient d'une confusion avec le système de notes suisse."
+        explanation: "Faux ! Un médecin américain a craqué les doigts d'une seule main pendant 60 ans pour le prouver. Aucune différence."
     },
     {
         category: "fakenews",
         type: "yesno",
         question: "Le lait maternel change de composition en fonction des besoins du bébé.",
         answer: "oui",
-        explanation: "Vrai ! Le lait maternel s'adapte en temps réel aux besoins nutritionnels et immunitaires du nourrisson."
+        explanation: "Vrai ! Il s'adapte en temps réel : plus d'anticorps si le bébé est malade, plus de gras le soir pour l'endormir."
     },
     {
         category: "fakenews",
-        type: "mcq",
-        question: "Laquelle de ces idées reçues est en réalité VRAIE ?",
-        options: ["La langue a des zones de goût distinctes", "Craquer ses doigts donne de l'arthrite", "Les arbres communiquent entre eux via leurs racines", "Nager après manger donne des crampes mortelles"],
-        answer: 2,
-        explanation: "Les arbres communiquent via le 'Wood Wide Web', un réseau de champignons mycorhiziens reliant leurs racines."
+        type: "yesno",
+        question: "La langue a des zones de goût distinctes (sucré devant, amer derrière…).",
+        answer: "non",
+        explanation: "Faux ! Tous les récepteurs gustatifs sont répartis sur toute la langue. Cette « carte » vient d'une erreur de traduction d'une étude allemande de 1901."
+    },
+
+    // --- Animaux ---
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Les poissons rouges ont une mémoire de 3 secondes.",
+        answer: "non",
+        explanation: "Faux ! Des études montrent qu'ils se souviennent de choses pendant des mois et apprennent des parcours."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Les autruches mettent la tête dans le sable quand elles ont peur.",
+        answer: "non",
+        explanation: "Faux ! Elles se couchent au sol, cou à plat, pour se fondre dans le paysage. De loin, on dirait qu'elles s'enfouissent."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Les chiens ne voient qu'en noir et blanc.",
+        answer: "non",
+        explanation: "Faux ! Les chiens voient le bleu et le jaune, mais pas le rouge ni le vert. Leur vision est dichromate."
     },
     {
         category: "fakenews",
         type: "yesno",
         question: "Les chameaux stockent de l'eau dans leurs bosses.",
         answer: "non",
-        explanation: "Faux ! Les bosses contiennent de la graisse, pas de l'eau. L'eau est stockée dans leur sang."
+        explanation: "Faux ! Les bosses contiennent de la graisse (réserve d'énergie). Leur résistance à la soif vient de leur capacité à limiter la transpiration."
     },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Les éléphants ont peur des souris.",
+        answer: "non",
+        explanation: "Faux ! Ce mythe remonte à l'Antiquité. Les éléphants ignorent les souris. Ils sont plutôt méfiants envers les abeilles."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Les corbeaux peuvent reconnaître des visages humains.",
+        answer: "oui",
+        explanation: "Vrai ! Des études de l'université de Washington ont montré qu'ils se souviennent de visages précis pendant des années."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Les vaches ont des meilleures amies.",
+        answer: "oui",
+        explanation: "Vrai ! Des recherches montrent que les vaches sont moins stressées quand elles sont avec leur compagne préférée."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Les chats ronronnent uniquement quand ils sont contents.",
+        answer: "non",
+        explanation: "Faux ! Les chats ronronnent aussi quand ils souffrent ou sont stressés. Le ronronnement favorise la cicatrisation osseuse."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Les flamants roses sont roses dès la naissance.",
+        answer: "non",
+        explanation: "Faux ! Ils naissent gris-blanc. Leur couleur rose vient des pigments (caroténoïdes) des crevettes qu'ils mangent."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Les dauphins dorment avec un seul œil fermé.",
+        answer: "oui",
+        explanation: "Vrai ! Ils mettent un hémisphère cérébral en sommeil à la fois, gardant un œil ouvert pour surveiller les prédateurs et remonter respirer."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Un canard, ça cancane. Et le son ne produit pas d'écho.",
+        answer: "non",
+        explanation: "Faux ! Le cancanement produit bien un écho. Ce mythe vient du fait que l'écho est difficile à distinguer du son original."
+    },
+
+    // --- Alimentation ---
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Le miel est le seul aliment qui ne se périme jamais.",
+        answer: "oui",
+        explanation: "Vrai ! Du miel vieux de 3 000 ans retrouvé dans des tombes égyptiennes était encore comestible grâce à sa faible teneur en eau."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Les carottes améliorent la vision nocturne.",
+        answer: "non",
+        explanation: "Faux ! Ce mythe vient de la propagande britannique de la WWII pour masquer l'invention du radar embarqué."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Le sucre rend les enfants hyperactifs.",
+        answer: "non",
+        explanation: "Faux ! Plusieurs études en double aveugle n'ont trouvé aucun lien. C'est un biais de confirmation des parents."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Les bananes sont radioactives.",
+        answer: "oui",
+        explanation: "Vrai ! Elles contiennent du potassium-40, un isotope radioactif naturel. Mais il faudrait en manger 10 millions d'un coup pour que ce soit dangereux."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Un chewing-gum avalé met 7 ans à être digéré.",
+        answer: "non",
+        explanation: "Faux ! Il n'est pas digéré mais il est évacué naturellement en quelques jours, comme les fibres alimentaires."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "L'alcool réchauffe le corps.",
+        answer: "non",
+        explanation: "Faux ! L'alcool dilate les vaisseaux sanguins, donnant une sensation de chaleur, mais le corps perd en réalité plus vite sa chaleur."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Il faut attendre 3 heures après manger pour se baigner, sinon on risque une hydrocution.",
+        answer: "non",
+        explanation: "Faux ! L'hydrocution est causée par un choc thermique (eau froide après exposition au soleil), pas par la digestion."
+    },
+
+    // --- Histoire & culture ---
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Napoléon était très petit pour son époque.",
+        answer: "non",
+        explanation: "Faux ! Il mesurait ~1,69 m, taille moyenne. La confusion vient de la différence entre le pouce français et le pouce anglais."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Les Vikings portaient des casques à cornes.",
+        answer: "non",
+        explanation: "Faux ! Invention d'un costumier d'opéra au XIXe siècle. Les vrais casques vikings étaient en fer simple, sans ornements."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Albert Einstein a échoué en mathématiques à l'école.",
+        answer: "non",
+        explanation: "Faux ! Einstein excellait en maths. La légende vient d'une confusion : en Suisse, l'échelle de notes a été inversée l'année de ses résultats."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Cléopâtre vivait plus proche dans le temps de l'iPhone que de la construction des pyramides.",
+        answer: "oui",
+        explanation: "Vrai ! Pyramides : ~2560 av. J.-C. Cléopâtre : ~30 av. J.-C. iPhone : 2007. Elle est plus proche de nous de ~500 ans."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Marie-Antoinette a dit « Qu'ils mangent de la brioche ! »",
+        answer: "non",
+        explanation: "Faux ! Cette phrase apparaît dans les Confessions de Rousseau (1782), attribuée à « une grande princesse », alors que Marie-Antoinette avait 14 ans."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "On avale en moyenne 8 araignées par an dans son sommeil.",
+        answer: "non",
+        explanation: "Faux ! Ce « fait » a été inventé en 1993 par une chroniqueuse (Lisa Holst) pour montrer comment les gens gobent les fausses infos."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "La Grande Muraille de Chine est visible depuis l'espace à l'œil nu.",
+        answer: "non",
+        explanation: "Faux ! Elle est trop étroite (~6 m). Les astronautes confirment qu'elle est invisible à l'œil nu depuis l'orbite."
+    },
+
+    // --- Science & espace ---
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Il y a plus d'étoiles dans l'univers que de grains de sable sur Terre.",
+        answer: "oui",
+        explanation: "Vrai ! On estime ~10²⁴ étoiles contre ~10¹⁹ grains de sable. L'univers est incompréhensiblement vaste."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "La foudre ne frappe jamais deux fois au même endroit.",
+        answer: "non",
+        explanation: "Faux ! L'Empire State Building est frappé environ 25 fois par an. La foudre préfère les points élevés."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Il fait toujours très froid dans l'espace.",
+        answer: "non",
+        explanation: "Faux ! Au soleil, un objet dans l'espace peut atteindre +120 °C. À l'ombre, il descend sous -150 °C. La température varie énormément."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "La Lune s'éloigne de la Terre d'environ 3,8 cm par an.",
+        answer: "oui",
+        explanation: "Vrai ! Les interactions de marée transfèrent de l'énergie à la Lune, qui s'éloigne lentement. Mesuré au laser depuis les missions Apollo."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Les arbres communiquent entre eux via un réseau souterrain de champignons.",
+        answer: "oui",
+        explanation: "Vrai ! Surnommé le « Wood Wide Web », ce réseau mycorhizien permet aux arbres d'échanger nutriments et signaux d'alerte."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "L'eau de mer est salée principalement à cause de l'érosion des roches.",
+        answer: "oui",
+        explanation: "Vrai ! Depuis des milliards d'années, les rivières transportent les sels minéraux des roches jusqu'aux océans."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Les tournesols adultes suivent le soleil tout au long de la journée.",
+        answer: "non",
+        explanation: "Faux ! Seuls les jeunes tournesols en croissance tournent (héliotropisme). Les adultes restent fixés vers l'est."
+    },
+
+    // --- Tech & société ---
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Le mode « incognito » du navigateur rend anonyme sur internet.",
+        answer: "non",
+        explanation: "Faux ! Il empêche le navigateur de stocker l'historique local, mais le FAI, l'employeur et les sites visités voient toujours le trafic."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Les écrans abîment définitivement les yeux.",
+        answer: "non",
+        explanation: "Faux ! La fatigue oculaire numérique est réelle mais temporaire. Aucune étude n'a prouvé de dommages permanents liés aux écrans."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Recharger son téléphone toute la nuit abîme la batterie.",
+        answer: "non",
+        explanation: "Faux ! Les smartphones modernes coupent la charge à 100 %. Ce qui use la batterie, c'est la chaleur et les cycles de charge complets."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Plus il y a de barres de réseau sur le téléphone, plus le débit est rapide.",
+        answer: "non",
+        explanation: "Faux ! Les barres indiquent la puissance du signal, pas le débit. Une antenne saturée peut avoir un signal fort mais un débit minable."
+    },
+
+    // --- Idées reçues du quotidien ---
     {
         category: "fakenews",
         type: "yesno",
         question: "Il est dangereux de réveiller un somnambule.",
         answer: "non",
-        explanation: "Faux ! C'est un mythe. Le réveiller peut le désorienter mais ce n'est pas dangereux."
-    },
-    {
-        category: "fakenews",
-        type: "mcq",
-        question: "Lequel de ces mythes alimentaires est VRAI ?",
-        options: ["Le chocolat donne des boutons", "Manger du pain fait grossir", "Le café stoppe la croissance", "Le chewing-gum met 7 ans à être digéré"],
-        answer: 3,
-        explanation: "Le chewing-gum n'est pas digéré par le corps mais il est évacué naturellement, pas en 7 ans !"
+        explanation: "Faux ! Ça peut le désorienter, mais ce n'est pas dangereux. En revanche, le laisser se promener peut l'être."
     },
     {
         category: "fakenews",
         type: "yesno",
-        question: "Les abeilles meurent toujours après avoir piqué.",
+        question: "Se raser fait repousser les poils plus épais.",
         answer: "non",
-        explanation: "Seules les abeilles mellifères meurent après avoir piqué un humain. Les autres espèces non."
+        explanation: "Faux ! Le rasage coupe le poil en biseau, donnant une impression d'épaisseur. La repousse est identique."
     },
     {
         category: "fakenews",
         type: "yesno",
-        question: "L'eau de mer est salée principalement à cause de l'érosion des roches terrestres.",
-        answer: "oui",
-        explanation: "Vrai ! Les rivières transportent des sels minéraux issus de l'érosion des roches jusqu'aux océans depuis des milliards d'années."
+        question: "Lire dans le noir abîme les yeux.",
+        answer: "non",
+        explanation: "Faux ! Ça fatigue les yeux temporairement, mais ne cause aucun dommage permanent. Ce mythe date d'avant l'électricité."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "L'être humain a exactement 5 sens.",
+        answer: "non",
+        explanation: "Faux ! On en a bien plus : proprioception, équilibre, thermoception, nociception (douleur)… au moins une douzaine."
+    },
+    {
+        category: "fakenews",
+        type: "yesno",
+        question: "Un objet tombe plus vite s'il est plus lourd.",
+        answer: "non",
+        explanation: "Faux ! Dans le vide, tous les objets tombent à la même vitesse (Galilée). La résistance de l'air change les choses en pratique."
+    },
+
+    // --- MCQ variées ---
+    {
+        category: "fakenews",
+        type: "mcq",
+        question: "Laquelle de ces affirmations sur les animaux est VRAIE ?",
+        options: ["Les chauves-souris sont aveugles", "Les poules ne peuvent pas voler du tout", "Les pieuvres ont trois cœurs", "Les mouches ne vivent que 24 heures"],
+        answer: 2,
+        explanation: "Les pieuvres ont bien 3 cœurs : 2 pour les branchies, 1 pour le corps. Les chauves-souris voient, les poules volent (un peu), et les mouches vivent ~30 jours."
     },
     {
         category: "fakenews",
         type: "mcq",
-        question: "Quelle affirmation sur le corps humain est FAUSSE ?",
-        options: ["Les empreintes digitales sont uniques", "Le corps contient assez de fer pour un clou", "Les cheveux poussent plus vite quand on les coupe", "L'estomac se renouvelle tous les 3-4 jours"],
+        question: "Lequel de ces faits historiques est FAUX ?",
+        options: ["Les gladiateurs combattaient rarement à mort", "L'Université d'Oxford est plus vieille que l'Empire aztèque", "Les samouraïs n'utilisaient que des katanas", "L'Empire romain avait du béton"],
         answer: 2,
-        explanation: "Couper les cheveux ne change pas leur vitesse de pousse. C'est une illusion car les pointes coupées paraissent plus épaisses."
+        explanation: "Les samouraïs utilisaient arcs, lances, et même des armes à feu (tanegashima). Le katana n'était qu'une arme parmi d'autres."
+    },
+    {
+        category: "fakenews",
+        type: "mcq",
+        question: "Laquelle de ces croyances alimentaires est VRAIE ?",
+        options: ["Le chocolat donne des boutons", "Le café stoppe la croissance", "Le pain fait grossir plus que les pâtes", "Le chocolat noir est bon pour le cœur"],
+        answer: 3,
+        explanation: "Le cacao contient des flavonoïdes bénéfiques pour le système cardiovasculaire. Les trois autres sont des mythes."
+    },
+    {
+        category: "fakenews",
+        type: "mcq",
+        question: "Lequel de ces « faits » sur le corps humain est VRAI ?",
+        options: ["On naît avec 300 os, mais on n'en a que 206 adulte", "Le cœur s'arrête quand on éternue", "Les cellules du cerveau ne se régénèrent jamais", "L'estomac peut digérer du métal"],
+        answer: 0,
+        explanation: "Vrai ! Beaucoup d'os fusionnent pendant la croissance. Le cœur ne s'arrête pas en éternuant, et le cerveau produit de nouveaux neurones (neurogenèse)."
     },
 
     // ═══════════════════════════════════════
@@ -3394,5 +3568,449 @@ const QUESTIONS_DB = [
         options: ["Jack Skellington", "Oogie Boogie", "Dr. Finkelstein", "Sally"],
         answer: 0,
         explanation: "Jack Skellington, squelette filiforme et roi des citrouilles, s'éprend de Noël. Sally est la poupée de chiffon amoureuse de lui ; Oogie Boogie est le méchant."
+    },
+
+    // ═══════════════════════════════════════
+    // 💬 CITATIONS (citations drôles de gens célèbres – QCM uniquement)
+    // ═══════════════════════════════════════
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Je ne suis pas d'accord avec ce que vous dites, mais je me battrai pour que vous ayez le droit de le dire. »",
+        options: ["Voltaire", "Victor Hugo", "Jean-Jacques Rousseau", "Napoléon"],
+        answer: 0,
+        explanation: "Cette phrase est attribuée à Voltaire (même si c'est en réalité sa biographe qui l'a formulée ainsi)."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« L'imagination est plus importante que le savoir. »",
+        options: ["Nikola Tesla", "Albert Einstein", "Isaac Newton", "Stephen Hawking"],
+        answer: 1,
+        explanation: "Einstein adorait ce genre de formule choc pour taquiner les scientifiques trop sérieux."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Je suis venu, j'ai vu, j'ai vaincu. »",
+        options: ["Alexandre le Grand", "Napoléon", "Jules César", "Spartacus"],
+        answer: 2,
+        explanation: "« Veni, vidi, vici » – Jules César après sa victoire éclair à Zéla en 47 av. J.-C."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Un petit pas pour l'homme, un bond de géant pour l'humanité. »",
+        options: ["Buzz Aldrin", "Youri Gagarine", "Neil Armstrong", "Thomas Pesquet"],
+        answer: 2,
+        explanation: "Neil Armstrong, en posant le pied sur la Lune le 20 juillet 1969."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« La folie, c'est de faire toujours la même chose et de s'attendre à un résultat différent. »",
+        options: ["Albert Einstein", "Sigmund Freud", "Socrate", "Mark Twain"],
+        answer: 0,
+        explanation: "Souvent attribuée à Einstein, même si l'origine exacte est débattue."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« J'ai décidé d'être heureux parce que c'est bon pour la santé. »",
+        options: ["Molière", "Oscar Wilde", "Voltaire", "Montesquieu"],
+        answer: 2,
+        explanation: "Voltaire, philosophe des Lumières et champion de l'optimisme (quand ça l'arrangeait)."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Donner l'exemple n'est pas le principal moyen d'influencer les autres, c'est le seul. »",
+        options: ["Gandhi", "Nelson Mandela", "Albert Einstein", "Martin Luther King"],
+        answer: 2,
+        explanation: "Encore Einstein ! Pas mal pour un gars qui ne trouvait jamais ses chaussettes."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« La culture, c'est ce qui reste quand on a tout oublié. »",
+        options: ["Édouard Herriot", "Charles de Gaulle", "Victor Hugo", "Albert Camus"],
+        answer: 0,
+        explanation: "Édouard Herriot, ancien président du Conseil et maire de Lyon."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Le seul vrai voyage, c'est de changer de regard. »",
+        options: ["Victor Hugo", "Marcel Proust", "Antoine de Saint-Exupéry", "André Malraux"],
+        answer: 1,
+        explanation: "Marcel Proust dans « La Prisonnière ». Plus facile que de faire ses valises."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Soyez vous-même, tous les autres sont déjà pris. »",
+        options: ["Mark Twain", "Oscar Wilde", "Winston Churchill", "Groucho Marx"],
+        answer: 1,
+        explanation: "Oscar Wilde, le roi de la punchline en tweed."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Le travail, c'est la santé. Ne rien faire, c'est la conserver. »",
+        options: ["Pierre Dac", "Coluche", "Henri Salvador", "Pierre Desproges"],
+        answer: 2,
+        explanation: "Henri Salvador en a fait une chanson culte en 1965."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Je pense, donc je suis. »",
+        options: ["Blaise Pascal", "René Descartes", "Platon", "Emmanuel Kant"],
+        answer: 1,
+        explanation: "Descartes dans le Discours de la méthode (1637). Le « Cogito ergo sum » le plus célèbre de l'histoire."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« La simplicité est la sophistication suprême. »",
+        options: ["Steve Jobs", "Léonard de Vinci", "Pablo Picasso", "Coco Chanel"],
+        answer: 1,
+        explanation: "Léonard de Vinci – repris ensuite par Steve Jobs pour vendre des iPhones."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Quand on me demande si je préfère le PSG ou l'OM, je réponds Orangina. »",
+        options: ["Jean-Pierre Papin", "Thierry Roland", "Coluche", "Franck Ribéry"],
+        answer: 2,
+        explanation: "Coluche, évidemment. Le seul candidat à la présidence qui aurait pu arbitrer le Classique."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« L'enfer, c'est les autres. »",
+        options: ["Albert Camus", "Jean-Paul Sartre", "Simone de Beauvoir", "Émile Zola"],
+        answer: 1,
+        explanation: "Sartre dans « Huis clos ». Il n'avait sûrement jamais pris le RER B un lundi matin."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Qu'ils mangent de la brioche ! »",
+        options: ["Madame de Pompadour", "Marie-Antoinette", "Catherine de Médicis", "Joséphine de Beauharnais"],
+        answer: 1,
+        explanation: "Attribuée à Marie-Antoinette (mais probablement inventée). La reine du bad buzz avant Internet."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« La vie, c'est comme une bicyclette, il faut avancer pour ne pas perdre l'équilibre. »",
+        options: ["Albert Einstein", "Charlie Chaplin", "Benjamin Franklin", "Henry Ford"],
+        answer: 0,
+        explanation: "Einstein dans une lettre à son fils en 1930. Le père du vélo motivationnel."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Ce qui ne me tue pas me rend plus fort. »",
+        options: ["Sun Tzu", "Friedrich Nietzsche", "Socrate", "Carl Jung"],
+        answer: 1,
+        explanation: "Nietzsche dans « Le Crépuscule des idoles ». Depuis, c'est sur tous les t-shirts de salle de sport."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Impossible n'est pas français. »",
+        options: ["Charles de Gaulle", "Louis XIV", "Napoléon Bonaparte", "Richelieu"],
+        answer: 2,
+        explanation: "Napoléon, qui n'a visiblement jamais essayé de garer une voiture à Paris."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« L'important dans la vie, ce n'est point le triomphe, mais le combat. »",
+        options: ["Pierre de Coubertin", "Nelson Mandela", "Winston Churchill", "Pelé"],
+        answer: 0,
+        explanation: "Pierre de Coubertin, père des Jeux olympiques modernes."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Je n'ai fait celle-ci plus longue que parce que je n'ai pas eu le loisir de la faire plus courte. »",
+        options: ["Victor Hugo", "Blaise Pascal", "Montesquieu", "Voltaire"],
+        answer: 1,
+        explanation: "Pascal dans « Les Provinciales ». L'ancêtre de ceux qui s'excusent pour leurs mails trop longs."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Je sais que je ne sais rien. »",
+        options: ["Platon", "Aristote", "Socrate", "Épicure"],
+        answer: 2,
+        explanation: "Socrate, le premier à transformer son ignorance en flex philosophique."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Il faut cultiver notre jardin. »",
+        options: ["Jean de La Fontaine", "Voltaire", "Jean-Jacques Rousseau", "Montesquieu"],
+        answer: 1,
+        explanation: "La dernière phrase de « Candide » de Voltaire. Conseil toujours valable le dimanche."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Houston, we've had a problem. »",
+        options: ["Neil Armstrong", "Buzz Aldrin", "Jim Lovell", "John Glenn"],
+        answer: 2,
+        explanation: "Jim Lovell, commandant d'Apollo 13, en 1970. Understatement de l'année."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Stay hungry, stay foolish. »",
+        options: ["Bill Gates", "Elon Musk", "Steve Jobs", "Mark Zuckerberg"],
+        answer: 2,
+        explanation: "Steve Jobs lors de son discours à Stanford en 2005. Emprunté au Whole Earth Catalog."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Le plus grand risque est de ne prendre aucun risque. »",
+        options: ["Jeff Bezos", "Mark Zuckerberg", "Steve Jobs", "Elon Musk"],
+        answer: 1,
+        explanation: "Mark Zuckerberg. Dit comme ça, ça justifie à peu près n'importe quoi."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« On ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux. »",
+        options: ["Victor Hugo", "Albert Camus", "Antoine de Saint-Exupéry", "Marcel Pagnol"],
+        answer: 2,
+        explanation: "Le Petit Prince de Saint-Exupéry. La phrase préférée de tous les profs de français."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Après moi, le déluge. »",
+        options: ["Napoléon", "Louis XV", "Marie-Antoinette", "Louis XIV"],
+        answer: 1,
+        explanation: "Attribuée à Louis XV (ou à Madame de Pompadour). Spoiler : le déluge est bien arrivé."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Il vaut mieux être riche et bien portant que pauvre et malade. »",
+        options: ["Pierre Dac", "Coluche", "Francis Blanche", "Raymond Devos"],
+        answer: 2,
+        explanation: "Francis Blanche, l'homme qui élevait les évidences au rang de philosophie."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« La meilleure façon de prédire l'avenir, c'est de le créer. »",
+        options: ["Steve Jobs", "Abraham Lincoln", "Peter Drucker", "Winston Churchill"],
+        answer: 2,
+        explanation: "Peter Drucker, le gourou du management. Repris par toutes les slides LinkedIn du monde."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« I have a dream. »",
+        options: ["Nelson Mandela", "Martin Luther King", "Barack Obama", "Malcolm X"],
+        answer: 1,
+        explanation: "Martin Luther King Jr., discours historique à Washington le 28 août 1963."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« L'État, c'est moi. »",
+        options: ["Napoléon", "Louis XIV", "Charles de Gaulle", "Richelieu"],
+        answer: 1,
+        explanation: "Louis XIV, le Roi-Soleil. Modestie : 0/20."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« On ne naît pas femme, on le devient. »",
+        options: ["George Sand", "Simone de Beauvoir", "Simone Veil", "Olympe de Gouges"],
+        answer: 1,
+        explanation: "Simone de Beauvoir dans « Le Deuxième Sexe » (1949)."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Paris vaut bien une messe. »",
+        options: ["Louis XIV", "Henri IV", "François Ier", "Charlemagne"],
+        answer: 1,
+        explanation: "Henri IV, en se convertissant au catholicisme pour devenir roi de France. Le roi du pragmatisme."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Eurêka ! »",
+        options: ["Platon", "Archimède", "Pythagore", "Aristote"],
+        answer: 1,
+        explanation: "Archimède dans son bain, découvrant le principe de la poussée. Le premier « j'ai trouvé ! » de l'histoire."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Si j'ai vu plus loin, c'est en montant sur les épaules de géants. »",
+        options: ["Galilée", "Albert Einstein", "Isaac Newton", "Copernic"],
+        answer: 2,
+        explanation: "Isaac Newton, dans une lettre à Robert Hooke. Humble flex de niveau olympique."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Le temps, c'est de l'argent. »",
+        options: ["Benjamin Franklin", "John D. Rockefeller", "Adam Smith", "Andrew Carnegie"],
+        answer: 0,
+        explanation: "Benjamin Franklin en 1748. Depuis, les consultants facturent à l'heure."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Ich bin ein Berliner. »",
+        options: ["Willy Brandt", "John F. Kennedy", "Ronald Reagan", "Barack Obama"],
+        answer: 1,
+        explanation: "JFK à Berlin en 1963. Et non, ça ne veut pas dire « je suis un beignet »."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« L'homme est un loup pour l'homme. »",
+        options: ["Thomas Hobbes", "Machiavel", "Jean-Jacques Rousseau", "Platon"],
+        answer: 0,
+        explanation: "Thomas Hobbes dans « Le Léviathan ». Plaute l'avait dit avant, mais Hobbes a mieux marketé."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Être ou ne pas être, telle est la question. »",
+        options: ["Molière", "William Shakespeare", "Goethe", "Dante"],
+        answer: 1,
+        explanation: "Shakespeare dans « Hamlet ». Le monologue le plus célèbre du théâtre."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« J'accuse ! »",
+        options: ["Victor Hugo", "Émile Zola", "Jean Jaurès", "Voltaire"],
+        answer: 1,
+        explanation: "Émile Zola dans « L'Aurore » en 1898, pour défendre le capitaine Dreyfus."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« La guerre, c'est la paix. La liberté, c'est l'esclavage. L'ignorance, c'est la force. »",
+        options: ["Aldous Huxley", "George Orwell", "Ray Bradbury", "Philip K. Dick"],
+        answer: 1,
+        explanation: "George Orwell dans « 1984 ». Ambiance."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« La techno, c'est comme le jeu de go : les règles sont simples, c'est jouer qui est compliqué. »",
+        options: ["Daft Punk", "Laurent Garnier", "David Guetta", "Jean-Michel Jarre"],
+        answer: 1,
+        explanation: "Laurent Garnier, le pape de la techno française."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Alea jacta est. » (Les dés sont jetés.)",
+        options: ["Auguste", "Brutus", "Jules César", "Cicéron"],
+        answer: 2,
+        explanation: "Jules César en franchissant le Rubicon en 49 av. J.-C. Le point de non-retour ultime."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Si vous traversez l'enfer, continuez d'avancer. »",
+        options: ["Charles de Gaulle", "Theodore Roosevelt", "Winston Churchill", "Franklin Roosevelt"],
+        answer: 2,
+        explanation: "Churchill, le maître de la punchline en temps de guerre."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Tout ce que je sais, c'est que je ne sais rien… et encore. »",
+        options: ["Coluche", "Pierre Desproges", "Pierre Dac", "Raymond Devos"],
+        answer: 2,
+        explanation: "Pierre Dac, l'humoriste qui a élevé l'absurde au rang d'art de vivre."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« C'est ceux qui en parlent le plus qui en font le moins. »",
+        options: ["Audiard (Les Tontons flingueurs)", "Coluche", "De Funès", "Bourvil"],
+        answer: 0,
+        explanation: "Dialogues de Michel Audiard, le roi de la réplique qui claque."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« La liberté des uns s'arrête là où commence celle des autres. »",
+        options: ["Voltaire", "John Stuart Mill", "Jean-Jacques Rousseau", "Montesquieu"],
+        answer: 1,
+        explanation: "John Stuart Mill. Le principe de base qu'on rappelle à chaque voisin bruyant."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Le génie, c'est 1 % d'inspiration et 99 % de transpiration. »",
+        options: ["Albert Einstein", "Thomas Edison", "Benjamin Franklin", "Nikola Tesla"],
+        answer: 1,
+        explanation: "Thomas Edison. Tesla aurait sûrement répondu « et 100 % de vol de brevets »."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« La mode se démode, le style jamais. »",
+        options: ["Karl Lagerfeld", "Coco Chanel", "Yves Saint Laurent", "Christian Dior"],
+        answer: 1,
+        explanation: "Coco Chanel, la papesse de l'élégance intemporelle."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« May the Force be with you. » (Que la Force soit avec toi.)",
+        options: ["Yoda", "Obi-Wan Kenobi", "Han Solo", "Princesse Leia"],
+        answer: 2,
+        explanation: "C'est Han Solo qui dit cette réplique culte dans Star Wars (1977). Obi-Wan dit une variante : « The Force will be with you, always. »"
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Un intellectuel assis va moins loin qu'un con qui marche. »",
+        options: ["Audiard", "Coluche", "Pierre Desproges", "Guy Bedos"],
+        answer: 0,
+        explanation: "Michel Audiard, scénariste et dialoguiste. La philosophie du bitume."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« En France, on n'a pas de pétrole, mais on a des idées. »",
+        options: ["Jacques Chirac", "Valéry Giscard d'Estaing", "François Mitterrand", "Georges Pompidou"],
+        answer: 1,
+        explanation: "Slogan de l'Agence pour les économies d'énergie sous Giscard, en 1976."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Je ne suis pas superstitieux, ça porte malheur. »",
+        options: ["Raymond Devos", "Pierre Dac", "Woody Allen", "Groucho Marx"],
+        answer: 2,
+        explanation: "Woody Allen et son humour absurde à la new-yorkaise."
+    },
+    {
+        category: "citations",
+        type: "mcq",
+        question: "« Science sans conscience n'est que ruine de l'âme. »",
+        options: ["Montaigne", "Rabelais", "Descartes", "Pascal"],
+        answer: 1,
+        explanation: "Rabelais dans « Pantagruel » (1532). Le bac de philo en une seule phrase."
     }
 ];
