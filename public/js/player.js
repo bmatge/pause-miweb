@@ -7,6 +7,8 @@
     const socket = io();
     let timerInterval = null;
     let myName = '';
+    let combo = 0;
+    let maxCombo = 0;
 
     // ═══════════════════════════════════════
     // Screens
@@ -157,8 +159,42 @@
     }
 
     // ═══════════════════════════════════════
-    // Results
+    // Results (with gamification)
     // ═══════════════════════════════════════
+    const CORRECT_REACTIONS = [
+        { icon: '🎉', text: 'Bonne réponse !' },
+        { icon: '🔥', text: 'En feu !' },
+        { icon: '⭐', text: 'Bravo !' },
+        { icon: '💪', text: 'Bien joué !' },
+        { icon: '🧠', text: 'Gros cerveau !' },
+        { icon: '✨', text: 'Parfait !' },
+        { icon: '🎯', text: 'Dans le mille !' },
+        { icon: '👏', text: 'Impressionnant !' },
+    ];
+    const WRONG_REACTIONS = [
+        { icon: '🙈', text: 'Oups...' },
+        { icon: '😬', text: 'Raté !' },
+        { icon: '💀', text: 'Aïe aïe aïe...' },
+        { icon: '🫠', text: 'Pas cette fois...' },
+        { icon: '😅', text: 'Presque !' },
+        { icon: '🤦', text: 'Oh non...' },
+    ];
+    const TIMEOUT_REACTIONS = [
+        { icon: '⏰', text: "Trop lent !" },
+        { icon: '🐌', text: "Temps écoulé !" },
+        { icon: '💤', text: "Réveille-toi !" },
+    ];
+    const COMBO_MESSAGES = {
+        2: '🔥 Combo x2 !',
+        3: '🔥🔥 Combo x3 !',
+        4: '🔥🔥🔥 Combo x4 !',
+        5: '💥 COMBO x5 !! EN FEU !!',
+    };
+
+    function pickRandom(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+    }
+
     socket.on('game:question_results', (data) => {
         showScreen('screen-result');
 
@@ -167,19 +203,59 @@
         const text = document.getElementById('p-result-text');
         const correctEl = document.getElementById('p-correct-answer');
         const scoreEl = document.getElementById('p-score');
+        const comboEl = document.getElementById('p-combo');
+        const rankEl = document.getElementById('p-rank');
 
         if (myResult && myResult.correct) {
-            icon.textContent = '🎉';
+            combo++;
+            maxCombo = Math.max(maxCombo, combo);
+            var reaction = combo >= 3
+                ? { icon: '🔥', text: 'INARRÊTABLE !' }
+                : pickRandom(CORRECT_REACTIONS);
+            icon.textContent = reaction.icon;
             icon.className = 'result-icon correct';
-            text.textContent = 'Bonne réponse !';
+            text.textContent = reaction.text;
         } else {
-            icon.textContent = '😅';
+            var lostCombo = combo;
+            combo = 0;
+            if (!myResult?.answered) {
+                var r = pickRandom(TIMEOUT_REACTIONS);
+                icon.textContent = r.icon;
+                text.textContent = r.text;
+            } else {
+                var r = pickRandom(WRONG_REACTIONS);
+                icon.textContent = r.icon;
+                text.textContent = r.text;
+            }
             icon.className = 'result-icon wrong';
-            text.textContent = myResult?.answered ? 'Mauvaise réponse' : "Temps écoulé !";
         }
 
-        correctEl.textContent = `Réponse : ${data.correctAnswer}`;
-        scoreEl.textContent = `Score : ${myResult?.score || 0} pts`;
+        correctEl.textContent = 'Réponse : ' + data.correctAnswer;
+
+        // Combo display
+        if (combo >= 2) {
+            var msg = COMBO_MESSAGES[Math.min(combo, 5)] || ('🔥 Combo x' + combo + ' !!');
+            comboEl.textContent = msg;
+            comboEl.className = 'combo-badge visible';
+        } else {
+            comboEl.textContent = '';
+            comboEl.className = 'combo-badge';
+        }
+
+        // Rank among players
+        var myStanding = data.standings.findIndex(function(s) { return s.name === myResult?.name; });
+        if (myStanding >= 0) {
+            var pos = myStanding + 1;
+            var total = data.standings.length;
+            var rankIcons = ['🥇', '🥈', '🥉'];
+            rankEl.innerHTML = pos <= 3
+                ? rankIcons[pos - 1] + ' ' + pos + '/' + total
+                : '#' + pos + '/' + total;
+        } else {
+            rankEl.textContent = '';
+        }
+
+        scoreEl.textContent = (myResult?.score || 0) + ' pts';
     });
 
     // ═══════════════════════════════════════

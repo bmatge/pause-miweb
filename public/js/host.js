@@ -60,9 +60,9 @@
         count.textContent = players.length;
 
         list.innerHTML = players.map((p, i) => `
-            <div class="player-card" style="--player-color: ${PLAYER_COLORS[i % PLAYER_COLORS.length]}">
-                <span class="player-avatar">${p.name[0].toUpperCase()}</span>
-                <span class="player-name">${p.name}</span>
+            <div class="player-pill" style="animation-delay: ${i * 0.05}s">
+                <span class="avatar" style="background: ${PLAYER_COLORS[i % PLAYER_COLORS.length]}">${p.name[0].toUpperCase()}</span>
+                <span class="player-pill__name">${p.name}</span>
             </div>
         `).join('');
 
@@ -105,11 +105,17 @@
 
         document.getElementById('round-counter').textContent = `Question ${data.index}/${data.total}`;
         const catBadge = document.getElementById('question-category');
-        catBadge.className = `category-badge cat-${data.category}`;
+        catBadge.className = `question-card__badge category-badge cat-${data.category}`;
         catBadge.textContent = CATEGORY_LABELS[data.category] || data.category;
         document.getElementById('question-text').textContent = data.question;
         document.getElementById('answer-count').textContent = '0';
         document.getElementById('answer-total').textContent = document.getElementById('player-count')?.textContent || '?';
+
+        // Progress bar
+        const progressFill = document.getElementById('progress-fill');
+        if (progressFill) {
+            progressFill.style.width = `${(data.index / data.total) * 100}%`;
+        }
 
         // Image
         const imgContainer = document.getElementById('question-image-container');
@@ -131,12 +137,35 @@
             mcqEl.classList.add('hidden');
         }
 
-        // Timer
+        // Timer with ring animation
+        const timerEl = document.getElementById('timer');
+        const timerRing = document.querySelector('.timer-ring');
+        const timerFill = document.querySelector('.timer-ring__fill');
+        const CIRC = 2 * Math.PI * 29; // matches r=29 in SVG
+        if (timerFill) {
+            timerFill.style.strokeDasharray = CIRC;
+            timerFill.style.strokeDashoffset = '0';
+        }
+
         let timeLeft = data.timeLimit;
-        document.getElementById('timer').textContent = timeLeft;
+        const totalTime = data.timeLimit;
+        timerEl.textContent = timeLeft;
+        if (timerRing) timerRing.classList.remove('warn', 'danger');
+
         timerInterval = setInterval(() => {
             timeLeft--;
-            document.getElementById('timer').textContent = Math.max(0, timeLeft);
+            timerEl.textContent = Math.max(0, timeLeft);
+            if (timerFill) {
+                timerFill.style.strokeDashoffset = CIRC * (1 - Math.max(0, timeLeft) / totalTime);
+            }
+            if (timerRing) {
+                if (timeLeft <= 3) {
+                    timerRing.classList.remove('warn');
+                    timerRing.classList.add('danger');
+                } else if (timeLeft <= 6) {
+                    timerRing.classList.add('warn');
+                }
+            }
             if (timeLeft <= 0) clearInterval(timerInterval);
         }, 1000);
     });
@@ -149,6 +178,8 @@
     // ═══════════════════════════════════════
     // Question Results
     // ═══════════════════════════════════════
+    let previousStandings = [];
+
     socket.on('game:question_results', (data) => {
         clearInterval(timerInterval);
         showScreen('screen-question-results');
@@ -157,7 +188,7 @@
 
         const explEl = document.getElementById('explanation');
         if (data.explanation) {
-            explEl.textContent = data.explanation;
+            explEl.textContent = '« ' + data.explanation + ' »';
             explEl.classList.remove('hidden');
         } else {
             explEl.classList.add('hidden');
@@ -172,15 +203,46 @@
             </div>
         `).join('');
 
-        // Standings
+        // Compute rank deltas from previous standings
+        const prevRanks = {};
+        previousStandings.forEach((p, i) => { prevRanks[p.id || p.name] = i; });
+
+        // Standings (podium list)
         const standingsList = document.getElementById('standings-list');
-        standingsList.innerHTML = data.standings.map((p, i) => `
-            <div class="standing-row">
-                <span class="standing-rank">${i + 1}</span>
-                <span class="standing-name">${p.name}</span>
-                <span class="standing-score">${p.score} pts</span>
-            </div>
-        `).join('');
+        standingsList.innerHTML = data.standings.map((p, i) => {
+            const prevIdx = prevRanks[p.id || p.name];
+            const diff = prevIdx !== undefined ? prevIdx - i : 0;
+            const initial = (p.name[0] || '?').toUpperCase();
+            const color = PLAYER_COLORS[i % PLAYER_COLORS.length];
+
+            let rowCls = 'podium-row';
+            if (i === 0 && p.score > 0) rowCls += ' leader';
+            if (diff > 0) rowCls += ' moving-up';
+            else if (diff < 0) rowCls += ' moving-down';
+
+            let deltaHtml = '';
+            if (prevIdx === undefined || diff === 0) {
+                deltaHtml = '<span class="podium-delta zero">—</span>';
+            } else if (diff > 0) {
+                deltaHtml = `<span class="podium-delta up">▲ ${diff}</span>`;
+            } else {
+                deltaHtml = `<span class="podium-delta down">▼ ${Math.abs(diff)}</span>`;
+            }
+
+            return `
+                <div class="${rowCls}" style="--avatar-color: ${color}">
+                    <div class="podium-rank">${i + 1}</div>
+                    <div class="podium-name">
+                        <span class="avatar avatar--sm" style="background: ${color}">${initial}</span>
+                        ${p.name}
+                        ${deltaHtml}
+                    </div>
+                    <div class="podium-score">${p.score} pts</div>
+                </div>
+            `;
+        }).join('');
+
+        previousStandings = data.standings.map(p => ({ id: p.id, name: p.name, score: p.score }));
     });
 
     document.getElementById('btn-next').addEventListener('click', () => {
@@ -193,28 +255,57 @@
     socket.on('game:final_results', (rankings) => {
         showScreen('screen-final');
 
-        // Podium
-        const podium = document.getElementById('final-podium');
         const top3 = rankings.slice(0, 3);
-        const medals = ['🥇', '🥈', '🥉'];
-        podium.innerHTML = top3.map((p, i) => `
-            <div class="podium-entry podium-${i + 1}">
-                <div class="podium-medal">${medals[i]}</div>
-                <div class="podium-name">${p.name}</div>
-                <div class="podium-score">${p.score} pts</div>
-            </div>
-        `).join('');
+        const winner = rankings[0];
+
+        // Winner subtitle
+        const subtitle = document.querySelector('.final-header__subtitle');
+        if (subtitle && winner) {
+            subtitle.innerHTML = `Bravo <strong style="color: var(--gold)">${winner.name}</strong>, tu étales la confiture comme personne.`;
+        }
+
+        // Podium stage (visual 3D podium: 2nd, 1st, 3rd order)
+        const podium = document.getElementById('final-podium');
+        const layout = [top3[1], top3[0], top3[2]].filter(Boolean);
+        podium.innerHTML = layout.map(p => {
+            const rank = p === top3[0] ? 1 : p === top3[1] ? 2 : 3;
+            const idx = rankings.indexOf(p);
+            const color = PLAYER_COLORS[idx % PLAYER_COLORS.length];
+            const initial = (p.name[0] || '?').toUpperCase();
+            const crown = rank === 1 ? '<div class="crown">👑</div>' : '';
+            return `
+                <div class="podium-pillar">
+                    ${crown}
+                    <div class="podium-avatar" style="background: ${color}; ${rank === 1 ? 'box-shadow: 0 12px 30px rgba(251,191,36,0.5), 0 0 0 4px rgba(251,191,36,0.3);' : ''}">${initial}</div>
+                    <div class="podium-pillar__name">${p.name}</div>
+                    <div class="podium-pillar__score">${p.score} pts</div>
+                    <div class="pillar-block pillar-${rank}">#${rank}</div>
+                </div>
+            `;
+        }).join('');
+
+        // Stats cards
+        const totalQuestions = winner?.total || 0;
+        document.getElementById('stat-questions').textContent = totalQuestions;
+        document.getElementById('stat-players').textContent = rankings.length;
+        document.getElementById('stat-best-score').textContent = winner ? winner.score : 0;
 
         // Full rankings
         const rankingsEl = document.getElementById('final-rankings');
-        rankingsEl.innerHTML = rankings.map((p, i) => `
-            <div class="final-rank-row">
-                <span class="rank">#${i + 1}</span>
-                <span class="name">${p.name}</span>
-                <span class="stats">${p.correct}/${p.total} (${p.total > 0 ? Math.round(p.correct / p.total * 100) : 0}%)</span>
-                <span class="score">${p.score} pts</span>
-            </div>
-        `).join('');
+        rankingsEl.innerHTML = rankings.map((p, i) => {
+            const color = PLAYER_COLORS[i % PLAYER_COLORS.length];
+            const initial = (p.name[0] || '?').toUpperCase();
+            const accuracy = p.total > 0 ? Math.round(p.correct / p.total * 100) : 0;
+            return `
+                <div class="final-rank-row">
+                    <span class="final-rank-row__rank">#${i + 1}</span>
+                    <span class="avatar avatar--sm" style="background: ${color}">${initial}</span>
+                    <span class="final-rank-row__name">${p.name}</span>
+                    <span class="final-rank-row__stats">${p.correct}/${p.total} · ${accuracy}%</span>
+                    <span class="final-rank-row__score">${p.score} pts</span>
+                </div>
+            `;
+        }).join('');
     });
 
     document.getElementById('btn-new-game').addEventListener('click', () => {
