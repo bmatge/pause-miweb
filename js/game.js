@@ -198,7 +198,8 @@
         "science":    { label: "Science",    cssClass: "cat-science" },
         "histoire":   { label: "Histoire",   cssClass: "cat-histoire" },
         "trump":      { label: "Trump",      cssClass: "cat-trump" },
-        "anime-disney": { label: "Anime & Disney", cssClass: "cat-anime-disney" }
+        "anime-disney": { label: "Anime & Disney", cssClass: "cat-anime-disney" },
+        "citations":    { label: "Citations",      cssClass: "cat-citations" }
     };
 
     // ═══════════════════════════════════════
