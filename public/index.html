@@ -74,12 +74,16 @@
             font-size: 0.95rem;
         }
 
-        /* Quote styling */
+        /* Quote styling — fixed height to prevent layout shift */
         .landing-quote {
             margin: 1.8rem auto 0;
             max-width: 460px;
             position: relative;
             padding: 0 1.5rem;
+            min-height: 5.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         .landing-quote p {
             font-size: 1.05rem;
@@ -194,6 +198,15 @@
             pEl.textContent = quotes[index].text;
             citeEl.textContent = quotes[index].author;
         }
+
+        // Measure all quotes to lock the max height (prevents layout shift)
+        var maxH = 0;
+        quotes.forEach(function(q, j) {
+            show(j);
+            maxH = Math.max(maxH, el.offsetHeight);
+        });
+        el.style.minHeight = maxH + 'px';
+
         show(i);
 
         setInterval(function() {
