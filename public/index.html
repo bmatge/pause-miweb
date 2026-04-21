@@ -106,6 +106,14 @@
             font-family: Georgia, serif;
             line-height: 1;
         }
+        .landing-quote p,
+        .landing-quote cite {
+            transition: opacity 0.4s ease;
+        }
+        .landing-quote.fade p,
+        .landing-quote.fade cite {
+            opacity: 0;
+        }
     </style>
 </head>
 <body class="landing">
@@ -166,24 +174,36 @@
         </div>
     </div>
 
-    <!-- Randomize quote on load -->
+    <!-- Rotating quotes -->
     <script>
     (function() {
         const quotes = [
-            { text: "La culture, c'est comme la confiture : moins on en a, plus on l'etale.", author: "Francoise Sagan" },
             { text: "Le savoir est la seule matiere qui s'accroit quand on la partage.", author: "Socrate" },
+            { text: "Je vais vous eclater votre race !", author: "Un(e) anonyme de l'equipe" },
             { text: "Je ne perds jamais. Soit je gagne, soit j'apprends.", author: "Nelson Mandela" },
-            { text: "L'ignorance est la nuit de l'esprit, et cette nuit n'a ni lune ni etoiles.", author: "Confucius" },
-            { text: "Savoir que l'on sait ce que l'on sait, et savoir que l'on ne sait pas ce que l'on ne sait pas : voila la veritable science.", author: "Nicolas Copernic" },
-            { text: "Un peuple qui ne connait pas son passe est condamne a le revivre.", author: "George Santayana" },
-            { text: "Ce n'est pas parce que les choses sont difficiles que nous n'osons pas, c'est parce que nous n'osons pas qu'elles sont difficiles.", author: "Seneque" },
+            { text: "C'est pas parce que je t'aime bien que je vais te laisser gagner.", author: "Tout le monde ici" },
+            { text: "La culture, c'est comme la confiture : moins on en a, plus on l'etale.", author: "Francoise Sagan" },
+            { text: "Vous allez voir ce que vous allez voir.", author: "La personne qui va finir derniere" },
         ];
-        const q = quotes[Math.floor(Math.random() * quotes.length)];
         const el = document.querySelector('.landing-quote');
-        if (el) {
-            el.querySelector('p').textContent = q.text;
-            el.querySelector('cite').textContent = q.author;
+        const pEl = el.querySelector('p');
+        const citeEl = el.querySelector('cite');
+        let i = Math.floor(Math.random() * quotes.length);
+
+        function show(index) {
+            pEl.textContent = quotes[index].text;
+            citeEl.textContent = quotes[index].author;
         }
+        show(i);
+
+        setInterval(function() {
+            el.classList.add('fade');
+            setTimeout(function() {
+                i = (i + 1) % quotes.length;
+                show(i);
+                el.classList.remove('fade');
+            }, 400);
+        }, 5000);
     })();
     </script>
 </body>
