@@ -16,6 +16,21 @@
     }
 
     // ═══════════════════════════════════════
+    // Room badge (persisted across reloads)
+    // ═══════════════════════════════════════
+    function setRoomCode(code) {
+        if (!code) return;
+        try { sessionStorage.setItem('pm:roomCode', code); } catch (_) {}
+        document.querySelectorAll('[id^="room-badge-code-"]').forEach(el => {
+            el.textContent = code;
+        });
+    }
+    const savedRoomCode = (() => {
+        try { return sessionStorage.getItem('pm:roomCode'); } catch (_) { return null; }
+    })();
+    if (savedRoomCode) setRoomCode(savedRoomCode);
+
+    // ═══════════════════════════════════════
     // Setup Screen
     // ═══════════════════════════════════════
     let selectedCount = 20;
@@ -41,6 +56,7 @@
             document.getElementById('qr-code').src = data.qr;
             document.getElementById('room-code').textContent = data.code;
             document.getElementById('join-url').textContent = data.joinUrl;
+            setRoomCode(data.code);
             showScreen('screen-lobby');
         });
     });
@@ -57,19 +73,24 @@
     socket.on('room:players', (players) => {
         const list = document.getElementById('players-list');
         const count = document.getElementById('player-count');
-        count.textContent = players.length;
+        const active = players.filter(p => !p.disconnected);
+        count.textContent = active.length;
 
-        list.innerHTML = players.map((p, i) => `
-            <div class="player-pill" style="animation-delay: ${i * 0.05}s">
-                <span class="avatar" style="background: ${PLAYER_COLORS[i % PLAYER_COLORS.length]}">${p.name[0].toUpperCase()}</span>
-                <span class="player-pill__name">${p.name}</span>
-            </div>
-        `).join('');
+        list.innerHTML = players.map((p, i) => {
+            const cls = p.disconnected ? 'player-pill player-pill--disconnected' : 'player-pill';
+            const suffix = p.disconnected ? ' <span class="player-pill__status">(déco)</span>' : '';
+            return `
+                <div class="${cls}" style="animation-delay: ${i * 0.05}s">
+                    <span class="avatar" style="background: ${PLAYER_COLORS[i % PLAYER_COLORS.length]}">${p.name[0].toUpperCase()}</span>
+                    <span class="player-pill__name">${p.name}</span>${suffix}
+                </div>
+            `;
+        }).join('');
 
         const btn = document.getElementById('btn-start');
-        if (players.length > 0) {
+        if (active.length > 0) {
             btn.disabled = false;
-            btn.textContent = `Lancer la partie (${players.length} joueur${players.length > 1 ? 's' : ''})`;
+            btn.textContent = `Lancer la partie (${active.length} joueur${active.length > 1 ? 's' : ''})`;
         } else {
             btn.disabled = true;
             btn.textContent = 'En attente de joueurs...';
@@ -194,28 +215,30 @@
             explEl.classList.add('hidden');
         }
 
-        // Results list
-        const resultsList = document.getElementById('question-results-list');
-        resultsList.innerHTML = data.results.map(r => `
-            <div class="result-row ${r.correct ? 'correct' : 'wrong'}">
-                <span class="result-name">${r.name}</span>
-                <span class="result-badge">${r.correct ? '✓' : r.answered ? '✗' : '—'}</span>
-            </div>
-        `).join('');
+        // Index results by player id (fallback to name) for OK/KO merge
+        const resultsById = {};
+        (data.results || []).forEach(r => {
+            resultsById[r.id || r.name] = r;
+        });
 
         // Compute rank deltas from previous standings
         const prevRanks = {};
         previousStandings.forEach((p, i) => { prevRanks[p.id || p.name] = i; });
 
-        // Standings (podium list)
+        // Unified standings — rank + player + OK/KO + score
         const standingsList = document.getElementById('standings-list');
         standingsList.innerHTML = data.standings.map((p, i) => {
             const prevIdx = prevRanks[p.id || p.name];
             const diff = prevIdx !== undefined ? prevIdx - i : 0;
             const initial = (p.name[0] || '?').toUpperCase();
             const color = PLAYER_COLORS[i % PLAYER_COLORS.length];
+            const res = resultsById[p.id || p.name];
 
             let rowCls = 'podium-row';
+            if (res) {
+                if (res.correct) rowCls += ' correct';
+                else if (res.answered) rowCls += ' wrong';
+            }
             if (i === 0 && p.score > 0) rowCls += ' leader';
             if (diff > 0) rowCls += ' moving-up';
             else if (diff < 0) rowCls += ' moving-down';
@@ -229,6 +252,13 @@
                 deltaHtml = `<span class="podium-delta down">▼ ${Math.abs(diff)}</span>`;
             }
 
+            const statusSymbol = res
+                ? (res.correct ? '✓' : res.answered ? '✗' : '—')
+                : '—';
+            const statusCls = res
+                ? (res.correct ? 'correct' : res.answered ? 'wrong' : 'empty')
+                : 'empty';
+
             return `
                 <div class="${rowCls}" style="--avatar-color: ${color}">
                     <div class="podium-rank">${i + 1}</div>
@@ -237,6 +267,7 @@
                         ${p.name}
                         ${deltaHtml}
                     </div>
+                    <span class="podium-status ${statusCls}">${statusSymbol}</span>
                     <div class="podium-score">${p.score} pts</div>
                 </div>
             `;

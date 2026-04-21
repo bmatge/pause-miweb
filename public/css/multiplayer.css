@@ -1732,6 +1732,19 @@ body {
     animation: playerPop 0.5s cubic-bezier(.2, 1.8, .3, 1);
 }
 .player-pill__name { color: var(--ink, #fff); }
+.player-pill--disconnected {
+    opacity: 0.45;
+    filter: grayscale(0.7);
+    border-style: dashed;
+    animation: none;
+}
+.player-pill--disconnected .avatar { filter: grayscale(1) brightness(0.7); }
+.player-pill__status {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--ink-4, #5a527a);
+    margin-left: 0.3rem;
+}
 @keyframes playerPop {
     from { transform: scale(0.3) rotate(-20deg); opacity: 0; }
     60% { transform: scale(1.15) rotate(4deg); }
@@ -1918,15 +1931,24 @@ body {
 /* Podium list (standings on reveal) */
 .podium-row {
     display: grid;
-    grid-template-columns: 48px 1fr auto;
+    grid-template-columns: 48px 1fr auto auto;
     align-items: center;
     gap: 1rem;
     padding: 0.8rem 1.2rem;
     background: rgba(30, 22, 70, 0.6);
     border: 1px solid var(--stroke, rgba(140, 120, 240, 0.18));
+    border-left: 4px solid transparent;
     border-radius: 14px;
     transition: background 0.4s, border-color 0.4s;
     margin-bottom: 0.5rem;
+}
+.podium-row.correct {
+    border-left-color: var(--emerald, #10e0a0);
+    background: rgba(16, 224, 160, 0.08);
+}
+.podium-row.wrong {
+    border-left-color: var(--red, #ff3860);
+    background: rgba(255, 56, 96, 0.06);
 }
 .podium-row.moving-up {
     background: rgba(16, 224, 160, 0.12);
@@ -1941,6 +1963,19 @@ body {
     border-color: rgba(251,191,36,0.5);
     box-shadow: 0 8px 24px -8px rgba(251,191,36,0.4);
 }
+.podium-row.leader.correct { border-left-color: var(--emerald, #10e0a0); }
+.podium-row.leader.wrong { border-left-color: var(--red, #ff3860); }
+.podium-status {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    width: 28px;
+    text-align: center;
+    color: var(--ink-3, #8f86c2);
+}
+.podium-status.correct { color: var(--emerald, #10e0a0); }
+.podium-status.wrong { color: var(--red, #ff3860); }
+.podium-status.empty { opacity: 0.4; }
 .podium-rank {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
@@ -2331,4 +2366,34 @@ body {
     border: 1px solid var(--stroke, rgba(140, 120, 240, 0.18));
     padding: 6px 14px;
     border-radius: 999px;
+}
+
+/* Discreet room-id header (persists across reconnection) */
+.room-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.25rem 0.7rem 0.25rem 0.6rem;
+    background: rgba(30, 22, 70, 0.55);
+    border: 1px solid var(--stroke, rgba(140, 120, 240, 0.18));
+    border-radius: 999px;
+    font-size: 0.75rem;
+    margin-bottom: 0.8rem;
+    opacity: 0.75;
+}
+.room-badge__label {
+    color: var(--ink-3, #8f86c2);
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.65rem;
+}
+.room-badge__code {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    background: linear-gradient(135deg, #8b6dff, #22d3ee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }

@@ -6,7 +6,13 @@ const QRCode = require('qrcode');
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+    pingInterval: 25000,
+    pingTimeout: 60000,
+});
+
+// Disconnect grace period (ms) — player kept in room during this window
+const DISCONNECT_GRACE_MS = 30000;
 
 const PORT = process.env.PORT || 3000;
 const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
@@ -55,6 +61,26 @@ function createRoom() {
 
 function getRoom(code) {
     return rooms.get(code?.toUpperCase());
+}
+
+function generateToken() {
+    return Math.random().toString(36).slice(2) + Date.now().toString(36) + Math.random().toString(36).slice(2);
+}
+
+function findPlayerByToken(room, token) {
+    return room.players.find(p => p.token === token);
+}
+
+// Sanitize players for broadcast (no disconnectTimer, internal fields stripped)
+function publicPlayers(room) {
+    return room.players.map(p => ({
+        id: p.id,
+        name: p.name,
+        score: p.score,
+        correct: p.correct,
+        total: p.total,
+        disconnected: !!p.disconnected,
+    }));
 }
 
 // Clean up old rooms (>3h)
@@ -246,29 +272,84 @@ io.on('connection', (socket) => {
         callback({ code: room.code, qr: qrDataUrl, joinUrl });
     });
 
-    // PLAYER: Join room
+    // PLAYER: Join room (supports rejoin via token)
     socket.on('player:join', (data, callback) => {
         const room = getRoom(data.roomCode);
         if (!room) return callback({ error: 'Room introuvable' });
-        if (room.state !== 'lobby') return callback({ error: 'La partie a déjà commencé' });
-        if (room.players.length >= 20) return callback({ error: 'Room pleine (max 20)' });
 
+        // Rejoin path: valid token matching an existing player
+        if (data.token) {
+            const existing = findPlayerByToken(room, data.token);
+            if (existing) {
+                // Cancel any pending removal
+                if (existing.disconnectTimer) {
+                    clearTimeout(existing.disconnectTimer);
+                    existing.disconnectTimer = null;
+                }
+                existing.id = socket.id;
+                existing.disconnected = false;
+
+                socket.join(room.code);
+                socket.roomCode = room.code;
+                socket.playerToken = existing.token;
+                socket.playerName = existing.name;
+
+                // Notify everyone the player list has been updated
+                io.to(room.code).emit('room:players', publicPlayers(room));
+
+                // If game is in progress, send current question + timing + score
+                const snapshot = {
+                    ok: true,
+                    token: existing.token,
+                    rejoined: true,
+                    state: room.state,
+                    score: existing.score,
+                    correct: existing.correct,
+                    total: existing.total,
+                };
+                if (room.state === 'playing' && room.currentQuestion) {
+                    const q = room.currentQuestion;
+                    snapshot.question = {
+                        index: room.questionIndex + 1,
+                        total: room.questions.length,
+                        category: q.category,
+                        type: q.type,
+                        question: q.question,
+                        image: q.image || null,
+                        options: q.type === 'mcq' ? q.options : null,
+                        timeLimit: Math.max(0, Math.ceil((room.timerEnd - Date.now()) / 1000)),
+                        alreadyAnswered: room.answers.has(existing.token),
+                    };
+                }
+                return callback(snapshot);
+            }
+            // Token unknown: fall through to new-join
+        }
+
+        // New join path
+        if (room.state !== 'lobby') return callback({ error: 'La partie a déjà commencé' });
+        if (room.players.filter(p => !p.disconnected).length >= 20) return callback({ error: 'Room pleine (max 20)' });
+
+        const token = generateToken();
         const player = {
             id: socket.id,
+            token,
             name: data.name.trim().slice(0, 20) || 'Anonyme',
             score: 0,
             correct: 0,
-            total: 0
+            total: 0,
+            disconnected: false,
+            disconnectTimer: null,
         };
         room.players.push(player);
 
         socket.join(room.code);
         socket.roomCode = room.code;
+        socket.playerToken = token;
         socket.playerName = player.name;
 
-        // Notify host
-        io.to(room.code).emit('room:players', room.players);
-        callback({ ok: true, playerCount: room.players.length });
+        io.to(room.code).emit('room:players', publicPlayers(room));
+        callback({ ok: true, token, playerCount: room.players.length });
     });
 
     // HOST: Start game
@@ -289,22 +370,25 @@ io.on('connection', (socket) => {
     socket.on('player:answer', (data) => {
         const room = getRoom(socket.roomCode);
         if (!room || room.state !== 'playing') return;
-        if (room.answers.has(socket.id)) return; // Already answered
+        const token = socket.playerToken;
+        if (!token) return;
+        if (room.answers.has(token)) return; // Already answered
 
         const timeLeft = room.timerEnd ? Math.max(0, room.timerEnd - Date.now()) : 0;
-        room.answers.set(socket.id, {
+        room.answers.set(token, {
             answer: data.answer,
             timeLeft
         });
 
         // Notify host of answer count
+        const activeCount = room.players.filter(p => !p.disconnected).length;
         io.to(room.code).emit('game:answer_count', {
             count: room.answers.size,
-            total: room.players.length
+            total: activeCount
         });
 
-        // If all players answered, end question early
-        if (room.answers.size >= room.players.length) {
+        // If all active players answered, end question early
+        if (room.answers.size >= activeCount) {
             clearTimeout(room.timer);
             endQuestion(room);
         }
@@ -326,11 +410,37 @@ io.on('connection', (socket) => {
             // End the room
             io.to(room.code).emit('game:ended', { reason: 'host_left' });
             rooms.delete(room.code);
-        } else {
-            // Remove player
-            room.players = room.players.filter(p => p.id !== socket.id);
-            io.to(room.code).emit('room:players', room.players);
+            return;
         }
+
+        // Player disconnect: mark as disconnected but keep score/answers
+        const token = socket.playerToken;
+        if (!token) return;
+        const player = findPlayerByToken(room, token);
+        if (!player) return;
+
+        player.disconnected = true;
+        io.to(room.code).emit('room:players', publicPlayers(room));
+
+        // Schedule permanent removal after grace period
+        if (player.disconnectTimer) clearTimeout(player.disconnectTimer);
+        player.disconnectTimer = setTimeout(() => {
+            const r = getRoom(socket.roomCode);
+            if (!r) return;
+            const p = findPlayerByToken(r, token);
+            if (!p || !p.disconnected) return;
+            r.players = r.players.filter(pl => pl.token !== token);
+            io.to(r.code).emit('room:players', publicPlayers(r));
+
+            // If everyone active has answered, we can close the question early
+            if (r.state === 'playing') {
+                const activeCount = r.players.filter(pl => !pl.disconnected).length;
+                if (activeCount > 0 && r.answers.size >= activeCount) {
+                    clearTimeout(r.timer);
+                    endQuestion(r);
+                }
+            }
+        }, DISCONNECT_GRACE_MS);
     });
 });
 
@@ -338,7 +448,7 @@ function sendNextQuestion(room) {
     if (room.questionIndex >= room.questions.length) {
         // Game over
         room.state = 'results';
-        const rankings = [...room.players].sort((a, b) => b.score - a.score);
+        const rankings = publicPlayers(room).sort((a, b) => b.score - a.score);
         io.to(room.code).emit('game:final_results', rankings);
         return;
     }
@@ -385,7 +495,7 @@ function endQuestion(room) {
     const results = [];
 
     for (const player of room.players) {
-        const submission = room.answers.get(player.id);
+        const submission = room.answers.get(player.token);
         let correct = false;
         let bonus = 0;
 
@@ -400,7 +510,8 @@ function endQuestion(room) {
                 player.correct++;
             }
             player.total++;
-        } else {
+        } else if (!player.disconnected) {
+            // Only count skipped questions for connected players
             player.total++;
         }
 
@@ -409,7 +520,8 @@ function endQuestion(room) {
             name: player.name,
             correct,
             score: player.score,
-            answered: !!submission
+            answered: !!submission,
+            disconnected: !!player.disconnected,
         });
     }
 

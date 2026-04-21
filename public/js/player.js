@@ -4,11 +4,31 @@
 (function () {
     "use strict";
 
-    const socket = io();
+    // Socket.IO handles reconnection by default; tune attempts to be generous
+    const socket = io({
+        reconnection: true,
+        reconnectionAttempts: Infinity,
+        reconnectionDelay: 1000,
+        reconnectionDelayMax: 5000,
+        timeout: 20000,
+    });
     let timerInterval = null;
     let myName = '';
     let combo = 0;
     let maxCombo = 0;
+
+    // Persistent session (survives reloads + brief disconnects)
+    const SESSION_KEY = 'pauseMiweb.session';
+    function loadSession() {
+        try { return JSON.parse(sessionStorage.getItem(SESSION_KEY) || 'null'); } catch { return null; }
+    }
+    function saveSession(data) {
+        try { sessionStorage.setItem(SESSION_KEY, JSON.stringify(data)); } catch {}
+    }
+    function clearSession() {
+        try { sessionStorage.removeItem(SESSION_KEY); } catch {}
+    }
+    let session = loadSession();  // { token, name, roomCode }
 
     // ═══════════════════════════════════════
     // Screens
@@ -54,10 +74,52 @@
                 return;
             }
             myName = name;
+            session = { token: response.token, name, roomCode };
+            saveSession(session);
             document.getElementById('my-name').textContent = name;
             showScreen('screen-waiting');
         });
     }
+
+    // Attempt rejoin on connect (first connect or after a reconnection)
+    socket.on('connect', () => {
+        if (!session) return;
+        socket.emit('player:join', {
+            name: session.name,
+            roomCode: session.roomCode,
+            token: session.token,
+        }, (response) => {
+            if (response.error) {
+                // Token invalid or room gone: clear session and stay on join screen
+                clearSession();
+                session = null;
+                return;
+            }
+            myName = session.name;
+            document.getElementById('my-name').textContent = session.name;
+
+            if (response.rejoined && response.state === 'playing' && response.question) {
+                // Resume mid-game
+                const q = response.question;
+                renderQuestion(q);
+                if (q.alreadyAnswered) {
+                    showScreen('screen-answered');
+                }
+            } else if (response.state === 'lobby' || !response.state) {
+                showScreen('screen-waiting');
+            } else if (response.state === 'playing') {
+                // No active question (between questions)
+                showScreen('screen-answered');
+            } else if (response.state === 'results') {
+                // Final results will come via event; keep current screen meanwhile
+            }
+        });
+    });
+
+    socket.on('disconnect', () => {
+        // Stay put; reconnection is automatic.
+        // Don't clear session — we want to rejoin on next connect.
+    });
 
     function showError(msg) {
         const el = document.getElementById('join-error');
@@ -85,7 +147,7 @@
         // Will receive first question shortly
     });
 
-    socket.on('game:question', (data) => {
+    function renderQuestion(data) {
         showScreen('screen-question');
         clearInterval(timerInterval);
 
@@ -123,7 +185,7 @@
         }
 
         // Timer
-        let timeLeft = data.timeLimit;
+        let timeLeft = Math.max(0, data.timeLimit);
         document.getElementById('p-timer').textContent = timeLeft;
         timerInterval = setInterval(() => {
             timeLeft--;
@@ -133,6 +195,10 @@
                 showScreen('screen-answered');
             }
         }, 1000);
+    }
+
+    socket.on('game:question', (data) => {
+        renderQuestion(data);
     });
 
     // Yes/No buttons
@@ -283,6 +349,8 @@
 
     // Host disconnected
     socket.on('game:ended', (data) => {
+        clearSession();
+        session = null;
         alert("L'hôte a quitté la partie.");
         window.location.reload();
     });

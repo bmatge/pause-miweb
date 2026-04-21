@@ -99,6 +99,11 @@
         <!-- ════════════════════════════════════════════ -->
         <div id="screen-game" class="screen">
             <div class="container">
+                <div class="room-badge" id="room-badge-game">
+                    <span class="room-badge__label">Room</span>
+                    <span class="room-badge__code" id="room-badge-code-game">----</span>
+                </div>
+
                 <div class="game-topbar">
                     <div class="game-topbar__left">
                         <span id="round-counter" class="round-counter">Question 1/20</span>
@@ -118,8 +123,6 @@
                     </div>
                 </div>
 
-                <div class="standings-bar" id="standings-bar"></div>
-
                 <div id="question-display" class="question-card">
                     <div class="question-card__badge" id="question-category"></div>
                     <div class="question-image-container hidden" id="question-image-container">
@@ -133,6 +136,8 @@
                     <span class="answer-progress__count"><span id="answer-count">0</span> / <span id="answer-total">0</span></span>
                     <span class="answer-progress__label">ont répondu</span>
                 </div>
+
+                <div class="standings-bar" id="standings-bar"></div>
             </div>
         </div>
 
@@ -141,6 +146,11 @@
         <!-- ════════════════════════════════════════════ -->
         <div id="screen-question-results" class="screen">
             <div class="container container--narrow">
+                <div class="room-badge" id="room-badge-results">
+                    <span class="room-badge__label">Room</span>
+                    <span class="room-badge__code" id="room-badge-code-results">----</span>
+                </div>
+
                 <div class="reveal-banner" id="reveal-banner">
                     <span class="reveal-banner__label">Bonne réponse :</span>
                     <span id="correct-answer-text" class="reveal-banner__answer"></span>
@@ -148,14 +158,12 @@
 
                 <div id="explanation" class="explanation-card hidden"></div>
 
-                <div id="question-results-list" class="results-list"></div>
+                <button id="btn-next" class="btn btn-primary btn-next">Question suivante</button>
 
                 <section class="standings-section">
                     <h3 class="section-title">Classement</h3>
                     <div id="standings-list" class="standings-list"></div>
                 </section>
-
-                <button id="btn-next" class="btn btn-primary btn-next">Question suivante</button>
             </div>
         </div>
 
